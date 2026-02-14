@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1d5ede" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)">
+    <title>Benchmarks — OpenMM-Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;520;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon"><img src="../logo.png" alt="OpenMM-Arena Logo" style="width:36px;height:36px;object-fit:contain;"></span><span>OpenMM-Arena</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../t2i.html">Text-to-Image</a></li>
+            <li><a href="../t2v.html">Text-to-Video</a></li>
+            <li><a href="../i2v.html">Image-to-Video</a></li>
+            <li><a href="../3d.html">3D Vision</a></li>
+            <li><a href="../4d.html">4D Vision</a></li>
+            <li><a href="../unified.html">Unified</a></li>
+            <li><a href="../world.html">World</a></li>
+            <li><a href="../arena.html">MM Arena</a></li>
+            <li><button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            <li><a href="https://github.com/OpenMM-Arena/OpenMM-Arena" class="nav-github" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+        </ul>
+    </div>
+</nav>
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h16M4 6h16M4 18h16"/></svg></button>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+<div class="page-layout">
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="../t2i.html" class="sidebar-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Text-to-Image</span></a>
+        <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="sidebar-section-label">Text-to-Image</div>
+    <ul class="sidebar-nav">
+        <li><a href="models.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span> <span>Models &amp; Face</span></a></li>
+        <li><a href="control.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> <span>Control &amp; Composition</span></a></li>
+        <li><a href="editing.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span> <span>Editing &amp; Personalization</span></a></li>
+        <li><a href="safety.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span> <span>Safety &amp; Applications</span></a></li>
+        <li><a href="crossmodal.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg></span> <span>Video, 3D &amp; Motion</span></a></li>
+        <li><a href="arena.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span> <span>Arena &amp; Benchmarks</span></a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">All Pillars</div>
+    <ul class="sidebar-nav">
+        <li><a href="../t2i.html" class="sidebar-link active"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span> Text-to-Image</a></li>
+        <li><a href="../t2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg></span> Text-to-Video</a></li>
+        <li><a href="../i2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span> Image-to-Video</a></li>
+        <li><a href="../3d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg></span> 3D Vision</a></li>
+        <li><a href="../4d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span> 4D Vision</a></li>
+        <li><a href="../unified.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></span> Unified Models</a></li>
+        <li><a href="../world.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span> World Models</a></li>    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-toc" id="sidebarToc"></div>
+</aside>
+<main class="page-main">
+<header class="page-hero subpage-hero">
+    <div class="page-hero-bg"><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div></div>
+    <div class="container">
+        <div class="page-hero-content">
+            <a href="../t2i.html" class="breadcrumb">← Text-to-Image</a>
+            <h1 class="page-hero-title">Benchmarks</h1>
+            <p class="page-hero-desc">Live arena rankings from human preference votes, established benchmarks, quantitative metrics, training datasets, and surveys.</p>
+        </div>
+    </div>
+</header>
+<section class="section">
+    <div class="container">
+        <div class="search-container">
+            <span class="search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+            <input type="text" class="search-input" id="globalSearch" placeholder="Search models, benchmarks..." aria-label="Search">
+            <span class="search-kbd" id="searchKbd">⌘K</span>
+        </div>
+        <div class="search-results-count" id="searchResultsCount"></div>
+
+        <h3 class="subsection-title">Image Generation &amp; Editing Benchmarks <span class="paper-count-badge">12 benchmarks</span></h3>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead><tr><th>Benchmark</th><th>Evaluation Focus</th><th>Venue</th><th>Year</th></tr></thead>
+                <tbody>
+                    <tr><td>GenExam</td><td>Multidisciplinary text-to-image examination <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Multidisciplinary%20text-to-image%20examination&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td>KRIS-Bench</td><td>Next-level intelligent image editing assessment <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Next-level%20intelligent%20image%20editing%20assessment&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2025</td></tr>
+                    <tr><td>WISE</td><td>World knowledge-informed semantic evaluation for T2I <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=World%20knowledge-informed%20semantic%20evaluation%20for%20T2I&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td>DreamBench++</td><td>Human-aligned personalized image generation <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Human-aligned%20personalized%20image%20generation&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>ICLR</td><td>2025</td></tr>
+                    <tr><td>T2I-CompBench++</td><td>Enhanced compositional text-to-image evaluation <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Enhanced%20compositional%20text-to-image%20evaluation&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>TPAMI</td><td>2025</td></tr>
+                    <tr><td>GenAI-Bench</td><td>Compositional text-to-visual generation <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Compositional%20text-to-visual%20generation&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPR</td><td>2024</td></tr>
+                    <tr><td>AnyEdit</td><td>Unified high-quality image editing evaluation <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Unified%20high-quality%20image%20editing%20evaluation&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPR</td><td>2024</td></tr>
+                    <tr><td>GenEval</td><td>Object-focused T2I alignment framework <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Object-focused%20T2I%20alignment%20framework&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2023</td></tr>
+                    <tr><td>TIFA</td><td>T2I faithfulness via question answering <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=T2I%20faithfulness%20via%20question%20answering&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>ICCV</td><td>2023</td></tr>
+                    <tr><td>HEIM</td><td>Holistic evaluation of text-to-image models <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Holistic%20evaluation%20of%20text-to-image%20models&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2023</td></tr>
+                    <tr><td>DrawBench</td><td>Photorealistic T2I quality assessment prompts <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Photorealistic%20T2I%20quality%20assessment%20prompts&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2022</td></tr>
+                    <tr><td>PartiPrompts</td><td>Content-rich T2I evaluation prompts <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Content-rich%20T2I%20evaluation%20prompts&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>TMLR</td><td>2022</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="subsection-title">Established Quantitative Metrics</h3>
+        <div class="metrics-grid">
+            <div class="metric-card"><span class="metric-name">FID</span><span class="metric-desc">Fréchet Inception Distance — distributional image quality</span></div>
+            <div class="metric-card"><span class="metric-name">IS</span><span class="metric-desc">Inception Score — generation quality &amp; diversity</span></div>
+            <div class="metric-card"><span class="metric-name">CLIP Score</span><span class="metric-desc">Text-image semantic alignment via CLIP</span></div>
+            <div class="metric-card"><span class="metric-name">VQAScore</span><span class="metric-desc">VQA-based compositional faithfulness</span></div>
+            <div class="metric-card"><span class="metric-name">LPIPS</span><span class="metric-desc">Learned Perceptual Image Patch Similarity</span></div>
+            <div class="metric-card"><span class="metric-name">HPSv2</span><span class="metric-desc">Human Preference Score v2</span></div>
+            <div class="metric-card"><span class="metric-name">DreamSim</span><span class="metric-desc">Human visual similarity via synthetic data</span></div>
+            <div class="metric-card"><span class="metric-name">ImageReward</span><span class="metric-desc">Learned human preference for T2I</span></div>
+            <div class="metric-card"><span class="metric-name">TIFA</span><span class="metric-desc">T2I faithfulness via question answering</span></div>
+            <div class="metric-card"><span class="metric-name">DSG</span><span class="metric-desc">Davidsonian Scene Graph evaluation</span></div>
+            <div class="metric-card"><span class="metric-name">R-FID</span><span class="metric-desc">Reconstruction FID for tokenizers</span></div>
+            <div class="metric-card"><span class="metric-name">SSIM</span><span class="metric-desc">Structural Similarity Index</span></div>
+        </div>
+
+        <h3 class="subsection-title">T2I Training &amp; Editing Datasets <span class="paper-count-badge">12 datasets</span></h3>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead><tr><th>Dataset</th><th>Scale</th><th>Type</th><th>Venue</th><th>Year</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>LAION-Aesthetics</strong> <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=LAION-Aesthetics&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>120M</td><td>T2I (Aesthetic)</td><td>NeurIPS</td><td>2022</td></tr>
+                    <tr><td><strong>PixelProse</strong></td><td>16M</td><td>T2I (Dense Captions) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=T2I%20%28Dense%20Captions%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2024</td></tr>
+                    <tr><td><strong>PD12M</strong></td><td>12M</td><td>T2I (Public Domain) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=T2I%20%28Public%20Domain%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2024</td></tr>
+                    <tr><td><strong>CC-12M</strong></td><td>12M</td><td>T2I (Conceptual) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=T2I%20%28Conceptual%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPR</td><td>2021</td></tr>
+                    <tr><td><strong>SAM</strong></td><td>11M</td><td>T2I (Segmentation) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=T2I%20%28Segmentation%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>ICCV</td><td>2023</td></tr>
+                    <tr><td><strong>ByteMorph-6M</strong></td><td>6M</td><td>Editing (Non-rigid) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Editing%20%28Non-rigid%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>TextAtlas5M</strong></td><td>5M</td><td>T2I (Dense Text) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=T2I%20%28Dense%20Text%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>UltraEdit</strong></td><td>4M</td><td>Editing (Fine-grained) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Editing%20%28Fine-grained%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2024</td></tr>
+                    <tr><td><strong>AnyEdit</strong></td><td>2.5M</td><td>Editing (Unified) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Editing%20%28Unified%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPR</td><td>2024</td></tr>
+                    <tr><td><strong>ImgEdit</strong></td><td>1.2M</td><td>Editing (Unified) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Editing%20%28Unified%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>InstructPix2Pix</strong></td><td>313K</td><td>Editing (Instructional) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Editing%20%28Instructional%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPR</td><td>2022</td></tr>
+                    <tr><td><strong>MagicBrush</strong></td><td>10K</td><td>Editing (Annotated) <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Editing%20%28Annotated%29&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2023</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="subsection-title">T2I Surveys &amp; Foundational References <span class="paper-count-badge">2 surveys</span></h3>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead><tr><th>Title</th><th>Domain</th><th>Venue</th><th>Year</th></tr></thead>
+                <tbody>
+                    <tr><td>Vision + Language Applications: A Survey</td><td><span class="badge badge-t2i">T2I / V&amp;L</span> <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=T2I%20/%20V%26amp%3BL&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPRW</td><td>2023</td></tr>
+                    <tr><td>Holistic Evaluation of Text-To-Image Models <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Holistic%20Evaluation%20of%20Text-To-Image%20Models&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td><span class="badge badge-eval">Evaluation</span></td><td>NeurIPS</td><td>2023</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand"><h3><img src="../logo.png" alt="OpenMM-Arena Logo" style="width:28px;height:28px;object-fit:contain;"> OpenMM-Arena</h3><p>A Comprehensive Compendium for Multimodal AI Research</p></div>
+            <div class="footer-links"><h4>Research Pillars</h4><ul><li><a href="../t2i.html">Text-to-Image</a></li><li><a href="../t2v.html">Text-to-Video</a></li><li><a href="../i2v.html">Image-to-Video</a></li><li><a href="../3d.html">3D Vision</a></li><li><a href="../4d.html">4D Vision</a></li><li><a href="../unified.html">Unified Models</a></li><li><a href="../world.html">World Models</a></li></ul></div>
+            <div class="footer-links"><h4>Sources</h4><ul><li><a href="https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image" target="_blank">Awesome-Text-to-Image</a></li><li><a href="https://github.com/soraw-ai/Awesome-Text-to-Video-Generation" target="_blank">Awesome-T2V-Generation</a></li><li><a href="https://github.com/showlab/Awesome-Video-Diffusion" target="_blank">Awesome-Video-Diffusion</a></li><li><a href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting" target="_blank">Awesome-3DGS</a></li><li><a href="https://github.com/openMVG/awesome_3DReconstruction_list" target="_blank">Awesome-3DReconstruction</a></li><li><a href="https://github.com/ActiveVisionLab/Awesome-LLM-3D" target="_blank">Awesome-LLM-3D</a></li></ul></div>
+            <div class="footer-links"><h4>&nbsp;</h4><ul><li><a href="https://github.com/Hardy-Uint/awesome-3D-vision" target="_blank">Awesome-3D-Vision</a></li><li><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM" target="_blank">Awesome-NeRF-3DGS-SLAM</a></li><li><a href="https://github.com/yukangcao/Awesome-4D-Spatial-Intelligence" target="_blank">Awesome-4D-SI</a></li><li><a href="https://github.com/knightnemo/Awesome-World-Models" target="_blank">Awesome-World-Models</a></li><li><a href="https://github.com/AIDC-AI/Awesome-Unified-Multimodal-Models" target="_blank">Awesome-Unified-MM</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025–2026 OpenMM-Arena Contributors &middot; MIT License<br>OpenMM-Arena belongs to <strong>OpenEnvision Lab</strong></p><div class="last-updated">Last updated: February 2026</div></div>
+    </div>
+</footer>
+</main>
+</div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1d5ede" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)">
+    <title>Datasets — Unified Models — OpenMM-Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;520;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon"><img src="../logo.png" alt="OpenMM-Arena Logo" style="width:36px;height:36px;object-fit:contain;"></span><span>OpenMM-Arena</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../t2i.html">Text-to-Image</a></li>
+            <li><a href="../t2v.html">Text-to-Video</a></li>
+            <li><a href="../i2v.html">Image-to-Video</a></li>
+            <li><a href="../3d.html">3D Vision</a></li>
+            <li><a href="../4d.html">4D Vision</a></li>
+            <li><a href="../unified.html">Unified</a></li>
+            <li><a href="../world.html">World</a></li>
+            <li><a href="../arena.html">MM Arena</a></li>
+            <li><button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            <li><a href="https://github.com/OpenMM-Arena/OpenMM-Arena" class="nav-github" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+        </ul>
+    </div>
+</nav>
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h16M4 6h16M4 18h16"/></svg></button>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+<div class="page-layout">
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="../unified.html" class="sidebar-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Unified Models</span></a>
+        <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="sidebar-section-label">Unified</div>
+    <ul class="sidebar-nav">
+        <li><a href="models.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></span> <span>Model Architectures</span></a></li>
+        <li><a href="evaluation.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span> <span>Evaluation</span></a></li>
+        <li><a href="datasets.html" class="sidebar-link active"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg></span> <span>Datasets</span></a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">All Pillars</div>
+    <ul class="sidebar-nav">
+        <li><a href="../t2i.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span><span>Text-to-Image</span></a></li>
+        <li><a href="../t2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg></span><span>Text-to-Video</span></a></li>
+        <li><a href="../i2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span><span>Image-to-Video</span></a></li>
+        <li><a href="../3d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg></span><span>3D Vision</span></a></li>
+        <li><a href="../4d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><span>4D Vision</span></a></li>
+        <li><a href="../unified.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></span><span>Unified Models</span></a></li>
+        <li><a href="../world.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span>World Models</span></a></li>    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-toc" id="sidebarToc"></div>
+</aside>
+<main class="page-main">
+<header class="page-hero subpage-hero">
+    <div class="page-hero-bg"><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div></div>
+    <div class="container">
+        <div class="page-hero-content">
+            <a href="../unified.html" class="breadcrumb">← Unified Models</a>
+            <h1 class="page-hero-title">Datasets</h1>
+            <p class="page-hero-desc">Training corpora, text-to-image datasets, image editing datasets, and interleaved image-text data for unified multimodal models.</p>
+        </div>
+    </div>
+</header>
+<section class="section">
+    <div class="container">
+        <div class="search-container">
+            <span class="search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+            <input type="text" class="search-input" id="globalSearch" placeholder="Search datasets..." aria-label="Search">
+            <span class="search-kbd" id="searchKbd">⌘K</span>
+        </div>
+        <div class="search-results-count" id="searchResultsCount"></div>
+
+        <p class="section-intro">Comprehensive datasets for unified multimodal models — curated from <a href="https://github.com/AIDC-AI/Awesome-Unified-Multimodal-Models" target="_blank" style="color:var(--blue-600);text-decoration:underline;">Awesome-Unified-Multimodal-Models</a>. Covers training corpora, text-to-image datasets, image editing datasets, and interleaved image-text data.</p>
+
+        <h3 class="subsection-title">Multimodal Understanding Datasets <span class="paper-count-badge">8 datasets</span></h3>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead><tr><th>Dataset</th><th>Scale</th><th>Description</th><th>Venue</th><th>Year</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Honey-Data-15M</strong></td><td>15M</td><td>High-quality corpus for advanced fully open MLLMs <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=High-quality%20corpus%20for%20advanced%20fully%20open%20MLLMs&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>Infinity-MM</strong></td><td>40M</td><td>Scaling multimodal performance with instruction data <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Scaling%20multimodal%20performance%20with%20instruction%20data&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2024</td></tr>
+                    <tr><td><strong>LLaVA-OneVision</strong></td><td>4.8M</td><td>Easy visual task transfer <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Easy%20visual%20task%20transfer&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>TMLR</td><td>2024</td></tr>
+                    <tr><td><strong>Cambrian-10M</strong></td><td>10M</td><td>Vision-centric exploration of multimodal LLMs <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Vision-centric%20exploration%20of%20multimodal%20LLMs&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2024</td></tr>
+                    <tr><td><strong>ShareGPT4V</strong></td><td>100K</td><td>Better captions for large multi-modal models <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Better%20captions%20for%20large%20multi-modal%20models&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>ECCV</td><td>2023</td></tr>
+                    <tr><td><strong>CapsFusion-120M</strong></td><td>120M</td><td>Rethinking image-text data at scale <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Rethinking%20image-text%20data%20at%20scale&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPR</td><td>2023</td></tr>
+                    <tr><td><strong>DataComp</strong></td><td>1.4B</td><td>Next-generation multimodal dataset search <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Next-generation%20multimodal%20dataset%20search&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2023</td></tr>
+                    <tr><td><strong>LAION-5B</strong></td><td>5.9B</td><td>Open large-scale multi-modal dataset <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Open%20large-scale%20multi-modal%20dataset&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2022</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="subsection-title">Text-to-Image Datasets <span class="paper-count-badge">10 datasets</span></h3>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead><tr><th>Dataset</th><th>Scale</th><th>Description</th><th>Venue</th><th>Year</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>FLUX-Reason-6M</strong></td><td>6M</td><td>Million-scale text-to-image reasoning dataset <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Million-scale%20text-to-image%20reasoning%20dataset&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>ShareGPT-4o-Image</strong></td><td>45K</td><td>Aligning multimodal models with GPT-4o-level generation <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Aligning%20multimodal%20models%20with%20GPT-4o-level%20generation&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>BLIP3o-60k</strong></td><td>60K</td><td>Unified multimodal models architecture training dataset <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Unified%20multimodal%20models%20architecture%20training%20dataset&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>TextAtlas5M</strong></td><td>5M</td><td>Large-scale dataset for dense text image generation <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Large-scale%20dataset%20for%20dense%20text%20image%20generation&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>PD12M</strong></td><td>12M</td><td>Highly aesthetic image-text dataset with novel governance <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Highly%20aesthetic%20image-text%20dataset%20with%20novel%20governance&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2024</td></tr>
+                    <tr><td><strong>PixelProse</strong></td><td>16M</td><td>Large dataset of dense image captions <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Large%20dataset%20of%20dense%20image%20captions&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2024</td></tr>
+                    <tr><td><strong>JourneyDB</strong></td><td>4M</td><td>Benchmark for generative image understanding <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Benchmark%20for%20generative%20image%20understanding&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2023</td></tr>
+                    <tr><td><strong>Mario-10M</strong></td><td>10M</td><td>TextDiffuser dataset for text rendering <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=TextDiffuser%20dataset%20for%20text%20rendering&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2023</td></tr>
+                    <tr><td><strong>SAM</strong></td><td>11M</td><td>Segment Anything dataset <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Segment%20Anything%20dataset&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>ICCV</td><td>2023</td></tr>
+                    <tr><td><strong>LAION-Aesthetics</strong></td><td>120M</td><td>Aesthetic subset of LAION-5B <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Aesthetic%20subset%20of%20LAION-5B&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2022</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="subsection-title">Image Editing Datasets <span class="paper-count-badge">8 datasets</span></h3>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead><tr><th>Dataset</th><th>Scale</th><th>Description</th><th>Venue</th><th>Year</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>X2Edit</strong></td><td>3.7M</td><td>Arbitrary-instruction image editing dataset <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Arbitrary-instruction%20image%20editing%20dataset&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>ByteMorph-6M</strong></td><td>6M</td><td>Instruction-guided image editing with non-rigid motions <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Instruction-guided%20image%20editing%20with%20non-rigid%20motions&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>ImgEdit</strong></td><td>1.2M</td><td>Unified image editing dataset and benchmark <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Unified%20image%20editing%20dataset%20and%20benchmark&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2025</td></tr>
+                    <tr><td><strong>AnyEdit</strong></td><td>2.5M</td><td>Mastering unified high-quality image editing <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Mastering%20unified%20high-quality%20image%20editing&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPR</td><td>2024</td></tr>
+                    <tr><td><strong>OmniEdit</strong></td><td>1.2M</td><td>Building image editing generalist models <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Building%20image%20editing%20generalist%20models&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>ICLR</td><td>2024</td></tr>
+                    <tr><td><strong>UltraEdit</strong></td><td>4M</td><td>Instruction-based fine-grained image editing at scale <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Instruction-based%20fine-grained%20image%20editing%20at%20scale&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2024</td></tr>
+                    <tr><td><strong>HQ-Edit</strong></td><td>197K</td><td>High-quality dataset for instruction-based image editing <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=High-quality%20dataset%20for%20instruction-based%20image%20editing&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>arXiv</td><td>2024</td></tr>
+                    <tr><td><strong>InstructP2P</strong></td><td>313K</td><td>Learning to follow image editing instructions <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Learning%20to%20follow%20image%20editing%20instructions&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPR</td><td>2022</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="subsection-title">Interleaved Image-Text Corpora <span class="paper-count-badge">4 datasets</span></h3>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead><tr><th>Dataset</th><th>Scale</th><th>Description</th><th>Venue</th><th>Year</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>OmniCorpus</strong></td><td>8B</td><td>Unified multimodal corpus of 10B-level images interleaved with text <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Unified%20multimodal%20corpus%20of%2010B-level%20images%20interleaved%20with%20text&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>ICLR</td><td>2024</td></tr>
+                    <tr><td><strong>CoMM</strong></td><td>227K</td><td>Coherent interleaved image-text dataset for multimodal understanding <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Coherent%20interleaved%20image-text%20dataset%20for%20multimodal%20understanding&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>CVPR</td><td>2024</td></tr>
+                    <tr><td><strong>OBELICS</strong></td><td>141M</td><td>Open web-scale filtered interleaved image-text documents <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Open%20web-scale%20filtered%20interleaved%20image-text%20documents&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2023</td></tr>
+                    <tr><td><strong>Multimodal C4</strong></td><td>101.2M</td><td>Open, billion-scale corpus of images interleaved with text <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Open%2C%20billion-scale%20corpus%20of%20images%20interleaved%20with%20text&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td>NeurIPS</td><td>2023</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="subsection-title">Unified Models Survey <span class="paper-count-badge">1 survey</span></h3>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead><tr><th>Title</th><th>Domain</th><th>Venue</th><th>Year</th></tr></thead>
+                <tbody>
+                    <tr><td>Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities <a class="paper-arxiv-link" href="https://arxiv.org/search/?query=Unified%20Multimodal%20Understanding%20and%20Generation%20Models%3A%20Advances%2C%20Challenges%2C%20and%20Opportunities&searchtype=all&source=header" target="_blank" rel="noopener noreferrer" aria-label="View on arXiv" title="Search on arXiv"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.78 17.22h1.66l.79-2.17h3.52l.78 2.17h1.71L12.2 6.78h-1.95L6.78 17.22Zm2.96-3.53 1.24-3.58 1.26 3.58H9.74Zm8.08-6.38v9.91h-1.56V7.31h1.56Z"/></svg></a></td><td><span class="badge badge-unified">Unified</span></td><td>arXiv</td><td>2025</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand"><h3><img src="../logo.png" alt="OpenMM-Arena Logo" style="width:28px;height:28px;object-fit:contain;"> OpenMM-Arena</h3><p>A Comprehensive Compendium for Multimodal AI Research</p></div>
+            <div class="footer-links"><h4>Research Pillars</h4><ul><li><a href="../t2i.html">Text-to-Image</a></li><li><a href="../t2v.html">Text-to-Video</a></li><li><a href="../i2v.html">Image-to-Video</a></li><li><a href="../3d.html">3D Vision</a></li><li><a href="../4d.html">4D Vision</a></li><li><a href="../unified.html">Unified Models</a></li><li><a href="../world.html">World Models</a></li></ul></div>
+            <div class="footer-links"><h4>Sources</h4><ul><li><a href="https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image" target="_blank">Awesome-Text-to-Image</a></li><li><a href="https://github.com/soraw-ai/Awesome-Text-to-Video-Generation" target="_blank">Awesome-T2V-Generation</a></li><li><a href="https://github.com/showlab/Awesome-Video-Diffusion" target="_blank">Awesome-Video-Diffusion</a></li><li><a href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting" target="_blank">Awesome-3DGS</a></li><li><a href="https://github.com/openMVG/awesome_3DReconstruction_list" target="_blank">Awesome-3DReconstruction</a></li><li><a href="https://github.com/ActiveVisionLab/Awesome-LLM-3D" target="_blank">Awesome-LLM-3D</a></li></ul></div>
+            <div class="footer-links"><h4>&nbsp;</h4><ul><li><a href="https://github.com/Hardy-Uint/awesome-3D-vision" target="_blank">Awesome-3D-Vision</a></li><li><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM" target="_blank">Awesome-NeRF-3DGS-SLAM</a></li><li><a href="https://github.com/yukangcao/Awesome-4D-Spatial-Intelligence" target="_blank">Awesome-4D-SI</a></li><li><a href="https://github.com/knightnemo/Awesome-World-Models" target="_blank">Awesome-World-Models</a></li><li><a href="https://github.com/AIDC-AI/Awesome-Unified-Multimodal-Models" target="_blank">Awesome-Unified-MM</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025–2026 OpenMM-Arena Contributors &middot; MIT License<br>OpenMM-Arena belongs to <strong>OpenEnvision Lab</strong></p><div class="last-updated">Last updated: February 2026</div></div>
+    </div>
+</footer>
+</main>
+</div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>
+<script src="../script.js"></script>
+</body>
+</html>

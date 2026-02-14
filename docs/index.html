@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenMM-Arena — A Comprehensive Compendium for Multimodal AI Research</title>
+    <meta name="description" content="The definitive knowledge base consolidating Text-to-Image, Text-to-Video, Image-to-Video, 3D Vision, 4D Spatial Intelligence, Unified Multimodal Models, and World Models research — 2000+ papers, 46 arena-ranked models, 100+ benchmarks.">
+    <meta name="keywords" content="multimodal AI, text-to-image, text-to-video, 3D vision, 4D spatial intelligence, world models, AI research, arena leaderboard">
+    <meta name="author" content="OpenEnvision Lab">
+    <meta name="theme-color" content="#1d5ede" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OpenMM-Arena — Multimodal AI Research Compendium">
+    <meta property="og:description" content="2000+ papers, 46 arena-ranked models, 100+ benchmarks across 7 research pillars. The definitive knowledge base for multimodal AI.">
+    <meta property="og:url" content="https://openmm-arena.github.io/OpenMM-Arena/">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OpenMM-Arena — Multimodal AI Research Compendium">
+    <meta name="twitter:description" content="The definitive knowledge base for multimodal AI research. 2000+ papers across 7 research pillars.">
+    <!-- Fonts with display=swap for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;520;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-icon"><img src="logo.png" alt="OpenMM-Arena Logo" style="width:36px;height:36px;object-fit:contain;"></span>
+            <span>OpenMM-Arena</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="t2i.html">Text-to-Image</a></li>
+            <li><a href="t2v.html">Text-to-Video</a></li>
+            <li><a href="i2v.html">Image-to-Video</a></li>
+            <li><a href="3d.html">3D Vision</a></li>
+            <li><a href="4d.html">4D Vision</a></li>
+            <li><a href="unified.html">Unified</a></li>
+            <li><a href="world.html">World</a></li>
+            <li><a href="arena.html">MM Arena</a></li>
+            <li><button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode (D)"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            <li><a href="https://github.com/OpenMM-Arena/OpenMM-Arena" class="nav-github" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+        </ul>
+    </div>
+</nav>
+
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h16M4 6h16M4 18h16"/></svg></button>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+<div class="page-layout">
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="index.html" class="sidebar-back sidebar-brand-link">
+            <img src="logo.png" alt="OpenMM-Arena Logo" style="width:30px;height:30px;object-fit:contain;">
+            <span>OpenMM-Arena</span>
+        </a>
+        <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="sidebar-section-label">Research Pillars</div>
+    <ul class="sidebar-nav">
+        <li><a href="t2i.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span> <span>Text-to-Image</span></a></li>
+        <li><a href="t2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg></span> <span>Text-to-Video</span></a></li>
+        <li><a href="i2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span> <span>Image-to-Video</span></a></li>
+        <li><a href="3d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg></span> <span>3D Vision</span></a></li>
+        <li><a href="4d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span> <span>4D Vision</span></a></li>
+        <li><a href="unified.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></span> <span>Unified</span></a></li>
+        <li><a href="world.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span> <span>World</span></a></li>
+        <li><a href="arena.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span> <span>MM Arena</span></a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Quick Links</div>
+    <ul class="sidebar-nav">
+        <li><a href="#explore" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span> <span>Explore Pillars</span></a></li>
+        <li><a href="#about" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span> <span>About</span></a></li>
+    </ul>
+</aside>
+
+<main class="page-main">
+<!-- HERO -->
+<header class="hero" id="hero">
+    <div class="hero-bg"><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div><div class="hero-orb hero-orb-3"></div></div>
+    <div class="hero-content">
+
+        <h1 class="hero-title">Open<span class="accent">MM</span>-Arena</h1>
+        <p class="hero-subtitle">The Definitive Knowledge Base for Multimodal AI Research</p>
+        <div style="display:flex;justify-content:center;gap:8px;margin-bottom:8px;">
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:4px 14px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);border-radius:9999px;font-size:.68rem;font-weight:640;color:#059669;letter-spacing:.03em;"><span style="width:6px;height:6px;border-radius:50%;background:#10b981;animation:pulse 2s infinite;"></span> Actively Updated</span>
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:4px 14px;background:rgba(29,94,222,.06);border:1px solid rgba(29,94,222,.1);border-radius:9999px;font-size:.68rem;font-weight:640;color:var(--blue-600);letter-spacing:.03em;">Feb 2026</span>
+        </div>
+        <p class="hero-description">
+            A meticulously curated, taxonomically organized compendium unifying the research landscapes of
+            <strong>Text-to-Image Synthesis</strong>, <strong>Text-to-Video Generation</strong>, <strong>Image-to-Video Generation</strong>,
+            <strong>3D Vision</strong>, <strong>4D Spatial Intelligence</strong>,
+            <strong>Unified Multimodal Models</strong>, and <strong>World Models</strong>
+            — encompassing models, architectures, benchmarks, datasets, arena leaderboards, and theoretical foundations in a single authoritative reference.
+        </p>
+        <div class="hero-stats">
+            <div class="stat"><span class="stat-number">2000+</span><span class="stat-label">Papers Catalogued</span></div>
+            <div class="stat"><span class="stat-number">7</span><span class="stat-label">Research Pillars</span></div>
+            <div class="stat"><span class="stat-number">46</span><span class="stat-label">Arena-Ranked Models</span></div>
+            <div class="stat"><span class="stat-number">100+</span><span class="stat-label">Benchmarks</span></div>
+            <div class="stat"><span class="stat-number">90+</span><span class="stat-label">Datasets</span></div>
+        </div>
+        <div class="hero-actions">
+            <a href="#explore" class="btn btn-primary">Explore the Compendium <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="https://github.com/OpenMM-Arena/OpenMM-Arena" class="btn btn-secondary" target="_blank"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Star on GitHub</a>
+        </div>
+    </div>
+    <div class="hero-scroll"><span>Scroll to Explore</span><div class="scroll-arrow"></div></div>
+</header>
+
+<!-- LATEST NEWS -->
+<section class="section news-section" id="news">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Updates</span>
+            <h2 class="section-title">Latest News</h2>
+            <p class="section-desc">Recent updates and additions to the OpenMM-Arena compendium.</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card news-card-featured">
+                <div class="news-card-badge">
+                    <span class="news-type news-type-paper">New Papers</span>
+                    <span class="news-date">Feb 2026</span>
+                </div>
+                <h3>FLUX.2 & Seedream 3.0 Added to T2I Leaderboard</h3>
+                <p>Major text-to-image models from Black Forest Labs and ByteDance now included with arena rankings and Elo scores. GPT-Image-1.5 leads with 1248 Elo.</p>
+                <a href="t2i/arena.html" class="news-link">View Leaderboard <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <div class="news-card">
+                <div class="news-card-badge">
+                    <span class="news-type news-type-update">Update</span>
+                    <span class="news-date">Jan 2026</span>
+                </div>
+                <h3>4D Spatial Intelligence Expanded</h3>
+                <p>Added 60+ new papers on 4D dynamic reconstruction, physics-based simulation, and human-centric motion capture from CVPR/ICLR 2025-2026.</p>
+                <a href="4d.html" class="news-link">Explore 4D Vision <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <div class="news-card">
+                <div class="news-card-badge">
+                    <span class="news-type news-type-new">New Pillar</span>
+                    <span class="news-date">Dec 2025</span>
+                </div>
+                <h3>Unified Multimodal Models Launched</h3>
+                <p>120+ models catalogued covering diffusion-based, autoregressive, hybrid AR-diffusion, and any-to-any unified architectures with evaluation benchmarks.</p>
+                <a href="unified.html" class="news-link">Explore Unified Models <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <div class="news-card">
+                <div class="news-card-badge">
+                    <span class="news-type news-type-resource">Resource</span>
+                    <span class="news-date">Nov 2025</span>
+                </div>
+                <h3>World Models Theory & Surveys</h3>
+                <p>Comprehensive theory section covering game simulation, autonomous driving world models, model-based RL foundations, and structured dynamics.</p>
+                <a href="world/theory.html" class="news-link">Read Theory <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DOMAIN EXPLORER -->
+<section class="section" id="explore">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> Navigation</span>
+            <h2 class="section-title">Seven Research Pillars</h2>
+            <p class="section-desc">The multimodal AI landscape, organized into seven comprehensive research axes — each containing models, benchmarks, datasets, surveys, arena rankings, and theoretical foundations.</p>
+        </div>
+
+        <div class="domain-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <a href="t2i.html" class="domain-card" data-accent="t2i">
+                <div class="domain-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <h3>Text-to-Image Generation</h3>
+                <p>Foundational synthesis models, face generation, controllable generation, text-guided editing, personalization, cross-modal extensions, arena leaderboards, benchmarks, and datasets.</p>
+                <div class="domain-card-footer">
+                    <span class="domain-card-count">250+ papers · 46 ranked models</span>
+                    <span class="domain-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+            <a href="t2v.html" class="domain-card" data-accent="t2v">
+                <div class="domain-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg></div>
+                <h3>Text-to-Video Generation</h3>
+                <p>Foundation T2V models from GANs to diffusion transformers, controllable and efficient video synthesis, long video generation, benchmarks, and large-scale video-text datasets.</p>
+                <div class="domain-card-footer">
+                    <span class="domain-card-count">200+ papers · 25+ datasets</span>
+                    <span class="domain-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+            <a href="i2v.html" class="domain-card" data-accent="i2v">
+                <div class="domain-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
+                <h3>Image-to-Video Generation</h3>
+                <p>Image animation, character-driven video synthesis, talking head generation, video editing, motion transfer, audio synthesis for video, and enhancement techniques.</p>
+                <div class="domain-card-footer">
+                    <span class="domain-card-count">170+ papers · 20+ applications</span>
+                    <span class="domain-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+            <a href="3d.html" class="domain-card" data-accent="3d">
+                <div class="domain-card-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
+                <h3>3D Vision</h3>
+                <p>3D Gaussian Splatting, NeRF, text/image-to-3D generation, LLM-3D understanding, NeRF-SLAM, GS-SLAM, visual/LiDAR SLAM, robotics, manipulation, navigation, and localization.</p>
+                <div class="domain-card-footer">
+                    <span class="domain-card-count">500+ papers · 6 sub-domains</span>
+                    <span class="domain-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+            <a href="4d.html" class="domain-card" data-accent="4d">
+                <div class="domain-card-icon"><svg viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
+                <h3>4D Spatial Intelligence</h3>
+                <p>Depth &amp; camera pose estimation, 3D/4D point tracking, scene reconstruction, 4D dynamic scenes via deformable NeRFs and 4DGS, human-centric motion capture, and physics-based simulation.</p>
+                <div class="domain-card-footer">
+                    <span class="domain-card-count">500+ papers · 6 sub-domains</span>
+                    <span class="domain-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+            <a href="unified.html" class="domain-card" data-accent="unified">
+                <div class="domain-card-icon"><svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></div>
+                <h3>Unified Multimodal Models</h3>
+                <p>Architectures that jointly understand and generate — diffusion-based, autoregressive, hybrid AR-diffusion, and any-to-any systems, plus evaluation benchmarks and training corpora.</p>
+                <div class="domain-card-footer">
+                    <span class="domain-card-count">120+ models · 30+ benchmarks</span>
+                    <span class="domain-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+            <a href="world.html" class="domain-card" data-accent="world">
+                <div class="domain-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+                <h3>World Models</h3>
+                <p>Structured environment dynamics for game simulation, autonomous driving, embodied manipulation, model-based RL, theoretical foundations, benchmarks, and surveys.</p>
+                <div class="domain-card-footer">
+                    <span class="domain-card-count">200+ papers · 6 theory themes</span>
+                    <span class="domain-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ARENA SPOTLIGHT -->
+<section class="spotlight-section">
+    <div class="container">
+        <div class="spotlight-header">
+            <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg> Live Rankings</span>
+            <h2>Arena Leaderboard Spotlight</h2>
+            <p>Top-ranked text-to-image models from 3.9 million human preference votes on LM Arena — updated February 2026.</p>
+        </div>
+        <div class="spotlight-grid">
+            <div class="spotlight-card">
+                <div class="spotlight-rank rank-1">1</div>
+                <div class="spotlight-model">GPT-Image-1.5</div>
+                <div class="spotlight-org">OpenAI</div>
+                <span class="spotlight-elo">1248</span>
+            </div>
+            <div class="spotlight-card">
+                <div class="spotlight-rank rank-2">2</div>
+                <div class="spotlight-model">Gemini-3-Pro Image</div>
+                <div class="spotlight-org">Google</div>
+                <span class="spotlight-elo">1237</span>
+            </div>
+            <div class="spotlight-card">
+                <div class="spotlight-rank rank-3">3</div>
+                <div class="spotlight-model">Gemini-3-Pro Image</div>
+                <div class="spotlight-org">Google</div>
+                <span class="spotlight-elo">1233</span>
+            </div>
+            <div class="spotlight-card">
+                <div class="spotlight-rank">4</div>
+                <div class="spotlight-model">Grok Imagine Image</div>
+                <div class="spotlight-org">xAI</div>
+                <span class="spotlight-elo">1174</span>
+            </div>
+            <div class="spotlight-card">
+                <div class="spotlight-rank">5</div>
+                <div class="spotlight-model">FLUX.2 Max</div>
+                <div class="spotlight-org">Black Forest Labs</div>
+                <span class="spotlight-elo">1169</span>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:28px;">
+            <a href="t2i/arena.html#arena-leaderboards" class="btn btn-secondary">View Full Leaderboard (46 Models) <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED RESEARCH -->
+<section class="section featured-research-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Highlights</span>
+            <h2 class="section-title">Featured Research Breakthroughs</h2>
+            <p class="section-desc">Groundbreaking papers from 2025–2026 that are shaping the future of multimodal AI.</p>
+        </div>
+        <div class="featured-grid">
+            <div class="featured-card">
+                <div class="featured-card-year">2025</div>
+                <div class="featured-card-body">
+                    <span class="featured-card-pillar badge-t2i badge">T2I</span>
+                    <h3>FLUX.2</h3>
+                    <p>Next-generation flow matching from Black Forest Labs — state-of-the-art open-source T2I model pushing the boundaries of quality and speed.</p>
+                    <a href="t2i/models.html" class="news-link">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+            <div class="featured-card">
+                <div class="featured-card-year">2025</div>
+                <div class="featured-card-body">
+                    <span class="featured-card-pillar badge-cross badge">T2V</span>
+                    <h3>Wan 2.1</h3>
+                    <p>Alibaba's scalable diffusion transformer for video generation — setting new benchmarks for text-to-video quality and temporal coherence.</p>
+                    <a href="t2v/foundation.html" class="news-link">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+            <div class="featured-card">
+                <div class="featured-card-year">2025</div>
+                <div class="featured-card-body">
+                    <span class="featured-card-pillar badge-unified badge">Unified</span>
+                    <h3>Seedream 3.0</h3>
+                    <p>ByteDance's scaled-up diffusion transformer — achieving top arena rankings through massive compute and architectural innovations.</p>
+                    <a href="t2i/models.html" class="news-link">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+            <div class="featured-card">
+                <div class="featured-card-year">2025</div>
+                <div class="featured-card-body">
+                    <span class="featured-card-pillar badge-world badge">World</span>
+                    <h3>Veo 2</h3>
+                    <p>Google DeepMind's photorealistic video generation model — demonstrating world model capabilities through physics-aware temporal synthesis.</p>
+                    <a href="t2v/foundation.html" class="news-link">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> About</span>
+            <h2 class="section-title">Why OpenMM-Arena?</h2>
+            <p class="section-desc">A unified, navigable taxonomy for the rapidly converging landscape of multimodal artificial intelligence.</p>
+        </div>
+        <div class="section-intro">
+            The field of multimodal artificial intelligence has witnessed an unprecedented convergence of historically independent research traditions.
+            <em>Text-to-image synthesis</em> and <em>text-to-video generation</em> have matured from niche subfields into core pillars of generative AI,
+            while <em>image-to-video generation</em> bridges static imagery with temporal dynamics through learned motion priors.
+            <em>3D vision</em> — powered by Neural Radiance Fields, 3D Gaussian Splatting, LLM-driven understanding, and SLAM — extends generative AI into the spatial domain,
+            connecting these representations to real-time robotics, navigation, and embodied agents.
+            <em>4D spatial intelligence</em> adds the temporal dimension through video depth estimation, dense 3D tracking, dynamic scene reconstruction, human-centric motion capture, and physics-based simulation.
+            These intersect deeply with <em>world models</em> that seek to capture environment dynamics, and <em>unified architectures</em> that dissolve the boundary between visual understanding and generation.
+            OpenMM-Arena serves as the definitive, centralized knowledge base that organizes, maps, bridges, and catalogues this expansive literature.
+        </div>
+        <div class="stats-banner">
+            <div class="stats-banner-item">
+                <div class="stats-banner-number">2000+</div>
+                <div class="stats-banner-label">Research Papers</div>
+            </div>
+            <div class="stats-banner-item">
+                <div class="stats-banner-number">7</div>
+                <div class="stats-banner-label">Research Pillars</div>
+            </div>
+            <div class="stats-banner-item">
+                <div class="stats-banner-number">100+</div>
+                <div class="stats-banner-label">Benchmarks &amp; Metrics</div>
+            </div>
+            <div class="stats-banner-item">
+                <div class="stats-banner-number">11</div>
+                <div class="stats-banner-label">Source Repositories</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="section features-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> Features</span>
+            <h2 class="section-title">Why Choose OpenMM-Arena?</h2>
+            <p class="section-desc">Everything you need to navigate, learn, and contribute to the multimodal AI research landscape.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="m9 9.5 2 2 4-4"/></svg>
+                </div>
+                <h3>2000+ Papers Catalogued</h3>
+                <p>The most comprehensive multimodal AI paper collection — meticulously organized across seven research pillars with full citations, arXiv links, and venue information.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+                </div>
+                <h3>Taxonomic Organization</h3>
+                <p>Navigate through a carefully structured hierarchy — from high-level research pillars through sub-domains to individual papers, with clear categorization by era and methodology.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                </div>
+                <h3>Arena Leaderboards</h3>
+                <p>Real-time arena rankings from 3.9M+ human preference votes — compare models head-to-head with Elo scores, win rates, and comprehensive performance statistics.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                </div>
+                <h3>Smart Search & Filter</h3>
+                <p>Instantly find any paper, model, or benchmark with real-time search, sortable tables, year-based filtering, and keyboard shortcuts for power users.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <h3>Continuously Updated</h3>
+                <p>Stay current with the latest research — new papers from CVPR, ICLR, NeurIPS, ECCV, and arXiv are added regularly with proper categorization and context.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                </div>
+                <h3>Open Source & Community</h3>
+                <p>Built on open-source principles — contribute papers, suggest improvements, and collaborate with researchers worldwide. MIT licensed for maximum accessibility.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMMUNITY CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <div class="cta-glow"></div>
+            <div class="cta-text">
+                <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Community</span>
+                <h2>Join the Multimodal AI Community</h2>
+                <p>Connect with researchers and practitioners exploring the frontiers of multimodal artificial intelligence. Discover papers, contribute knowledge, and help build the definitive reference for the field.</p>
+                <div class="cta-actions">
+                    <a href="#explore" class="btn btn-primary">Browse Research Pillars <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="https://github.com/OpenMM-Arena/OpenMM-Arena" class="btn btn-secondary" target="_blank"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Contribute on GitHub</a>
+                </div>
+            </div>
+            <div class="cta-stats">
+                <div class="cta-stat">
+                    <span class="cta-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></span>
+                    <span class="cta-stat-number">2000+</span>
+                    <span class="cta-stat-label">Research Papers</span>
+                </div>
+                <div class="cta-stat">
+                    <span class="cta-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span>
+                    <span class="cta-stat-number">7</span>
+                    <span class="cta-stat-label">Research Pillars</span>
+                </div>
+                <div class="cta-stat">
+                    <span class="cta-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+                    <span class="cta-stat-number">11</span>
+                    <span class="cta-stat-label">Source Repos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3><img src="logo.png" alt="OpenMM-Arena Logo" style="width:28px;height:28px;object-fit:contain;"> OpenMM-Arena</h3>
+                <p>A Comprehensive Compendium for Multimodal AI Research — unifying text-to-image, text-to-video, image-to-video, 3D vision, 4D spatial intelligence, unified multimodal models, and world models.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Research Pillars</h4>
+                <ul>
+                    <li><a href="t2i.html">Text-to-Image</a></li>
+                    <li><a href="t2v.html">Text-to-Video</a></li>
+                    <li><a href="i2v.html">Image-to-Video</a></li>
+                    <li><a href="3d.html">3D Vision</a></li>
+                    <li><a href="4d.html">4D Vision</a></li>
+                    <li><a href="unified.html">Unified</a></li>
+                    <li><a href="world.html">World</a></li>
+                    <li><a href="arena.html">MM Arena</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Sources</h4>
+                <ul>
+                    <li><a href="https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image" target="_blank">Awesome-Text-to-Image</a></li>
+                    <li><a href="https://github.com/soraw-ai/Awesome-Text-to-Video-Generation" target="_blank">Awesome-T2V-Generation</a></li>
+                    <li><a href="https://github.com/showlab/Awesome-Video-Diffusion" target="_blank">Awesome-Video-Diffusion</a></li>
+                    <li><a href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting" target="_blank">Awesome-3DGS</a></li>
+                    <li><a href="https://github.com/openMVG/awesome_3DReconstruction_list" target="_blank">Awesome-3DReconstruction</a></li>
+                    <li><a href="https://github.com/ActiveVisionLab/Awesome-LLM-3D" target="_blank">Awesome-LLM-3D</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>&nbsp;</h4>
+                <ul>
+                    <li><a href="https://github.com/Hardy-Uint/awesome-3D-vision" target="_blank">Awesome-3D-Vision</a></li>
+                    <li><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM" target="_blank">Awesome-NeRF-3DGS-SLAM</a></li>
+                    <li><a href="https://github.com/yukangcao/Awesome-4D-Spatial-Intelligence" target="_blank">Awesome-4D-SI</a></li>
+                    <li><a href="https://github.com/knightnemo/Awesome-World-Models" target="_blank">Awesome-World-Models</a></li>
+                    <li><a href="https://github.com/AIDC-AI/Awesome-Unified-Multimodal-Models" target="_blank">Awesome-Unified-MM</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025–2026 OpenMM-Arena Contributors &middot; MIT License &middot; Curated with scholarly rigor<br>OpenMM-Arena belongs to <strong>OpenEnvision Lab</strong></p>
+            <div class="last-updated">Last updated: February 2026</div>
+        </div>
+    </div>
+</footer>
+</main>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MM Arena — Complete Multimodal Model Rankings | OpenMM-Arena</title>
+    <meta name="description" content="Comprehensive arena leaderboards for text-to-image, image editing, text-to-video, image-to-video, and vision models — powered by 28M+ crowdsourced human votes.">
+    <meta name="theme-color" content="#1d5ede" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;520;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo"><span class="logo-icon"><img src="logo.png" alt="OpenMM-Arena Logo" style="width:36px;height:36px;object-fit:contain;"></span><span>OpenMM-Arena</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="t2i.html">Text-to-Image</a></li>
+            <li><a href="t2v.html">Text-to-Video</a></li>
+            <li><a href="i2v.html">Image-to-Video</a></li>
+            <li><a href="3d.html">3D Vision</a></li>
+            <li><a href="4d.html">4D Vision</a></li>
+            <li><a href="unified.html">Unified</a></li>
+            <li><a href="world.html">World</a></li>
+            <li><a href="arena.html">MM Arena</a></li>
+            <li><button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode (D)"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            <li><a href="https://github.com/OpenMM-Arena/OpenMM-Arena" class="nav-github" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+        </ul>
+    </div>
+</nav>
+
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h16M4 6h16M4 18h16"/></svg></button>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+<div class="page-layout">
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="index.html" class="sidebar-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Home</span></a>
+        <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="sidebar-section-label">MM Arena</div>
+    <ul class="sidebar-nav">
+        <li><a href="#live-arenas" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span> <span>Live Arenas</span></a></li>
+        <li><a href="#lb-section" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span> <span>Leaderboards</span></a></li>
+        <li><a href="#lb-t2i" class="sidebar-link" style="padding-left:36px;font-size:.82rem;"><span>T2I Generation</span></a></li>
+        <li><a href="#lb-edit" class="sidebar-link" style="padding-left:36px;font-size:.82rem;"><span>Image Editing</span></a></li>
+        <li><a href="#lb-t2v" class="sidebar-link" style="padding-left:36px;font-size:.82rem;"><span>T2V Generation</span></a></li>
+        <li><a href="#lb-i2v" class="sidebar-link" style="padding-left:36px;font-size:.82rem;"><span>I2V Generation</span></a></li>
+        <li><a href="#lb-vision" class="sidebar-link" style="padding-left:36px;font-size:.82rem;"><span>Vision Understanding</span></a></li>
+        <li><a href="#elo-explained" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span> <span>Elo System</span></a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">All Pillars</div>
+    <ul class="sidebar-nav">
+        <li><a href="t2i.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span> <span>Text-to-Image</span></a></li>
+        <li><a href="t2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20"/></svg></span> <span>Text-to-Video</span></a></li>
+        <li><a href="i2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span> <span>Image-to-Video</span></a></li>
+        <li><a href="3d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span> <span>3D Vision</span></a></li>
+        <li><a href="4d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/></svg></span> <span>4D Vision</span></a></li>
+        <li><a href="unified.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></span> <span>Unified</span></a></li>
+        <li><a href="world.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span> <span>World</span></a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-toc" id="sidebarToc"></div>
+</aside>
+
+<main class="page-main">
+<header class="page-hero">
+    <div class="page-hero-bg"><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div></div>
+    <div class="container">
+        <div class="page-hero-content">
+            
+            <h1 class="page-hero-title">Multimodal Arena</h1>
+            <p class="page-hero-desc">Comprehensive leaderboards across 5 arena categories — T2I, Image Edit, T2V, I2V, and Vision — powered by 28M+ crowdsourced human preference votes via <strong>LM Arena</strong> and <strong>Artificial Analysis</strong>.</p>
+        </div>
+    </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     STATS OVERVIEW
+     ═══════════════════════════════════════════════════════ -->
+<section class="section">
+    <div class="container">
+        <div class="stats-banner">
+            <div class="stats-banner-item"><div class="stats-banner-number">28M+</div><div class="stats-banner-label">Total Human Votes</div></div>
+            <div class="stats-banner-item"><div class="stats-banner-number">242</div><div class="stats-banner-label">Models Ranked</div></div>
+            <div class="stats-banner-item"><div class="stats-banner-number">5</div><div class="stats-banner-label">Arena Categories</div></div>
+            <div class="stats-banner-item"><div class="stats-banner-number">15+</div><div class="stats-banner-label">Style Categories</div></div>
+        </div>
+
+<!-- ═══════════════════════════════════════════════════════
+     LIVE ARENA EMBEDS
+     ═══════════════════════════════════════════════════════ -->
+        <h3 class="subsection-title" id="live-arenas">Live Arenas &mdash; Vote on Your Preference</h3>
+        <div class="section-intro">
+            Participate in model comparison arenas directly below. Compare outputs from anonymous AI models and vote for your preference. After 30 votes, you&rsquo;ll see your personalized rankings. <em>Open in a new tab for the best experience.</em>
+        </div>
+
+        <div class="arena-tabs" data-group="live">
+            <button class="arena-tab active" data-target="live-aa-img"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg> AA: Image</button>
+            <button class="arena-tab" data-target="live-aa-vid"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><polygon points="10 8 16 12 10 16 10 8"/></svg> AA: Video</button>
+            <span class="arena-tab-sep"></span>
+            <button class="arena-tab" data-target="live-lm-t2i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg> LM: T2I</button>
+            <button class="arena-tab" data-target="live-lm-edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> LM: Edit</button>
+            <button class="arena-tab" data-target="live-lm-t2v"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><polygon points="10 8 16 12 10 16 10 8"/></svg> LM: T2V</button>
+            <button class="arena-tab" data-target="live-lm-i2v"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg> LM: I2V</button>
+            <button class="arena-tab" data-target="live-lm-vision"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> LM: Vision</button>
+        </div>
+        <div class="arena-frame-container">
+            <div class="arena-frame active" id="live-aa-img">
+                <iframe src="https://artificialanalysis.ai/text-to-image/arena" title="Image Arena — Artificial Analysis" loading="lazy" allow="clipboard-write" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
+                <div class="arena-source">Powered by <a href="https://artificialanalysis.ai/image/arena" target="_blank">Artificial Analysis</a> &mdash; <a href="https://artificialanalysis.ai/text-to-image/arena" target="_blank">Open in new tab &nearr;</a></div>
+            </div>
+            <div class="arena-frame" id="live-aa-vid">
+                <iframe data-src="https://artificialanalysis.ai/text-to-video/arena" title="Video Arena — Artificial Analysis" loading="lazy" allow="clipboard-write; autoplay" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
+                <div class="arena-source">Powered by <a href="https://artificialanalysis.ai/video/arena" target="_blank">Artificial Analysis</a> &mdash; <a href="https://artificialanalysis.ai/text-to-video/arena" target="_blank">Open in new tab &nearr;</a></div>
+            </div>
+            <div class="arena-frame" id="live-lm-t2i">
+                <iframe data-src="https://arena.ai/leaderboard/text-to-image" title="T2I Arena — LM Arena" loading="lazy" allow="clipboard-write" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
+                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/text-to-image" target="_blank">Open in new tab &nearr;</a></div>
+            </div>
+            <div class="arena-frame" id="live-lm-edit">
+                <iframe data-src="https://arena.ai/leaderboard/image-edit" title="Image Edit Arena — LM Arena" loading="lazy" allow="clipboard-write" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
+                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/image-edit" target="_blank">Open in new tab &nearr;</a></div>
+            </div>
+            <div class="arena-frame" id="live-lm-t2v">
+                <iframe data-src="https://arena.ai/leaderboard/text-to-video" title="T2V Arena — LM Arena" loading="lazy" allow="clipboard-write; autoplay" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
+                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/text-to-video" target="_blank">Open in new tab &nearr;</a></div>
+            </div>
+            <div class="arena-frame" id="live-lm-i2v">
+                <iframe data-src="https://arena.ai/leaderboard/image-to-video" title="I2V Arena — LM Arena" loading="lazy" allow="clipboard-write; autoplay" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
+                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/image-to-video" target="_blank">Open in new tab &nearr;</a></div>
+            </div>
+            <div class="arena-frame" id="live-lm-vision">
+                <iframe data-src="https://arena.ai/leaderboard/vision" title="Vision Arena — LM Arena" loading="lazy" allow="clipboard-write" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
+                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/vision" target="_blank">Open in new tab &nearr;</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     COMPLETE LEADERBOARD RANKINGS
+     ═══════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="lb-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg> Complete Data</span>
+            <h2 class="section-title">Arena Leaderboard Rankings</h2>
+            <p class="section-desc">Full rankings across all 5 arena categories from LM Arena (arena.ai) — Feb 2026. Click tabs to switch categories.</p>
+        </div>
+
+        <div class="search-container">
+            <span class="search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+            <input type="text" class="search-input" id="globalSearch" placeholder="Search models, developers..." aria-label="Search">
+            <span class="search-kbd" id="searchKbd">&#8984;K</span>
+        </div>
+        <div class="search-results-count" id="searchResultsCount"></div>
+
+        <div class="arena-tabs" data-group="lb">
+            <button class="arena-tab active" data-target="lb-t2i">T2I Generation <span class="arena-tab-count">46</span></button>
+            <button class="arena-tab" data-target="lb-edit">Image Edit <span class="arena-tab-count">36</span></button>
+            <button class="arena-tab" data-target="lb-t2v">T2V Generation <span class="arena-tab-count">33</span></button>
+            <button class="arena-tab" data-target="lb-i2v">I2V Generation <span class="arena-tab-count">33</span></button>
+            <button class="arena-tab" data-target="lb-vision">Vision <span class="arena-tab-count">94</span></button>
+        </div>
+
+<!-- ── T2I LEADERBOARD ── -->
+<div class="arena-frame active" id="lb-t2i">
+<div class="lb-header"><h3 class="subsection-title" style="margin:0;">Text-to-Image Arena</h3><span class="lb-meta">3,918,094 votes &middot; 46 models &middot; Feb 2026</span></div>
+<div class="table-wrapper"><table class="data-table"><thead><tr><th class="sortable">#</th><th>Model</th><th>Developer</th><th class="sortable">Elo</th><th class="sortable">Votes</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>GPT Image 1.5 HF</strong></td><td>OpenAI</td><td><span class="elo">1248</span><span class="elo-ci">&plusmn;5</span></td><td>41,719</td></tr>
+<tr><td>2</td><td><strong>Gemini 3 Pro Image 2K</strong></td><td>Google</td><td><span class="elo">1237</span><span class="elo-ci">&plusmn;5</span></td><td>41,547</td></tr>
+<tr><td>3</td><td><strong>Gemini 3 Pro Image</strong></td><td>Google</td><td><span class="elo">1233</span><span class="elo-ci">&plusmn;5</span></td><td>83,656</td></tr>
+<tr><td>4</td><td><strong>Grok Imagine</strong></td><td>xAI</td><td><span class="elo">1174</span><span class="elo-ci">&plusmn;6</span><span class="prelim-badge">Prelim</span></td><td>11,585</td></tr>
+<tr><td>5</td><td><strong>FLUX.2 Max</strong></td><td>Black Forest Labs</td><td><span class="elo">1169</span><span class="elo-ci">&plusmn;4</span></td><td>47,290</td></tr>
+<tr><td>6</td><td><strong>Grok Imagine Pro</strong></td><td>xAI</td><td><span class="elo">1166</span><span class="elo-ci">&plusmn;6</span><span class="prelim-badge">Prelim</span></td><td>13,012</td></tr>
+<tr><td>7</td><td><strong>FLUX.2 Flex</strong></td><td>Black Forest Labs</td><td><span class="elo">1158</span><span class="elo-ci">&plusmn;4</span></td><td>66,495</td></tr>
+<tr><td>8</td><td><strong>Gemini 2.5 Flash Image</strong></td><td>Google</td><td><span class="elo">1157</span><span class="elo-ci">&plusmn;3</span></td><td>653,540</td></tr>
+<tr><td>9</td><td><strong>FLUX.2 Pro</strong></td><td>Black Forest Labs</td><td><span class="elo">1156</span><span class="elo-ci">&plusmn;4</span></td><td>78,124</td></tr>
+<tr><td>10</td><td><strong>HunyuanImage 3.0</strong></td><td>Tencent</td><td><span class="elo">1151</span><span class="elo-ci">&plusmn;3</span></td><td>158,902</td></tr>
+<tr><td>11</td><td><strong>FLUX.2 Dev</strong></td><td>Black Forest Labs</td><td><span class="elo">1150</span><span class="elo-ci">&plusmn;5</span></td><td>39,481</td></tr>
+<tr><td>12</td><td><strong>Imagen Ultra 4.0</strong></td><td>Google</td><td><span class="elo">1149</span><span class="elo-ci">&plusmn;4</span></td><td>390,174</td></tr>
+<tr><td>13</td><td><strong>Seedream 4.0 2K</strong></td><td>ByteDance</td><td><span class="elo">1141</span><span class="elo-ci">&plusmn;6</span></td><td>12,571</td></tr>
+<tr><td>14</td><td><strong>Seedream 4.5</strong></td><td>ByteDance</td><td><span class="elo">1141</span><span class="elo-ci">&plusmn;4</span></td><td>49,398</td></tr>
+<tr><td>15</td><td><strong>Qwen Image 2512</strong></td><td>Alibaba</td><td><span class="elo">1139</span><span class="elo-ci">&plusmn;5</span></td><td>29,166</td></tr>
+<tr><td>16</td><td><strong>Imagen 4.0</strong></td><td>Google</td><td><span class="elo">1135</span><span class="elo-ci">&plusmn;3</span></td><td>441,159</td></tr>
+<tr><td>17</td><td><strong>Wan 2.6 T2I</strong></td><td>Alibaba</td><td><span class="elo">1126</span><span class="elo-ci">&plusmn;6</span></td><td>11,041</td></tr>
+<tr><td>18</td><td><strong>Seedream 4.0</strong></td><td>ByteDance</td><td><span class="elo">1119</span><span class="elo-ci">&plusmn;6</span></td><td>11,754</td></tr>
+<tr><td>19</td><td><strong>Wan 2.5 T2I Preview</strong></td><td>Alibaba</td><td><span class="elo">1117</span><span class="elo-ci">&plusmn;4</span></td><td>102,970</td></tr>
+<tr><td>20</td><td><strong>GPT Image 1</strong></td><td>OpenAI</td><td><span class="elo">1115</span><span class="elo-ci">&plusmn;3</span></td><td>252,289</td></tr>
+<tr><td>21</td><td><strong>Seedream 4.0 HR</strong></td><td>ByteDance</td><td><span class="elo">1114</span><span class="elo-ci">&plusmn;4</span></td><td>103,463</td></tr>
+<tr><td>22</td><td><strong>GPT Image 1 Mini</strong></td><td>OpenAI</td><td><span class="elo">1100</span><span class="elo-ci">&plusmn;4</span></td><td>85,164</td></tr>
+<tr><td>23</td><td><strong>MAI Image 1</strong></td><td>Microsoft AI</td><td><span class="elo">1094</span><span class="elo-ci">&plusmn;4</span></td><td>74,023</td></tr>
+<tr><td>24</td><td><strong>Seedream 3.0</strong></td><td>ByteDance</td><td><span class="elo">1084</span><span class="elo-ci">&plusmn;5</span></td><td>36,622</td></tr>
+<tr><td>25</td><td><strong>Z-Image Turbo</strong></td><td>Alibaba</td><td><span class="elo">1083</span><span class="elo-ci">&plusmn;7</span></td><td>7,577</td></tr>
+<tr><td>26</td><td><strong>FLUX.1 Kontext Max</strong></td><td>Black Forest Labs</td><td><span class="elo">1076</span><span class="elo-ci">&plusmn;3</span></td><td>66,184</td></tr>
+<tr><td>27</td><td><strong>FLUX.2 Klein 9B</strong></td><td>Black Forest Labs</td><td><span class="elo">1065</span><span class="elo-ci">&plusmn;4</span></td><td>27,524</td></tr>
+<tr><td>28</td><td><strong>Qwen Image PE</strong></td><td>Alibaba</td><td><span class="elo">1061</span><span class="elo-ci">&plusmn;3</span></td><td>579,074</td></tr>
+<tr><td>29</td><td><strong>FLUX.1 Kontext Pro</strong></td><td>Black Forest Labs</td><td><span class="elo">1060</span><span class="elo-ci">&plusmn;3</span></td><td>333,004</td></tr>
+<tr><td>30</td><td><strong>Imagen 3.0</strong></td><td>Google</td><td><span class="elo">1059</span><span class="elo-ci">&plusmn;3</span></td><td>361,579</td></tr>
+<tr><td>31</td><td><strong>Qwen Image</strong></td><td>Alibaba</td><td><span class="elo">1058</span><span class="elo-ci">&plusmn;2</span></td><td>85,994</td></tr>
+<tr><td>32</td><td><strong>P-Image</strong></td><td>Pruna</td><td><span class="elo">1053</span><span class="elo-ci">&plusmn;5</span></td><td>17,651</td></tr>
+<tr><td>33</td><td><strong>Ideogram V3 Quality</strong></td><td>Ideogram</td><td><span class="elo">1050</span><span class="elo-ci">&plusmn;4</span></td><td>115,778</td></tr>
+<tr><td>34</td><td><strong>Luma Photon</strong></td><td>Luma AI</td><td><span class="elo">1037</span><span class="elo-ci">&plusmn;4</span></td><td>127,980</td></tr>
+<tr><td>35</td><td><strong>FLUX.2 Klein 4B</strong></td><td>Black Forest Labs</td><td><span class="elo">1021</span><span class="elo-ci">&plusmn;4</span></td><td>27,669</td></tr>
+<tr><td>36</td><td><strong>Recraft V3</strong></td><td>Recraft</td><td><span class="elo">1021</span><span class="elo-ci">&plusmn;3</span></td><td>178,884</td></tr>
+<tr><td>37</td><td><strong>FLUX 1.1 Pro</strong></td><td>Black Forest Labs</td><td><span class="elo">1017</span><span class="elo-ci">&plusmn;3</span></td><td>70,353</td></tr>
+<tr><td>38</td><td><strong>Lucid Origin</strong></td><td>Leonardo AI</td><td><span class="elo">1015</span><span class="elo-ci">&plusmn;3</span></td><td>287,569</td></tr>
+<tr><td>39</td><td><strong>Ideogram V2</strong></td><td>Ideogram</td><td><span class="elo">1015</span><span class="elo-ci">&plusmn;3</span></td><td>72,113</td></tr>
+<tr><td>40</td><td><strong>GLM Image</strong></td><td>Z.ai</td><td><span class="elo">1013</span><span class="elo-ci">&plusmn;9</span></td><td>4,680</td></tr>
+<tr><td>41</td><td><strong>Gemini 2.0 Flash Image</strong></td><td>Google</td><td><span class="elo">976</span><span class="elo-ci">&plusmn;3</span></td><td>258,646</td></tr>
+<tr><td>42</td><td><strong>FLUX.1 Dev FP8</strong></td><td>Black Forest Labs</td><td><span class="elo">970</span><span class="elo-ci">&plusmn;4</span></td><td>49,319</td></tr>
+<tr><td>43</td><td><strong>DALL-E 3</strong></td><td>OpenAI</td><td><span class="elo">969</span><span class="elo-ci">&plusmn;4</span></td><td>240,462</td></tr>
+<tr><td>44</td><td><strong>FLUX.1 Kontext Dev</strong></td><td>Black Forest Labs</td><td><span class="elo">942</span><span class="elo-ci">&plusmn;4</span></td><td>217,021</td></tr>
+<tr><td>45</td><td><strong>SD 3.5 Large</strong></td><td>Stability AI</td><td><span class="elo">939</span><span class="elo-ci">&plusmn;4</span></td><td>23,379</td></tr>
+<tr><td>46</td><td><strong>BAGEL</strong></td><td>ByteDance</td><td><span class="elo">900</span><span class="elo-ci">&plusmn;6</span></td><td>12,455</td></tr>
+</tbody></table></div>
+<div class="arena-source">Source: <a href="https://arena.ai/leaderboard/text-to-image" target="_blank">LM Arena &nearr;</a></div>
+</div>
+
+<!-- ── IMAGE EDIT LEADERBOARD ── -->
+<div class="arena-frame" id="lb-edit">
+<div class="lb-header"><h3 class="subsection-title" style="margin:0;">Image Edit Arena</h3><span class="lb-meta">23,202,840 votes &middot; 36 models &middot; Feb 2026</span></div>
+<div class="table-wrapper"><table class="data-table"><thead><tr><th class="sortable">#</th><th>Model</th><th>Developer</th><th class="sortable">Elo</th><th class="sortable">Votes</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>ChatGPT Image Latest HF</strong></td><td>OpenAI</td><td><span class="elo">1413</span><span class="elo-ci">&plusmn;4</span></td><td>184,593</td></tr>
+<tr><td>2</td><td><strong>Gemini 3 Pro Image 2K</strong></td><td>Google</td><td><span class="elo">1400</span><span class="elo-ci">&plusmn;4</span></td><td>179,642</td></tr>
+<tr><td>3</td><td><strong>Gemini 3 Pro Image</strong></td><td>Google</td><td><span class="elo">1395</span><span class="elo-ci">&plusmn;3</span></td><td>510,948</td></tr>
+<tr><td>4</td><td><strong>GPT Image 1.5 HF</strong></td><td>OpenAI</td><td><span class="elo">1390</span><span class="elo-ci">&plusmn;4</span></td><td>202,523</td></tr>
+<tr><td>5</td><td><strong>Grok Imagine Pro</strong></td><td>xAI</td><td><span class="elo">1330</span><span class="elo-ci">&plusmn;5</span><span class="prelim-badge">Prelim</span></td><td>11,347</td></tr>
+<tr><td>6</td><td><strong>Grok Imagine</strong></td><td>xAI</td><td><span class="elo">1322</span><span class="elo-ci">&plusmn;7</span><span class="prelim-badge">Prelim</span></td><td>7,183</td></tr>
+<tr><td>7</td><td><strong>Seedream 4.5</strong></td><td>ByteDance</td><td><span class="elo">1316</span><span class="elo-ci">&plusmn;2</span></td><td>237,793</td></tr>
+<tr><td>8</td><td><strong>HunyuanImage 3.0 Instruct</strong></td><td>Tencent</td><td><span class="elo">1315</span><span class="elo-ci">&plusmn;4</span><span class="prelim-badge">Prelim</span></td><td>50,075</td></tr>
+<tr><td>9</td><td><strong>Gemini 2.5 Flash Image</strong></td><td>Google</td><td><span class="elo">1313</span><span class="elo-ci">&plusmn;2</span></td><td>10,456,668</td></tr>
+<tr><td>10</td><td><strong>Seedream 4.0 2K</strong></td><td>ByteDance</td><td><span class="elo">1285</span><span class="elo-ci">&plusmn;6</span></td><td>218,668</td></tr>
+<tr><td>11</td><td><strong>FLUX.2 Max</strong></td><td>Black Forest Labs</td><td><span class="elo">1267</span><span class="elo-ci">&plusmn;3</span></td><td>109,294</td></tr>
+<tr><td>12</td><td><strong>Reve V1.1</strong></td><td>Reve</td><td><span class="elo">1261</span><span class="elo-ci">&plusmn;2</span></td><td>227,779</td></tr>
+<tr><td>13</td><td><strong>FLUX.2 Pro</strong></td><td>Black Forest Labs</td><td><span class="elo">1248</span><span class="elo-ci">&plusmn;3</span></td><td>110,368</td></tr>
+<tr><td>14</td><td><strong>Reve V1</strong></td><td>Reve</td><td><span class="elo">1245</span><span class="elo-ci">&plusmn;5</span></td><td>382,212</td></tr>
+<tr><td>15</td><td><strong>Seedream 4.0 HR</strong></td><td>ByteDance</td><td><span class="elo">1239</span><span class="elo-ci">&plusmn;2</span></td><td>959,984</td></tr>
+<tr><td>16</td><td><strong>Qwen Image Edit 2511</strong></td><td>Alibaba</td><td><span class="elo">1239</span><span class="elo-ci">&plusmn;3</span></td><td>99,394</td></tr>
+<tr><td>17</td><td><strong>FLUX.2 Klein 9B</strong></td><td>Black Forest Labs</td><td><span class="elo">1232</span><span class="elo-ci">&plusmn;3</span></td><td>104,299</td></tr>
+<tr><td>18</td><td><strong>Qwen Image Edit</strong></td><td>Alibaba</td><td><span class="elo">1232</span><span class="elo-ci">&plusmn;2</span></td><td>1,718,417</td></tr>
+<tr><td>19</td><td><strong>FLUX.2 Dev</strong></td><td>Black Forest Labs</td><td><span class="elo">1231</span><span class="elo-ci">&plusmn;3</span></td><td>85,555</td></tr>
+<tr><td>20</td><td><strong>Wan 2.6 Image</strong></td><td>Alibaba</td><td><span class="elo">1222</span><span class="elo-ci">&plusmn;4</span></td><td>48,422</td></tr>
+<tr><td>21</td><td><strong>FLUX.2 Flex</strong></td><td>Black Forest Labs</td><td><span class="elo">1221</span><span class="elo-ci">&plusmn;3</span></td><td>103,321</td></tr>
+<tr><td>22</td><td><strong>Seedream 4.0</strong></td><td>ByteDance</td><td><span class="elo">1220</span><span class="elo-ci">&plusmn;6</span></td><td>154,440</td></tr>
+<tr><td>23</td><td><strong>Reve V1.1 Fast</strong></td><td>Reve</td><td><span class="elo">1220</span><span class="elo-ci">&plusmn;2</span></td><td>214,261</td></tr>
+<tr><td>24</td><td><strong>P-Image Edit</strong></td><td>Pruna</td><td><span class="elo">1217</span><span class="elo-ci">&plusmn;4</span></td><td>60,186</td></tr>
+<tr><td>25</td><td><strong>Reve Edit Fast</strong></td><td>Reve</td><td><span class="elo">1208</span><span class="elo-ci">&plusmn;4</span></td><td>221,766</td></tr>
+<tr><td>26</td><td><strong>FLUX.2 Klein 4B</strong></td><td>Black Forest Labs</td><td><span class="elo">1194</span><span class="elo-ci">&plusmn;3</span></td><td>104,522</td></tr>
+<tr><td>27</td><td><strong>Wan 2.5 I2I Preview</strong></td><td>Alibaba</td><td><span class="elo">1191</span><span class="elo-ci">&plusmn;4</span></td><td>78,611</td></tr>
+<tr><td>28</td><td><strong>FLUX.1 Kontext Max</strong></td><td>Black Forest Labs</td><td><span class="elo">1190</span><span class="elo-ci">&plusmn;2</span></td><td>394,850</td></tr>
+<tr><td>29</td><td><strong>FLUX.1 Kontext Pro</strong></td><td>Black Forest Labs</td><td><span class="elo">1185</span><span class="elo-ci">&plusmn;2</span></td><td>6,475,424</td></tr>
+<tr><td>30</td><td><strong>FLUX.1 Kontext Dev</strong></td><td>Black Forest Labs</td><td><span class="elo">1158</span><span class="elo-ci">&plusmn;3</span></td><td>3,686,812</td></tr>
+<tr><td>31</td><td><strong>GPT Image 1</strong></td><td>OpenAI</td><td><span class="elo">1147</span><span class="elo-ci">&plusmn;2</span></td><td>2,805,501</td></tr>
+<tr><td>32</td><td><strong>SeedEdit 3.0</strong></td><td>ByteDance</td><td><span class="elo">1147</span><span class="elo-ci">&plusmn;2</span></td><td>4,987,917</td></tr>
+<tr><td>33</td><td><strong>GPT Image 1 Mini</strong></td><td>OpenAI</td><td><span class="elo">1128</span><span class="elo-ci">&plusmn;3</span></td><td>428,164</td></tr>
+<tr><td>34</td><td><strong>Gemini 2.0 Flash Image</strong></td><td>Google</td><td><span class="elo">1089</span><span class="elo-ci">&plusmn;2</span></td><td>4,997,269</td></tr>
+<tr><td>35</td><td><strong>BAGEL</strong></td><td>ByteDance</td><td><span class="elo">1034</span><span class="elo-ci">&plusmn;5</span></td><td>13,447</td></tr>
+<tr><td>36</td><td><strong>Step1X Edit</strong></td><td>StepFun</td><td><span class="elo">1006</span><span class="elo-ci">&plusmn;4</span></td><td>156,077</td></tr>
+</tbody></table></div>
+<div class="arena-source">Source: <a href="https://arena.ai/leaderboard/image-edit" target="_blank">LM Arena &nearr;</a></div>
+</div>
+
+<!-- ── T2V LEADERBOARD ── -->
+<div class="arena-frame" id="lb-t2v">
+<div class="lb-header"><h3 class="subsection-title" style="margin:0;">Text-to-Video Arena</h3><span class="lb-meta">197,094 votes &middot; 33 models &middot; Feb 2026</span></div>
+<div class="table-wrapper"><table class="data-table"><thead><tr><th class="sortable">#</th><th>Model</th><th>Developer</th><th class="sortable">Elo</th><th class="sortable">Votes</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>Veo 3.1 Audio 1080p</strong></td><td>Google</td><td><span class="elo">1392</span><span class="elo-ci">&plusmn;15</span></td><td>5,195</td></tr>
+<tr><td>2</td><td><strong>Veo 3.1 Fast Audio 1080p</strong></td><td>Google</td><td><span class="elo">1372</span><span class="elo-ci">&plusmn;15</span></td><td>5,396</td></tr>
+<tr><td>3</td><td><strong>Veo 3.1 Audio</strong></td><td>Google</td><td><span class="elo">1370</span><span class="elo-ci">&plusmn;14</span></td><td>12,605</td></tr>
+<tr><td>4</td><td><strong>Sora 2 Pro</strong></td><td>OpenAI</td><td><span class="elo">1368</span><span class="elo-ci">&plusmn;10</span></td><td>14,776</td></tr>
+<tr><td>5</td><td><strong>Veo 3.1 Fast Audio</strong></td><td>Google</td><td><span class="elo">1367</span><span class="elo-ci">&plusmn;12</span></td><td>18,204</td></tr>
+<tr><td>6</td><td><strong>Grok Imagine Video 720p</strong></td><td>xAI</td><td><span class="elo">1357</span><span class="elo-ci">&plusmn;10</span><span class="prelim-badge">Prelim</span></td><td>16,110</td></tr>
+<tr><td>7</td><td><strong>Veo 3 Fast Audio</strong></td><td>Google</td><td><span class="elo">1350</span><span class="elo-ci">&plusmn;11</span></td><td>25,768</td></tr>
+<tr><td>8</td><td><strong>Veo 3 Audio</strong></td><td>Google</td><td><span class="elo">1340</span><span class="elo-ci">&plusmn;12</span></td><td>19,335</td></tr>
+<tr><td>9</td><td><strong>Sora 2</strong></td><td>OpenAI</td><td><span class="elo">1340</span><span class="elo-ci">&plusmn;9</span></td><td>18,539</td></tr>
+<tr><td>10</td><td><strong>Wan 2.5 T2V Preview</strong></td><td>Alibaba</td><td><span class="elo">1267</span><span class="elo-ci">&plusmn;17</span></td><td>6,087</td></tr>
+<tr><td>11</td><td><strong>Seedance V1.5 Pro</strong></td><td>ByteDance</td><td><span class="elo">1257</span><span class="elo-ci">&plusmn;9</span></td><td>21,382</td></tr>
+<tr><td>12</td><td><strong>Veo 3</strong></td><td>Google</td><td><span class="elo">1256</span><span class="elo-ci">&plusmn;11</span></td><td>15,189</td></tr>
+<tr><td>13</td><td><strong>Veo 3 Fast</strong></td><td>Google</td><td><span class="elo">1251</span><span class="elo-ci">&plusmn;12</span></td><td>15,459</td></tr>
+<tr><td>14</td><td><strong>Kling 2.5 Turbo 1080p</strong></td><td>KlingAI</td><td><span class="elo">1221</span><span class="elo-ci">&plusmn;17</span></td><td>2,052</td></tr>
+<tr><td>15</td><td><strong>Kling 2.6 Pro</strong></td><td>KlingAI</td><td><span class="elo">1218</span><span class="elo-ci">&plusmn;9</span></td><td>26,642</td></tr>
+<tr><td>16</td><td><strong>Kling O1 Pro</strong></td><td>KlingAI</td><td><span class="elo">1208</span><span class="elo-ci">&plusmn;27</span></td><td>1,198</td></tr>
+<tr><td>17</td><td><strong>Luma Ray 3</strong></td><td>Luma AI</td><td><span class="elo">1204</span><span class="elo-ci">&plusmn;23</span></td><td>1,057</td></tr>
+<tr><td>18</td><td><strong>Hailuo 02 Pro</strong></td><td>MiniMax</td><td><span class="elo">1200</span><span class="elo-ci">&plusmn;12</span></td><td>9,881</td></tr>
+<tr><td>19</td><td><strong>Hailuo 2.3</strong></td><td>MiniMax</td><td><span class="elo">1198</span><span class="elo-ci">&plusmn;9</span></td><td>18,646</td></tr>
+<tr><td>20</td><td><strong>Seedance V1 Pro</strong></td><td>ByteDance</td><td><span class="elo">1192</span><span class="elo-ci">&plusmn;11</span></td><td>12,883</td></tr>
+<tr><td>21</td><td><strong>Hailuo 02 Standard</strong></td><td>MiniMax</td><td><span class="elo">1181</span><span class="elo-ci">&plusmn;11</span></td><td>9,932</td></tr>
+<tr><td>22</td><td><strong>Kandinsky 5.0 Pro</strong></td><td>Kandinsky</td><td><span class="elo">1178</span><span class="elo-ci">&plusmn;21</span></td><td>1,885</td></tr>
+<tr><td>23</td><td><strong>HunyuanVideo 1.5</strong></td><td>Tencent</td><td><span class="elo">1171</span><span class="elo-ci">&plusmn;16</span></td><td>4,107</td></tr>
+<tr><td>24</td><td><strong>Kling 2.1 Master</strong></td><td>KlingAI</td><td><span class="elo">1168</span><span class="elo-ci">&plusmn;9</span></td><td>14,516</td></tr>
+<tr><td>25</td><td><strong>Veo 2</strong></td><td>Google</td><td><span class="elo">1165</span><span class="elo-ci">&plusmn;16</span></td><td>7,102</td></tr>
+<tr><td>26</td><td><strong>Wan 2.2 A14B</strong></td><td>Alibaba</td><td><span class="elo">1130</span><span class="elo-ci">&plusmn;15</span></td><td>11,159</td></tr>
+<tr><td>27</td><td><strong>Seedance V1 Lite</strong></td><td>ByteDance</td><td><span class="elo">1114</span><span class="elo-ci">&plusmn;9</span></td><td>16,709</td></tr>
+<tr><td>28</td><td><strong>Kandinsky 5.0 Lite</strong></td><td>Kandinsky</td><td><span class="elo">1112</span><span class="elo-ci">&plusmn;18</span></td><td>1,353</td></tr>
+<tr><td>29</td><td><strong>LTX-2 19B</strong></td><td>Lightricks</td><td><span class="elo">1110</span><span class="elo-ci">&plusmn;12</span></td><td>13,698</td></tr>
+<tr><td>30</td><td><strong>Sora</strong></td><td>OpenAI</td><td><span class="elo">1071</span><span class="elo-ci">&plusmn;14</span></td><td>4,517</td></tr>
+<tr><td>31</td><td><strong>Luma Ray 2</strong></td><td>Luma AI</td><td><span class="elo">1066</span><span class="elo-ci">&plusmn;17</span></td><td>5,609</td></tr>
+<tr><td>32</td><td><strong>Pika V2.2</strong></td><td>Pika</td><td><span class="elo">1011</span><span class="elo-ci">&plusmn;15</span></td><td>6,495</td></tr>
+<tr><td>33</td><td><strong>Mochi V1</strong></td><td>Genmo AI</td><td><span class="elo">999</span><span class="elo-ci">&plusmn;16</span></td><td>6,678</td></tr>
+</tbody></table></div>
+<div class="arena-source">Source: <a href="https://arena.ai/leaderboard/text-to-video" target="_blank">LM Arena &nearr;</a></div>
+</div>
+
+<!-- ── I2V LEADERBOARD ── -->
+<div class="arena-frame" id="lb-i2v">
+<div class="lb-header"><h3 class="subsection-title" style="margin:0;">Image-to-Video Arena</h3><span class="lb-meta">396,333 votes &middot; 33 models &middot; Feb 2026</span></div>
+<div class="table-wrapper"><table class="data-table"><thead><tr><th class="sortable">#</th><th>Model</th><th>Developer</th><th class="sortable">Elo</th><th class="sortable">Votes</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>Grok Imagine Video 720p</strong></td><td>xAI</td><td><span class="elo">1402</span><span class="elo-ci">&plusmn;9</span><span class="prelim-badge">Prelim</span></td><td>13,668</td></tr>
+<tr><td>2</td><td><strong>Veo 3.1 Audio 1080p</strong></td><td>Google</td><td><span class="elo">1401</span><span class="elo-ci">&plusmn;12</span></td><td>8,979</td></tr>
+<tr><td>3</td><td><strong>Veo 3.1 Audio</strong></td><td>Google</td><td><span class="elo">1395</span><span class="elo-ci">&plusmn;11</span></td><td>23,412</td></tr>
+<tr><td>4</td><td><strong>Veo 3.1 Fast Audio</strong></td><td>Google</td><td><span class="elo">1382</span><span class="elo-ci">&plusmn;10</span></td><td>33,565</td></tr>
+<tr><td>5</td><td><strong>Veo 3.1 Fast Audio 1080p</strong></td><td>Google</td><td><span class="elo">1381</span><span class="elo-ci">&plusmn;13</span></td><td>9,408</td></tr>
+<tr><td>6</td><td><strong>Grok Imagine Video 480p</strong></td><td>xAI</td><td><span class="elo">1380</span><span class="elo-ci">&plusmn;9</span><span class="prelim-badge">Prelim</span></td><td>19,547</td></tr>
+<tr><td>7</td><td><strong>Vidu Q3 Pro</strong></td><td>Shengshu</td><td><span class="elo">1351</span><span class="elo-ci">&plusmn;8</span></td><td>18,306</td></tr>
+<tr><td>8</td><td><strong>Wan 2.5 I2V Preview</strong></td><td>Alibaba</td><td><span class="elo">1339</span><span class="elo-ci">&plusmn;12</span></td><td>12,017</td></tr>
+<tr><td>9</td><td><strong>Veo 3 Audio</strong></td><td>Google</td><td><span class="elo">1331</span><span class="elo-ci">&plusmn;11</span></td><td>34,536</td></tr>
+<tr><td>10</td><td><strong>Veo 3 Fast Audio</strong></td><td>Google</td><td><span class="elo">1322</span><span class="elo-ci">&plusmn;9</span></td><td>43,885</td></tr>
+<tr><td>11</td><td><strong>Seedance V1.5 Pro</strong></td><td>ByteDance</td><td><span class="elo">1302</span><span class="elo-ci">&plusmn;10</span></td><td>47,635</td></tr>
+<tr><td>12</td><td><strong>Kling 2.6 Pro</strong></td><td>KlingAI</td><td><span class="elo">1290</span><span class="elo-ci">&plusmn;10</span></td><td>38,055</td></tr>
+<tr><td>13</td><td><strong>Seedance V1 Pro</strong></td><td>ByteDance</td><td><span class="elo">1272</span><span class="elo-ci">&plusmn;7</span></td><td>36,449</td></tr>
+<tr><td>14</td><td><strong>Kling 2.5 Turbo 1080p</strong></td><td>KlingAI</td><td><span class="elo">1272</span><span class="elo-ci">&plusmn;12</span></td><td>3,871</td></tr>
+<tr><td>15</td><td><strong>Veo 3 Fast</strong></td><td>Google</td><td><span class="elo">1256</span><span class="elo-ci">&plusmn;9</span></td><td>27,855</td></tr>
+<tr><td>16</td><td><strong>Veo 3</strong></td><td>Google</td><td><span class="elo">1254</span><span class="elo-ci">&plusmn;10</span></td><td>27,718</td></tr>
+<tr><td>17</td><td><strong>Hailuo 2.3</strong></td><td>MiniMax</td><td><span class="elo">1254</span><span class="elo-ci">&plusmn;8</span></td><td>43,825</td></tr>
+<tr><td>18</td><td><strong>Vidu Q2 Turbo</strong></td><td>Shengshu</td><td><span class="elo">1244</span><span class="elo-ci">&plusmn;17</span></td><td>2,477</td></tr>
+<tr><td>19</td><td><strong>Kling 2.1 Master</strong></td><td>KlingAI</td><td><span class="elo">1232</span><span class="elo-ci">&plusmn;7</span></td><td>32,230</td></tr>
+<tr><td>20</td><td><strong>Hailuo 02 Pro</strong></td><td>MiniMax</td><td><span class="elo">1228</span><span class="elo-ci">&plusmn;10</span></td><td>23,822</td></tr>
+<tr><td>21</td><td><strong>Kling 2.1 Standard</strong></td><td>KlingAI</td><td><span class="elo">1225</span><span class="elo-ci">&plusmn;8</span></td><td>32,239</td></tr>
+<tr><td>22</td><td><strong>Vidu Q2 Pro</strong></td><td>Shengshu</td><td><span class="elo">1224</span><span class="elo-ci">&plusmn;16</span></td><td>2,563</td></tr>
+<tr><td>23</td><td><strong>Hailuo 02 Standard</strong></td><td>MiniMax</td><td><span class="elo">1222</span><span class="elo-ci">&plusmn;9</span></td><td>23,636</td></tr>
+<tr><td>24</td><td><strong>Luma Ray 3</strong></td><td>Luma AI</td><td><span class="elo">1222</span><span class="elo-ci">&plusmn;19</span></td><td>1,580</td></tr>
+<tr><td>25</td><td><strong>Hailuo 02 Fast</strong></td><td>MiniMax</td><td><span class="elo">1194</span><span class="elo-ci">&plusmn;10</span></td><td>24,564</td></tr>
+<tr><td>26</td><td><strong>HunyuanVideo 1.5</strong></td><td>Tencent</td><td><span class="elo">1193</span><span class="elo-ci">&plusmn;15</span></td><td>5,425</td></tr>
+<tr><td>27</td><td><strong>Seedance V1 Lite</strong></td><td>ByteDance</td><td><span class="elo">1182</span><span class="elo-ci">&plusmn;7</span></td><td>36,098</td></tr>
+<tr><td>28</td><td><strong>Wan 2.2 A14B</strong></td><td>Alibaba</td><td><span class="elo">1167</span><span class="elo-ci">&plusmn;9</span></td><td>29,434</td></tr>
+<tr><td>29</td><td><strong>Veo 2</strong></td><td>Google</td><td><span class="elo">1164</span><span class="elo-ci">&plusmn;15</span></td><td>11,532</td></tr>
+<tr><td>30</td><td><strong>LTX-2 19B</strong></td><td>Lightricks</td><td><span class="elo">1114</span><span class="elo-ci">&plusmn;8</span></td><td>27,062</td></tr>
+<tr><td>31</td><td><strong>Luma Ray 2</strong></td><td>Luma AI</td><td><span class="elo">1104</span><span class="elo-ci">&plusmn;16</span></td><td>10,821</td></tr>
+<tr><td>32</td><td><strong>Runway Gen4 Turbo</strong></td><td>Runway</td><td><span class="elo">1047</span><span class="elo-ci">&plusmn;12</span></td><td>7,506</td></tr>
+<tr><td>33</td><td><strong>Pika V2.2</strong></td><td>Pika</td><td><span class="elo">995</span><span class="elo-ci">&plusmn;13</span></td><td>9,453</td></tr>
+</tbody></table></div>
+<div class="arena-source">Source: <a href="https://arena.ai/leaderboard/image-to-video" target="_blank">LM Arena &nearr;</a></div>
+</div>
+
+<!-- ── VISION LEADERBOARD ── -->
+<div class="arena-frame" id="lb-vision">
+<div class="lb-header"><h3 class="subsection-title" style="margin:0;">Vision Understanding Arena</h3><span class="lb-meta">654,886 votes &middot; 94 models &middot; Feb 2026</span></div>
+<div class="table-wrapper"><table class="data-table"><thead><tr><th class="sortable">#</th><th>Model</th><th>Developer</th><th class="sortable">Elo</th><th class="sortable">Votes</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>Gemini 3 Pro</strong></td><td>Google</td><td><span class="elo">1289</span><span class="elo-ci">&plusmn;9</span></td><td>11,297</td></tr>
+<tr><td>2</td><td><strong>Gemini 3 Flash</strong></td><td>Google</td><td><span class="elo">1277</span><span class="elo-ci">&plusmn;9</span></td><td>9,175</td></tr>
+<tr><td>3</td><td><strong>GPT-5.2 High</strong></td><td>OpenAI</td><td><span class="elo">1257</span><span class="elo-ci">&plusmn;14</span></td><td>2,749</td></tr>
+<tr><td>4</td><td><strong>Gemini 3 Flash (Thinking)</strong></td><td>Google</td><td><span class="elo">1256</span><span class="elo-ci">&plusmn;10</span></td><td>7,313</td></tr>
+<tr><td>5</td><td><strong>GPT-5.1 High</strong></td><td>OpenAI</td><td><span class="elo">1252</span><span class="elo-ci">&plusmn;10</span></td><td>7,299</td></tr>
+<tr><td>6</td><td><strong>Kimi K2.5 Thinking</strong></td><td>Moonshot</td><td><span class="elo">1251</span><span class="elo-ci">&plusmn;13</span></td><td>2,979</td></tr>
+<tr><td>7</td><td><strong>Gemini 2.5 Pro</strong></td><td>Google</td><td><span class="elo">1246</span><span class="elo-ci">&plusmn;6</span></td><td>79,747</td></tr>
+<tr><td>8</td><td><strong>ChatGPT-4o Latest</strong></td><td>OpenAI</td><td><span class="elo">1235</span><span class="elo-ci">&plusmn;6</span></td><td>23,313</td></tr>
+<tr><td>9</td><td><strong>GPT-5.1</strong></td><td>OpenAI</td><td><span class="elo">1235</span><span class="elo-ci">&plusmn;9</span></td><td>7,974</td></tr>
+<tr><td>10</td><td><strong>Kimi K2.5 Instant</strong></td><td>Moonshot</td><td><span class="elo">1231</span><span class="elo-ci">&plusmn;17</span></td><td>1,663</td></tr>
+<tr><td>11</td><td><strong>Gemini 2.5 Flash 09/25</strong></td><td>Google</td><td><span class="elo">1225</span><span class="elo-ci">&plusmn;10</span></td><td>5,293</td></tr>
+<tr><td>12</td><td><strong>GPT-4.5 Preview</strong></td><td>OpenAI</td><td><span class="elo">1225</span><span class="elo-ci">&plusmn;11</span></td><td>2,925</td></tr>
+<tr><td>13</td><td><strong>GPT-5.2</strong></td><td>OpenAI</td><td><span class="elo">1223</span><span class="elo-ci">&plusmn;14</span></td><td>3,013</td></tr>
+<tr><td>14</td><td><strong>GPT-5 Chat</strong></td><td>OpenAI</td><td><span class="elo">1222</span><span class="elo-ci">&plusmn;7</span></td><td>43,264</td></tr>
+<tr><td>15</td><td><strong>ERNIE 5.0 Preview</strong></td><td>Baidu</td><td><span class="elo">1216</span><span class="elo-ci">&plusmn;11</span></td><td>3,623</td></tr>
+<tr><td>16</td><td><strong>O3</strong></td><td>OpenAI</td><td><span class="elo">1216</span><span class="elo-ci">&plusmn;7</span></td><td>49,181</td></tr>
+<tr><td>17</td><td><strong>Gemini 2.5 Flash</strong></td><td>Google</td><td><span class="elo">1213</span><span class="elo-ci">&plusmn;6</span></td><td>48,047</td></tr>
+<tr><td>18</td><td><strong>GPT-4.1</strong></td><td>OpenAI</td><td><span class="elo">1213</span><span class="elo-ci">&plusmn;7</span></td><td>44,463</td></tr>
+<tr><td>19</td><td><strong>Qwen3 VL 235B</strong></td><td>Alibaba</td><td><span class="elo">1211</span><span class="elo-ci">&plusmn;8</span></td><td>10,750</td></tr>
+<tr><td>20</td><td><strong>GPT-5 High</strong></td><td>OpenAI</td><td><span class="elo">1208</span><span class="elo-ci">&plusmn;8</span></td><td>37,581</td></tr>
+<tr><td>21</td><td><strong>Claude Opus 4 (Thinking)</strong></td><td>Anthropic</td><td><span class="elo">1206</span><span class="elo-ci">&plusmn;15</span></td><td>1,495</td></tr>
+<tr><td>22</td><td><strong>Claude Sonnet 4 (Thinking)</strong></td><td>Anthropic</td><td><span class="elo">1205</span><span class="elo-ci">&plusmn;16</span></td><td>1,361</td></tr>
+<tr><td>23</td><td><strong>GPT-4.1 Mini</strong></td><td>OpenAI</td><td><span class="elo">1201</span><span class="elo-ci">&plusmn;8</span></td><td>43,674</td></tr>
+<tr><td>24</td><td><strong>O4 Mini</strong></td><td>OpenAI</td><td><span class="elo">1199</span><span class="elo-ci">&plusmn;7</span></td><td>44,239</td></tr>
+<tr><td>25</td><td><strong>Claude 3.7 Sonnet (Thinking)</strong></td><td>Anthropic</td><td><span class="elo">1195</span><span class="elo-ci">&plusmn;15</span></td><td>1,676</td></tr>
+<tr><td>26</td><td><strong>O1</strong></td><td>OpenAI</td><td><span class="elo">1192</span><span class="elo-ci">&plusmn;10</span></td><td>3,694</td></tr>
+<tr><td>27</td><td><strong>Claude Opus 4</strong></td><td>Anthropic</td><td><span class="elo">1191</span><span class="elo-ci">&plusmn;12</span></td><td>2,579</td></tr>
+<tr><td>28</td><td><strong>Gemini 2.5 Flash Lite (Think)</strong></td><td>Google</td><td><span class="elo">1188</span><span class="elo-ci">&plusmn;8</span></td><td>39,110</td></tr>
+<tr><td>29</td><td><strong>Hunyuan Vision 1.5 (Think)</strong></td><td>Tencent</td><td><span class="elo">1187</span><span class="elo-ci">&plusmn;12</span></td><td>2,869</td></tr>
+<tr><td>30</td><td><strong>Qwen3 VL 235B (Thinking)</strong></td><td>Alibaba</td><td><span class="elo">1186</span><span class="elo-ci">&plusmn;12</span></td><td>2,664</td></tr>
+<tr><td>31</td><td><strong>Claude Sonnet 4</strong></td><td>Anthropic</td><td><span class="elo">1186</span><span class="elo-ci">&plusmn;13</span></td><td>2,066</td></tr>
+<tr><td>32</td><td><strong>Grok 4</strong></td><td>xAI</td><td><span class="elo">1182</span><span class="elo-ci">&plusmn;8</span></td><td>34,737</td></tr>
+<tr><td>33</td><td><strong>GPT-5 Mini High</strong></td><td>OpenAI</td><td><span class="elo">1181</span><span class="elo-ci">&plusmn;9</span></td><td>31,410</td></tr>
+<tr><td>34</td><td><strong>Qwen VL Max</strong></td><td>Alibaba</td><td><span class="elo">1181</span><span class="elo-ci">&plusmn;12</span></td><td>3,454</td></tr>
+<tr><td>35</td><td><strong>Gemini 1.5 Pro 002</strong></td><td>Google</td><td><span class="elo">1178</span><span class="elo-ci">&plusmn;8</span></td><td>8,902</td></tr>
+<tr><td>36</td><td><strong>Claude 3.7 Sonnet</strong></td><td>Anthropic</td><td><span class="elo">1177</span><span class="elo-ci">&plusmn;9</span></td><td>4,674</td></tr>
+<tr><td>37</td><td><strong>Gemini 2.5 Flash Lite NT</strong></td><td>Google</td><td><span class="elo">1173</span><span class="elo-ci">&plusmn;10</span></td><td>5,330</td></tr>
+<tr><td>38</td><td><strong>Gemini 2.0 Flash</strong></td><td>Google</td><td><span class="elo">1170</span><span class="elo-ci">&plusmn;7</span></td><td>9,875</td></tr>
+<tr><td>39</td><td><strong>GPT-4o (05/24)</strong></td><td>OpenAI</td><td><span class="elo">1162</span><span class="elo-ci">&plusmn;8</span></td><td>23,273</td></tr>
+<tr><td>40</td><td><strong>GLM-4.6V</strong></td><td>Z.ai</td><td><span class="elo">1161</span><span class="elo-ci">&plusmn;14</span></td><td>2,611</td></tr>
+<tr><td>41</td><td><strong>Claude 3.5 Sonnet (10/24)</strong></td><td>Anthropic</td><td><span class="elo">1161</span><span class="elo-ci">&plusmn;7</span></td><td>10,568</td></tr>
+<tr><td>42</td><td><strong>Gemma 3 27B</strong></td><td>Google</td><td><span class="elo">1156</span><span class="elo-ci">&plusmn;8</span></td><td>18,534</td></tr>
+<tr><td>43</td><td><strong>Mistral Medium (05/25)</strong></td><td>Mistral</td><td><span class="elo">1155</span><span class="elo-ci">&plusmn;8</span></td><td>11,519</td></tr>
+<tr><td>44</td><td><strong>GLM-4.5V</strong></td><td>Z.ai</td><td><span class="elo">1154</span><span class="elo-ci">&plusmn;12</span></td><td>3,576</td></tr>
+<tr><td>45</td><td><strong>Step-1o Turbo</strong></td><td>StepFun</td><td><span class="elo">1152</span><span class="elo-ci">&plusmn;14</span></td><td>2,037</td></tr>
+<tr><td>46</td><td><strong>Hunyuan Large Vision</strong></td><td>Tencent</td><td><span class="elo">1151</span><span class="elo-ci">&plusmn;16</span></td><td>1,440</td></tr>
+<tr><td>47</td><td><strong>Mistral Medium (08/25)</strong></td><td>Mistral</td><td><span class="elo">1150</span><span class="elo-ci">&plusmn;7</span></td><td>41,998</td></tr>
+<tr><td>48</td><td><strong>Claude 3.5 Sonnet (06/24)</strong></td><td>Anthropic</td><td><span class="elo">1146</span><span class="elo-ci">&plusmn;9</span></td><td>21,624</td></tr>
+<tr><td>49</td><td><strong>Llama 4 Maverick</strong></td><td>Meta</td><td><span class="elo">1145</span><span class="elo-ci">&plusmn;9</span></td><td>7,410</td></tr>
+<tr><td>50</td><td><strong>GPT-5 Nano High</strong></td><td>OpenAI</td><td><span class="elo">1144</span><span class="elo-ci">&plusmn;11</span></td><td>4,325</td></tr>
+<tr><td>51</td><td><strong>Step-3</strong></td><td>StepFun</td><td><span class="elo">1144</span><span class="elo-ci">&plusmn;12</span></td><td>3,558</td></tr>
+<tr><td>52</td><td><strong>Mistral Small (06/25)</strong></td><td>Mistral</td><td><span class="elo">1139</span><span class="elo-ci">&plusmn;9</span></td><td>11,713</td></tr>
+<tr><td>53</td><td><strong>Gemini 1.5 Flash 002</strong></td><td>Google</td><td><span class="elo">1139</span><span class="elo-ci">&plusmn;9</span></td><td>7,241</td></tr>
+<tr><td>54</td><td><strong>Gemini 2.0 Flash Lite</strong></td><td>Google</td><td><span class="elo">1133</span><span class="elo-ci">&plusmn;10</span></td><td>3,991</td></tr>
+<tr><td>55</td><td><strong>Claude 3.5 Haiku</strong></td><td>Anthropic</td><td><span class="elo">1130</span><span class="elo-ci">&plusmn;15</span></td><td>1,583</td></tr>
+<tr><td>56</td><td><strong>Mistral Small 3.1 24B</strong></td><td>Mistral</td><td><span class="elo">1126</span><span class="elo-ci">&plusmn;9</span></td><td>30,955</td></tr>
+<tr><td>57</td><td><strong>Llama 4 Scout</strong></td><td>Meta</td><td><span class="elo">1125</span><span class="elo-ci">&plusmn;10</span></td><td>6,826</td></tr>
+<tr><td>58</td><td><strong>Step-1o Vision 32K</strong></td><td>StepFun</td><td><span class="elo">1123</span><span class="elo-ci">&plusmn;12</span></td><td>2,833</td></tr>
+<tr><td>59</td><td><strong>Qwen2.5 VL 72B</strong></td><td>Alibaba</td><td><span class="elo">1121</span><span class="elo-ci">&plusmn;10</span></td><td>3,768</td></tr>
+<tr><td>60</td><td><strong>GPT-4o (08/24)</strong></td><td>OpenAI</td><td><span class="elo">1118</span><span class="elo-ci">&plusmn;12</span></td><td>3,376</td></tr>
+<tr><td>61</td><td><strong>Gemini 1.5 Pro 001</strong></td><td>Google</td><td><span class="elo">1117</span><span class="elo-ci">&plusmn;11</span></td><td>16,734</td></tr>
+<tr><td>62</td><td><strong>Qwen2.5 VL 32B</strong></td><td>Alibaba</td><td><span class="elo">1116</span><span class="elo-ci">&plusmn;15</span></td><td>1,490</td></tr>
+<tr><td>63</td><td><strong>GPT-4 Turbo</strong></td><td>OpenAI</td><td><span class="elo">1112</span><span class="elo-ci">&plusmn;11</span></td><td>13,391</td></tr>
+<tr><td>64</td><td><strong>GPT-4o Mini</strong></td><td>OpenAI</td><td><span class="elo">1097</span><span class="elo-ci">&plusmn;7</span></td><td>17,347</td></tr>
+<tr><td>65</td><td><strong>Pixtral Large</strong></td><td>Mistral</td><td><span class="elo">1093</span><span class="elo-ci">&plusmn;9</span></td><td>5,423</td></tr>
+<tr><td>66</td><td><strong>GPT-4.1 Nano</strong></td><td>OpenAI</td><td><span class="elo">1088</span><span class="elo-ci">&plusmn;18</span></td><td>1,211</td></tr>
+<tr><td>67</td><td><strong>Qwen2 VL 72B</strong></td><td>Alibaba</td><td><span class="elo">1085</span><span class="elo-ci">&plusmn;9</span></td><td>5,937</td></tr>
+<tr><td>68</td><td><strong>Qwen VL Max 1119</strong></td><td>Alibaba</td><td><span class="elo">1084</span><span class="elo-ci">&plusmn;16</span></td><td>1,422</td></tr>
+<tr><td>69</td><td><strong>Gemini 1.5 Flash 8B</strong></td><td>Google</td><td><span class="elo">1070</span><span class="elo-ci">&plusmn;10</span></td><td>6,243</td></tr>
+<tr><td>70</td><td><strong>Claude 3 Opus</strong></td><td>Anthropic</td><td><span class="elo">1063</span><span class="elo-ci">&plusmn;10</span></td><td>15,565</td></tr>
+<tr><td>71</td><td><strong>Step-1V 32K</strong></td><td>StepFun</td><td><span class="elo">1063</span><span class="elo-ci">&plusmn;16</span></td><td>1,534</td></tr>
+<tr><td>72</td><td><strong>Gemini 1.5 Flash 001</strong></td><td>Google</td><td><span class="elo">1059</span><span class="elo-ci">&plusmn;11</span></td><td>13,260</td></tr>
+<tr><td>73</td><td><strong>Molmo 72B</strong></td><td>AI2</td><td><span class="elo">1047</span><span class="elo-ci">&plusmn;13</span></td><td>3,048</td></tr>
+<tr><td>74</td><td><strong>Hunyuan Standard Vision</strong></td><td>Tencent</td><td><span class="elo">1043</span><span class="elo-ci">&plusmn;21</span></td><td>809</td></tr>
+<tr><td>75</td><td><strong>Llama 3.2 Vision 90B</strong></td><td>Meta</td><td><span class="elo">1032</span><span class="elo-ci">&plusmn;8</span></td><td>8,682</td></tr>
+<tr><td>76</td><td><strong>Qwen2 VL 7B</strong></td><td>Alibaba</td><td><span class="elo">1031</span><span class="elo-ci">&plusmn;10</span></td><td>5,766</td></tr>
+<tr><td>77</td><td><strong>Pixtral 12B</strong></td><td>Mistral</td><td><span class="elo">1025</span><span class="elo-ci">&plusmn;9</span></td><td>7,511</td></tr>
+<tr><td>78</td><td><strong>InternVL2 26B</strong></td><td>OpenGVLab</td><td><span class="elo">1024</span><span class="elo-ci">&plusmn;12</span></td><td>5,148</td></tr>
+<tr><td>79</td><td><strong>Amazon Nova Lite</strong></td><td>Amazon</td><td><span class="elo">1020</span><span class="elo-ci">&plusmn;15</span></td><td>1,854</td></tr>
+<tr><td>80</td><td><strong>Amazon Nova Pro</strong></td><td>Amazon</td><td><span class="elo">1019</span><span class="elo-ci">&plusmn;13</span></td><td>2,335</td></tr>
+<tr><td>81</td><td><strong>Claude 3 Sonnet</strong></td><td>Anthropic</td><td><span class="elo">1019</span><span class="elo-ci">&plusmn;11</span></td><td>12,314</td></tr>
+<tr><td>82</td><td><strong>Yi Vision</strong></td><td>01.AI</td><td><span class="elo">1003</span><span class="elo-ci">&plusmn;18</span></td><td>1,219</td></tr>
+<tr><td>83</td><td><strong>Claude 3 Haiku</strong></td><td>Anthropic</td><td><span class="elo">1002</span><span class="elo-ci">&plusmn;12</span></td><td>13,380</td></tr>
+<tr><td>84</td><td><strong>Aya Vision 32B</strong></td><td>Cohere</td><td><span class="elo">1000</span><span class="elo-ci">&plusmn;22</span></td><td>847</td></tr>
+<tr><td>85</td><td><strong>Molmo 7B-D</strong></td><td>AI2</td><td><span class="elo">996</span><span class="elo-ci">&plusmn;13</span></td><td>2,815</td></tr>
+<tr><td>86</td><td><strong>Llama 3.2 Vision 11B</strong></td><td>Meta</td><td><span class="elo">991</span><span class="elo-ci">&plusmn;11</span></td><td>4,817</td></tr>
+<tr><td>87</td><td><strong>NVILA 15B</strong></td><td>Nvidia</td><td><span class="elo">987</span><span class="elo-ci">&plusmn;20</span></td><td>1,077</td></tr>
+<tr><td>88</td><td><strong>LLaVA OneVision 72B</strong></td><td>LLaVA</td><td><span class="elo">980</span><span class="elo-ci">&plusmn;18</span></td><td>1,321</td></tr>
+<tr><td>89</td><td><strong>LLaVA v1.6 34B</strong></td><td>LLaVA</td><td><span class="elo">966</span><span class="elo-ci">&plusmn;12</span></td><td>4,531</td></tr>
+<tr><td>90</td><td><strong>MiniCPM-V 2.6</strong></td><td>OpenBMB</td><td><span class="elo">964</span><span class="elo-ci">&plusmn;15</span></td><td>1,987</td></tr>
+<tr><td>91</td><td><strong>CogVLM2 19B</strong></td><td>Zhipu AI</td><td><span class="elo">964</span><span class="elo-ci">&plusmn;15</span></td><td>1,991</td></tr>
+<tr><td>92</td><td><strong>InternVL2 4B</strong></td><td>OpenGVLab</td><td><span class="elo">957</span><span class="elo-ci">&plusmn;12</span></td><td>3,703</td></tr>
+<tr><td>93</td><td><strong>Phi-3.5 Vision</strong></td><td>Microsoft</td><td><span class="elo">921</span><span class="elo-ci">&plusmn;15</span></td><td>2,592</td></tr>
+<tr><td>94</td><td><strong>Phi-3 Vision 128K</strong></td><td>Microsoft</td><td><span class="elo">883</span><span class="elo-ci">&plusmn;18</span></td><td>1,401</td></tr>
+</tbody></table></div>
+<div class="arena-source">Source: <a href="https://arena.ai/leaderboard/vision" target="_blank">LM Arena &nearr;</a></div>
+</div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     ELO SYSTEM EXPLAINED
+     ═══════════════════════════════════════════════════════ -->
+<section class="section" id="elo-explained">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Methodology</span>
+            <h2 class="section-title">Understanding the Elo Rating System</h2>
+            <p class="section-desc">How arena rankings work and what the scores mean for model quality comparison.</p>
+        </div>
+        <div class="section-intro">
+            Both <strong>LM Arena</strong> and <strong>Artificial Analysis</strong> use an <strong>Elo rating system</strong> &mdash; originally developed for chess and now standard in AI benchmarking. Users compare two anonymously generated outputs and vote for their preference. Winners gain Elo points; losers lose points. The magnitude depends on the expected outcome &mdash; upsets transfer more points. A <strong>10-point difference</strong> is meaningful; <strong>50+ points</strong> indicates substantial advantage.
+        </div>
+        <div class="theory-grid">
+            <div class="theory-card">
+                <h4><span class="theory-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> Exceptional (1250+)</h4>
+                <p>Models that consistently outperform all competition. GPT Image 1.5, Veo 3.1, Gemini 3 Pro represent the current state-of-the-art across generation and vision.</p>
+            </div>
+            <div class="theory-card">
+                <h4><span class="theory-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span> Top-Tier (1200&ndash;1250)</h4>
+                <p>Premium performance for professional applications. Includes Sora 2 Pro, FLUX.2 family, Seedream 4.5, Claude Opus 4, and other flagship models.</p>
+            </div>
+            <div class="theory-card">
+                <h4><span class="theory-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span> High-Quality (1150&ndash;1200)</h4>
+                <p>Excellent results for most applications. Densely packed tier with HunyuanImage, Kling, Hailuo, GPT-4.1, Gemini 2.5 Flash, and many competitive models.</p>
+            </div>
+            <div class="theory-card">
+                <h4><span class="theory-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span> Solid Mid-Tier (1000&ndash;1150)</h4>
+                <p>Reliable quality suitable for most use cases. Includes open-source models like Qwen2.5 VL, Llama 4, FLUX.1, Recraft V3, and community favorites.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3><img src="logo.png" alt="OpenMM-Arena Logo" style="width:28px;height:28px;object-fit:contain;"> OpenMM-Arena</h3>
+                <p>A Comprehensive Compendium for Multimodal AI Research &mdash; T2I, T2V, I2V, 3D, 4D, Unified, and World Models.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Research Pillars</h4>
+                <ul>
+                    <li><a href="t2i.html">Text-to-Image</a></li>
+                    <li><a href="t2v.html">Text-to-Video</a></li>
+                    <li><a href="i2v.html">Image-to-Video</a></li>
+                    <li><a href="3d.html">3D Vision</a></li>
+                    <li><a href="4d.html">4D Vision</a></li>
+                    <li><a href="unified.html">Unified</a></li>
+                    <li><a href="world.html">World</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Arena Sources</h4>
+                <ul>
+                    <li><a href="https://arena.ai/leaderboard/text-to-image" target="_blank">LM Arena &mdash; T2I</a></li>
+                    <li><a href="https://arena.ai/leaderboard/image-edit" target="_blank">LM Arena &mdash; Edit</a></li>
+                    <li><a href="https://arena.ai/leaderboard/text-to-video" target="_blank">LM Arena &mdash; T2V</a></li>
+                    <li><a href="https://arena.ai/leaderboard/image-to-video" target="_blank">LM Arena &mdash; I2V</a></li>
+                    <li><a href="https://arena.ai/leaderboard/vision" target="_blank">LM Arena &mdash; Vision</a></li>
+                    <li><a href="https://artificialanalysis.ai/image/arena" target="_blank">AA &mdash; Image</a></li>
+                    <li><a href="https://artificialanalysis.ai/video/arena" target="_blank">AA &mdash; Video</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025&ndash;2026 OpenMM-Arena Contributors &middot; MIT License &middot; Arena data via <a href="https://arena.ai" target="_blank" style="color:var(--blue-500);">LM Arena</a> &amp; <a href="https://artificialanalysis.ai" target="_blank" style="color:var(--blue-500);">Artificial Analysis</a><br>OpenMM-Arena belongs to <strong>OpenEnvision Lab</strong></p>
+            <div class="last-updated">Last updated: February 2026</div>
+        </div>
+    </div>
+</footer>
+</main>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>
+<script src="script.js"></script>
+<script>
+/* ═══ Generic tab switching with lazy iframe loading ═══ */
+document.querySelectorAll('.arena-tabs').forEach(function(tabBar) {
+    tabBar.addEventListener('click', function(e) {
+        var tab = e.target.closest('.arena-tab');
+        if (!tab) return;
+        tabBar.querySelectorAll('.arena-tab').forEach(function(t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        /* Find the sibling frame container */
+        var container = tabBar.nextElementSibling;
+        while (container && !container.classList.contains('arena-frame-container') && !container.querySelector('.arena-frame')) {
+            container = container.nextElementSibling;
+        }
+        /* For leaderboard panels, they're siblings of the tab bar at the same level */
+        var targetId = tab.getAttribute('data-target');
+        var target = document.getElementById(targetId);
+        if (!target) return;
+        /* Hide all siblings with .arena-frame class */
+        var parent = target.parentNode;
+        parent.querySelectorAll(':scope > .arena-frame').forEach(function(f) { f.classList.remove('active'); });
+        target.classList.add('active');
+        /* Lazy-load iframe if needed */
+        var iframe = target.querySelector('iframe[data-src]');
+        if (iframe) {
+            iframe.src = iframe.getAttribute('data-src');
+            iframe.removeAttribute('data-src');
+        }
+    });
+});
+</script>
+</body>
+</html>

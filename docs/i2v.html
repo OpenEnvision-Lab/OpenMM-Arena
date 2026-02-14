@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image-to-Video Generation — OpenMM-Arena</title>
+    <meta name="description" content="A comprehensive catalogue of image-to-video generation research — transforming static images into dynamic video sequences through learned motion priors, character animation, and video editing.">
+    <meta name="theme-color" content="#1d5ede" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;520;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo"><span class="logo-icon"><img src="logo.png" alt="OpenMM-Arena Logo" style="width:36px;height:36px;object-fit:contain;"></span><span>OpenMM-Arena</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="t2i.html">Text-to-Image</a></li>
+            <li><a href="t2v.html">Text-to-Video</a></li>
+            <li><a href="i2v.html">Image-to-Video</a></li>
+            <li><a href="3d.html">3D Vision</a></li>
+            <li><a href="4d.html">4D Vision</a></li>
+            <li><a href="unified.html">Unified</a></li>
+            <li><a href="world.html">World</a></li>
+            <li><a href="arena.html">MM Arena</a></li>
+            <li><button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode (D)"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            <li><a href="https://github.com/OpenMM-Arena/OpenMM-Arena" class="nav-github" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+        </ul>
+    </div>
+</nav>
+
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h16M4 6h16M4 18h16"/></svg></button>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+<div class="page-layout">
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="index.html" class="sidebar-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Home</span></a>
+        <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="sidebar-section-label">Image-to-Video</div>
+    <ul class="sidebar-nav">
+        <li><a href="i2v/animation.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span> <span>Animation &amp; Portraits</span></a></li>
+        <li><a href="i2v/editing.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767-7.07"/><path d="m8.364 2.636 2.828-2.828a2 2 0 0 1 2.829 0l1.414 1.414a2 2 0 0 1 0 2.828L8.364 14.364"/><path d="m2.636 8.364 7.07-1.767a2 2 0 0 1 2.83 2.828l-1.768 7.071"/></svg></span> <span>Editing &amp; Enhancement</span></a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">All Pillars</div>
+    <ul class="sidebar-nav">
+        <li><a href="t2i.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span> <span>Text-to-Image</span></a></li>
+        <li><a href="t2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg></span> <span>Text-to-Video</span></a></li>
+        <li><a href="i2v.html" class="sidebar-link active"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span> <span>Image-to-Video</span></a></li>
+        <li><a href="3d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg></span> <span>3D Vision</span></a></li>
+        <li><a href="4d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span> <span>4D Vision</span></a></li>
+        <li><a href="unified.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></span> <span>Unified Models</span></a></li>
+        <li><a href="world.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span> <span>World Models</span></a></li>
+    </ul>
+</aside>
+
+<main class="page-main">
+<header class="page-hero">
+    <div class="page-hero-bg"><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div></div>
+    <div class="container">
+        <div class="page-hero-content">
+            
+            <h1 class="page-hero-title">Image-to-Video Generation</h1>
+            <p class="page-hero-desc">Transforming static images into dynamic video sequences through learned motion priors — synthesizing temporally coherent motion from a single frame while preserving identity, structure, and semantic consistency.</p>
+        </div>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <div class="section-intro">
+            Image-to-video (I2V) generation has emerged as a critical capability in multimodal AI, bridging static imagery with temporal dynamics. By conditioning on a reference frame, I2V models learn to hallucinate plausible motion trajectories, enabling applications ranging from character animation and talking-head synthesis to film production and creative content generation. Explore the two sub-domains below.
+        </div>
+        <div class="subpage-grid" style="margin-top:40px;">
+            <a href="i2v/animation.html" class="domain-card" data-accent="i2v">
+                <div class="domain-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div>
+                <h3>Image Animation &amp; Portrait Generation</h3>
+                <p>Core I2V models, character-driven animation, human motion synthesis, and audio-driven talking head generation.</p>
+                <div class="domain-card-footer">
+                    <span class="domain-card-count">90+ papers</span>
+                    <span class="domain-card-arrow">→</span>
+                </div>
+            </a>
+            <a href="i2v/editing.html" class="domain-card" data-accent="bench">
+                <div class="domain-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767-7.07"/><path d="m8.364 2.636 2.828-2.828a2 2 0 0 1 2.829 0l1.414 1.414a2 2 0 0 1 0 2.828L8.364 14.364"/><path d="m2.636 8.364 7.07-1.767a2 2 0 0 1 2.83 2.828l-1.768 7.071"/></svg></div>
+                <h3>Video Editing, Enhancement &amp; Motion Transfer</h3>
+                <p>Text-guided video editing, style transfer, motion customization, video inpainting, and super-resolution.</p>
+                <div class="domain-card-footer">
+                    <span class="domain-card-count">80+ papers</span>
+                    <span class="domain-card-arrow">→</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand"><h3><img src="logo.png" alt="OpenMM-Arena Logo" style="width:28px;height:28px;object-fit:contain;"> OpenMM-Arena</h3><p>A Comprehensive Compendium for Multimodal AI Research</p></div>
+            <div class="footer-links"><h4>Research Pillars</h4><ul><li><a href="t2i.html">Text-to-Image</a></li><li><a href="t2v.html">Text-to-Video</a></li><li><a href="i2v.html">Image-to-Video</a></li><li><a href="3d.html">3D Vision</a></li>
+            <li><a href="4d.html">4D Vision</a></li><li><a href="unified.html">Unified Models</a></li><li><a href="world.html">World Models</a></li></ul></div>
+            <div class="footer-links"><h4>Sources</h4><ul><li><a href="https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image" target="_blank">Awesome-Text-to-Image</a></li><li><a href="https://github.com/soraw-ai/Awesome-Text-to-Video-Generation" target="_blank">Awesome-T2V-Generation</a></li><li><a href="https://github.com/showlab/Awesome-Video-Diffusion" target="_blank">Awesome-Video-Diffusion</a></li><li><a href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting" target="_blank">Awesome-3DGS</a></li><li><a href="https://github.com/openMVG/awesome_3DReconstruction_list" target="_blank">Awesome-3DReconstruction</a></li><li><a href="https://github.com/ActiveVisionLab/Awesome-LLM-3D" target="_blank">Awesome-LLM-3D</a></li></ul></div>
+            <div class="footer-links"><h4>&nbsp;</h4><ul><li><a href="https://github.com/Hardy-Uint/awesome-3D-vision" target="_blank">Awesome-3D-Vision</a></li><li><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM" target="_blank">Awesome-NeRF-3DGS-SLAM</a></li><li><a href="https://github.com/yukangcao/Awesome-4D-Spatial-Intelligence" target="_blank">Awesome-4D-SI</a></li><li><a href="https://github.com/knightnemo/Awesome-World-Models" target="_blank">Awesome-World-Models</a></li><li><a href="https://github.com/AIDC-AI/Awesome-Unified-Multimodal-Models" target="_blank">Awesome-Unified-MM</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025–2026 OpenMM-Arena Contributors &middot; MIT License<br>OpenMM-Arena belongs to <strong>OpenEnvision Lab</strong></p><div class="last-updated">Last updated: February 2026</div></div>
+    </div>
+</footer>
+</main>
+</div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>
+<script src="script.js"></script>
+</body>
+</html>
