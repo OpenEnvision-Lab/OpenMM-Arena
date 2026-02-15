@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;520;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../logo.png">
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
@@ -36,7 +37,7 @@
 <div class="page-layout">
 <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-        <a href="../unified.html" class="sidebar-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Unified Models</span></a>
+        <a href="../unified.html" class="sidebar-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Unified</span></a>
         <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
         <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>
@@ -54,8 +55,8 @@
         <li><a href="../i2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span><span>Image-to-Video</span></a></li>
         <li><a href="../3d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg></span><span>3D Vision</span></a></li>
         <li><a href="../4d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span><span>4D Vision</span></a></li>
-        <li><a href="../unified.html" class="sidebar-link active"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></span><span>Unified Models</span></a></li>
-        <li><a href="../world.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span>World Models</span></a></li>    </ul>
+        <li><a href="../unified.html" class="sidebar-link active"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></span><span>Unified</span></a></li>
+        <li><a href="../world.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span>World</span></a></li>    </ul>
     <div class="sidebar-divider"></div>
     <div class="sidebar-toc" id="sidebarToc"></div>
 </aside>
@@ -256,8 +257,8 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
-            <div class="footer-brand"><h3><img src="../logo.png" alt="OpenMM-Arena Logo" style="width:28px;height:28px;object-fit:contain;"> OpenMM-Arena</h3><p>A Comprehensive Compendium for Multimodal AI Research</p></div>
-            <div class="footer-links"><h4>Research Pillars</h4><ul><li><a href="../t2i.html">Text-to-Image</a></li><li><a href="../t2v.html">Text-to-Video</a></li><li><a href="../i2v.html">Image-to-Video</a></li><li><a href="../3d.html">3D Vision</a></li><li><a href="../4d.html">4D Vision</a></li><li><a href="../unified.html">Unified Models</a></li><li><a href="../world.html">World Models</a></li></ul></div>
+            <div class="footer-brand"><h3><img src="../logo.png" alt="OpenMM-Arena Logo" style="width:28px;height:28px;object-fit:contain;"> OpenMM-Arena</h3><p>A Comprehensive Compendium for Multimodal AI Research — Unifying Text-to-Image, Text-to-Video, Image-to-Video, 3D Vision, 4D Spatial Intelligence, Unified Multimodal Models, and World Models.</p></div>
+            <div class="footer-links"><h4>Research Pillars</h4><ul><li><a href="../t2i.html">Text-to-Image</a></li><li><a href="../t2v.html">Text-to-Video</a></li><li><a href="../i2v.html">Image-to-Video</a></li><li><a href="../3d.html">3D Vision</a></li><li><a href="../4d.html">4D Vision</a></li><li><a href="../unified.html">Unified</a></li><li><a href="../world.html">World</a></li><li><a href="../arena.html">MM Arena</a></li></ul></div>
             <div class="footer-links"><h4>Sources</h4><ul><li><a href="https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image" target="_blank">Awesome-Text-to-Image</a></li><li><a href="https://github.com/soraw-ai/Awesome-Text-to-Video-Generation" target="_blank">Awesome-T2V-Generation</a></li><li><a href="https://github.com/showlab/Awesome-Video-Diffusion" target="_blank">Awesome-Video-Diffusion</a></li><li><a href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting" target="_blank">Awesome-3DGS</a></li><li><a href="https://github.com/openMVG/awesome_3DReconstruction_list" target="_blank">Awesome-3DReconstruction</a></li><li><a href="https://github.com/ActiveVisionLab/Awesome-LLM-3D" target="_blank">Awesome-LLM-3D</a></li></ul></div>
             <div class="footer-links"><h4>&nbsp;</h4><ul><li><a href="https://github.com/Hardy-Uint/awesome-3D-vision" target="_blank">Awesome-3D-Vision</a></li><li><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM" target="_blank">Awesome-NeRF-3DGS-SLAM</a></li><li><a href="https://github.com/yukangcao/Awesome-4D-Spatial-Intelligence" target="_blank">Awesome-4D-SI</a></li><li><a href="https://github.com/knightnemo/Awesome-World-Models" target="_blank">Awesome-World-Models</a></li><li><a href="https://github.com/AIDC-AI/Awesome-Unified-Multimodal-Models" target="_blank">Awesome-Unified-MM</a></li></ul></div>
         </div>

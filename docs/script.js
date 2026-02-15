@@ -80,7 +80,7 @@
             if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
         });
     }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-    const fadeTargets = '.section-header, .taxonomy-card, .domain-card, .crossmodal-card, .theory-card, .table-wrapper, .section-intro, .spotlight-card, .stats-banner, .stats-banner-item, .metric-card, .subsection-title, .news-card, .feature-card, .featured-card, .cta-content, .cta-stat';
+    const fadeTargets = '.section-header, .taxonomy-card, .domain-card, .crossmodal-card, .theory-card, .table-wrapper, .section-intro, .spotlight-card, .stats-banner, .stats-banner-item, .metric-card, .subsection-title, .news-card, .feature-card, .featured-card, .cta-content, .cta-stat, .section-divider';
 
     /* Smart stagger: reset delay counter per parent grid */
     var lastParent = null;
@@ -185,7 +185,7 @@
 
     /* ── D key for dark mode, [ key for sidebar toggle (when not in input) ── */
     document.addEventListener('keydown', function (e) {
-        if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
+        if (!document.activeElement || document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') return;
         if (e.key === 'd') { if (darkToggle) darkToggle.click(); }
         if (e.key === '[' && sidebar && sidebarCollapseBtn && window.innerWidth > 1024) {
             e.preventDefault(); sidebarCollapseBtn.click();
@@ -542,7 +542,7 @@
        ════════════════════════════════════════════════ */
     document.addEventListener('keydown', function (e) {
         /* ? key to show shortcuts */
-        if (e.key === '?' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        if (e.key === '?' && document.activeElement && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
             var existing = document.getElementById('shortcutsModal');
             if (existing) { existing.remove(); return; }
 
@@ -799,5 +799,371 @@
             if (svg) svg.style.transform = 'translateX(0)';
         });
     });
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Hero Aurora Effect
+       Creates dynamic aurora-like beams in the hero
+       ════════════════════════════════════════════════ */
+    (function initHeroAurora() {
+        var hero = document.querySelector('.hero');
+        if (!hero) return;
+
+        /* Create aurora container */
+        var aurora = document.createElement('div');
+        aurora.className = 'hero-aurora';
+        for (var i = 0; i < 3; i++) {
+            var beam = document.createElement('div');
+            beam.className = 'hero-aurora-beam';
+            aurora.appendChild(beam);
+        }
+        hero.insertBefore(aurora, hero.firstChild);
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Floating Particles
+       Decorative particles in the hero section
+       ════════════════════════════════════════════════ */
+    (function initHeroParticles() {
+        var hero = document.querySelector('.hero');
+        if (!hero) return;
+        /* Skip on mobile for performance */
+        if (window.innerWidth < 768) return;
+
+        var container = document.createElement('div');
+        container.className = 'hero-particles';
+        var particleCount = 18;
+
+        for (var i = 0; i < particleCount; i++) {
+            var p = document.createElement('div');
+            p.className = 'hero-particle';
+            var size = 2 + Math.random() * 4;
+            var duration = 12 + Math.random() * 20;
+            var delay = Math.random() * 15;
+            var x = Math.random() * 100;
+            var y = Math.random() * 100;
+            var dx = -40 + Math.random() * 80;
+            var dy = -60 + Math.random() * -40;
+            var scale = 0.6 + Math.random() * 1.2;
+            var maxOpacity = 0.2 + Math.random() * 0.5;
+
+            p.style.cssText =
+                'width:' + size + 'px;height:' + size + 'px;' +
+                'left:' + x + '%;top:' + y + '%;' +
+                '--duration:' + duration + 's;' +
+                '--delay:-' + delay + 's;' +
+                '--dx:' + dx + 'px;' +
+                '--dy:' + dy + 'px;' +
+                '--scale:' + scale + ';' +
+                '--max-opacity:' + maxOpacity + ';';
+
+            container.appendChild(p);
+        }
+        hero.insertBefore(container, hero.querySelector('.hero-content'));
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: 3D Card Tilt Effect
+       Inspired by Stripe's card interactions
+       ════════════════════════════════════════════════ */
+    (function initCardTilt() {
+        if (window.innerWidth < 768) return;
+
+        var tiltCards = document.querySelectorAll('.domain-card, .feature-card, .spotlight-card, .featured-card');
+        tiltCards.forEach(function (card) {
+            card.classList.add('tilt-card');
+            var shine = document.createElement('div');
+            shine.className = 'card-shine';
+            card.appendChild(shine);
+
+            var rect, raf;
+            card.addEventListener('mouseenter', function () {
+                rect = card.getBoundingClientRect();
+            });
+
+            card.addEventListener('mousemove', function (e) {
+                if (!rect) rect = card.getBoundingClientRect();
+                if (raf) cancelAnimationFrame(raf);
+
+                raf = requestAnimationFrame(function () {
+                    var x = e.clientX - rect.left;
+                    var y = e.clientY - rect.top;
+                    var px = x / rect.width;
+                    var py = y / rect.height;
+
+                    /* Subtle 3D rotation */
+                    var rotateX = (py - 0.5) * -6;
+                    var rotateY = (px - 0.5) * 6;
+
+                    card.style.transform =
+                        'perspective(600px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-8px) scale(1.015)';
+
+                    /* Move shine based on mouse position */
+                    shine.style.left = (px * 150 - 25) + '%';
+                    shine.style.opacity = '1';
+                });
+            });
+
+            card.addEventListener('mouseleave', function () {
+                if (raf) cancelAnimationFrame(raf);
+                card.style.transform = '';
+                shine.style.opacity = '0';
+                shine.style.left = '-100%';
+                rect = null;
+            });
+        });
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Magnetic Buttons
+       Buttons subtly follow the cursor
+       ════════════════════════════════════════════════ */
+    (function initMagneticButtons() {
+        if (window.innerWidth < 768) return;
+
+        var buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+        buttons.forEach(function (btn) {
+            var rect;
+            btn.addEventListener('mouseenter', function () {
+                rect = btn.getBoundingClientRect();
+                btn.classList.add('magnetic-active');
+            });
+
+            btn.addEventListener('mousemove', function (e) {
+                if (!rect) return;
+                var x = e.clientX - rect.left - rect.width / 2;
+                var y = e.clientY - rect.top - rect.height / 2;
+                var strength = 0.25;
+                btn.style.transform =
+                    'translate(' + (x * strength) + 'px, ' + (y * strength) + 'px) translateY(-2px) scale(1.02)';
+            });
+
+            btn.addEventListener('mouseleave', function () {
+                btn.style.transform = '';
+                btn.classList.remove('magnetic-active');
+                rect = null;
+            });
+        });
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Button Ripple Effect
+       Material-inspired ripple on click
+       ════════════════════════════════════════════════ */
+    (function initRippleEffect() {
+        document.querySelectorAll('.btn').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                var rect = btn.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var size = Math.max(rect.width, rect.height) * 0.5;
+
+                var ripple = document.createElement('span');
+                ripple.className = 'btn-ripple';
+                ripple.style.cssText =
+                    'width:' + size + 'px;height:' + size + 'px;' +
+                    'left:' + (x - size / 2) + 'px;top:' + (y - size / 2) + 'px;';
+
+                btn.appendChild(ripple);
+                setTimeout(function () { ripple.remove(); }, 600);
+            });
+        });
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Enhanced Scroll Animations
+       More animation variants on scroll
+       ════════════════════════════════════════════════ */
+    (function initEnhancedScrollAnimations() {
+        var blurObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    blurObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        /* Apply blur-in to section intros */
+        document.querySelectorAll('.section-intro, .cta-content').forEach(function (el) {
+            el.classList.add('fade-in-blur');
+            blurObserver.observe(el);
+        });
+
+        /* Apply scale-in to stat items */
+        document.querySelectorAll('.stats-banner-item, .cta-stat').forEach(function (el, i) {
+            el.classList.add('fade-in-scale');
+            el.style.transitionDelay = (i * 80) + 'ms';
+            blurObserver.observe(el);
+        });
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Smooth Number Morphing
+       Enhanced counter animation with digit morphing
+       ════════════════════════════════════════════════ */
+    (function initNumberMorphing() {
+        function morphNumber(el) {
+            if (el.dataset.morphed) return; /* prevent double animation */
+            el.dataset.morphed = '1';
+            var text = el.textContent.trim();
+            var match = text.match(/^(\d+)(.*)$/);
+            if (!match) return;
+            var target = parseInt(match[1]);
+            var suffix = match[2];
+            var duration = 2200;
+            var start = null;
+            var lastVal = 0;
+
+            function easeOutExpo(t) { return t === 1 ? 1 : 1 - Math.pow(2, -12 * t); }
+
+            function step(ts) {
+                if (!start) start = ts;
+                var progress = Math.min((ts - start) / duration, 1);
+                var eased = easeOutExpo(progress);
+                var currentVal = Math.round(target * eased);
+
+                if (currentVal !== lastVal) {
+                    el.textContent = currentVal + suffix;
+                    /* Add a subtle scale pop effect on each digit change */
+                    el.style.transform = 'scale(1.02)';
+                    setTimeout(function () { el.style.transform = 'scale(1)'; }, 80);
+                    lastVal = currentVal;
+                }
+
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+
+        /* Observe stats banner numbers for morphing */
+        var morphObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var nums = entry.target.querySelectorAll('.stats-banner-number, .cta-stat-number');
+                    nums.forEach(function (n) { morphNumber(n); });
+                    morphObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.stats-banner, .cta-stats').forEach(function (el) {
+            morphObserver.observe(el);
+        });
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Navbar Scroll Progress Glow
+       Dynamic glow intensity based on scroll
+       ════════════════════════════════════════════════ */
+    (function initNavScrollGlow() {
+        if (!navbar || !progressBar) return;
+        onScroll(function (scrollY) {
+            var h = document.documentElement.scrollHeight - window.innerHeight;
+            var pct = h > 0 ? scrollY / h : 0;
+            /* Update progress bar glow intensity */
+            var glowIntensity = Math.min(pct * 4, 1);
+            progressBar.style.boxShadow =
+                '0 0 ' + (12 + glowIntensity * 12) + 'px rgba(29,94,222,' + (0.2 + glowIntensity * 0.2).toFixed(2) + '),' +
+                '0 0 ' + (4 + glowIntensity * 8) + 'px rgba(139,92,246,' + (glowIntensity * 0.15).toFixed(2) + ')';
+        });
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Parallax Scroll Sections
+       Subtle depth parallax on scroll for sections
+       ════════════════════════════════════════════════ */
+    (function initSectionParallax() {
+        if (window.innerWidth < 768) return;
+
+        var sections = document.querySelectorAll('.section-header, .spotlight-header');
+        if (sections.length === 0) return;
+
+        onScroll(function (scrollY) {
+            sections.forEach(function (section) {
+                var rect = section.getBoundingClientRect();
+                var windowH = window.innerHeight;
+                if (rect.top < windowH && rect.bottom > 0) {
+                    var progress = (windowH - rect.top) / (windowH + rect.height);
+                    var offset = (progress - 0.5) * -15;
+                    section.style.transform = 'translateY(' + offset + 'px)';
+                }
+            });
+        });
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Enhanced Card Focus Ring
+       Smooth animated focus rings for accessibility
+       ════════════════════════════════════════════════ */
+    document.querySelectorAll('.domain-card, .feature-card, .btn').forEach(function (el) {
+        el.addEventListener('focus', function () {
+            el.style.outline = '2px solid var(--blue-400)';
+            el.style.outlineOffset = '3px';
+        });
+        el.addEventListener('blur', function () {
+            el.style.outline = '';
+            el.style.outlineOffset = '';
+        });
+    });
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Staggered Grid Animations
+       Cards cascade in with staggered timing
+       ════════════════════════════════════════════════ */
+    (function initStaggeredGrids() {
+        var gridObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var cards = entry.target.querySelectorAll('.domain-card, .feature-card, .news-card, .featured-card, .spotlight-card');
+                    cards.forEach(function (card, i) {
+                        /* Skip cards already animated by IntersectionObserver fade-in */
+                        if (card.classList.contains('visible')) return;
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px) scale(0.96)';
+                        setTimeout(function () {
+                            card.style.transition = 'opacity .6s var(--ease-expo), transform .6s var(--ease-expo)';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0) scale(1)';
+                        }, 80 + i * 90);
+                    });
+                    gridObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.domain-grid, .features-grid, .news-grid, .featured-grid, .spotlight-grid').forEach(function (grid) {
+            gridObserver.observe(grid);
+        });
+    })();
+
+    /* ════════════════════════════════════════════════
+       PREMIUM FEATURE v5: Smooth Text Scramble
+       Hero title text scramble entrance effect
+       ════════════════════════════════════════════════ */
+    (function initTextScramble() {
+        var accentEl = document.querySelector('.hero-title .accent');
+        if (!accentEl) return;
+
+        var originalText = accentEl.textContent;
+        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%';
+        var iterations = 0;
+        var maxIterations = originalText.length;
+
+        /* Delay to sync with hero entrance animation */
+        setTimeout(function () {
+            var interval = setInterval(function () {
+                accentEl.textContent = originalText.split('').map(function (char, idx) {
+                    if (idx < iterations) return originalText[idx];
+                    return chars[Math.floor(Math.random() * chars.length)];
+                }).join('');
+
+                iterations += 1 / 3;
+                if (iterations >= maxIterations) {
+                    accentEl.textContent = originalText;
+                    clearInterval(interval);
+                }
+            }, 40);
+        }, 600);
+    })();
 
 })();
