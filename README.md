@@ -9,15 +9,15 @@
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Website](https://img.shields.io/badge/Website-Live-0077B6)](https://openmm-arena.github.io/OpenMM-Arena/)
-[![Papers](https://img.shields.io/badge/Papers-2000+-2563eb)](https://openmm-arena.github.io/OpenMM-Arena/)
-[![Models](https://img.shields.io/badge/Arena_Models-46-f59e0b)](https://openmm-arena.github.io/OpenMM-Arena/t2i/arena.html)
-[![Benchmarks](https://img.shields.io/badge/Benchmarks-100+-059669)](https://openmm-arena.github.io/OpenMM-Arena/)
-[![Datasets](https://img.shields.io/badge/Datasets-90+-8b5cf6)](https://openmm-arena.github.io/OpenMM-Arena/)
+[![Website](https://img.shields.io/badge/Website-Live-0077B6)](https://openenvision-lab.github.io/OpenMM-Arena/)
+[![Papers](https://img.shields.io/badge/Papers-2000+-2563eb)](https://openenvision-lab.github.io/OpenMM-Arena/)
+[![Models](https://img.shields.io/badge/Arena_Models-46-f59e0b)](https://openenvision-lab.github.io/OpenMM-Arena/t2i/arena.html)
+[![Benchmarks](https://img.shields.io/badge/Benchmarks-100+-059669)](https://openenvision-lab.github.io/OpenMM-Arena/)
+[![Datasets](https://img.shields.io/badge/Datasets-90+-8b5cf6)](https://openenvision-lab.github.io/OpenMM-Arena/)
 
 **The definitive, taxonomically organized knowledge base that unifies seven converging research frontiers of multimodal AI — spanning 2000+ papers, 46 arena-ranked models, 100+ benchmarks, and 90+ datasets — providing researchers with a single, authoritative cross-domain reference.**
 
-[**Explore the Website**](https://openmm-arena.github.io/OpenMM-Arena/) · [**Arena Leaderboard**](https://openmm-arena.github.io/OpenMM-Arena/t2i/arena.html) · [**Star on GitHub**](https://github.com/OpenMM-Arena/OpenMM-Arena)
+[**Explore the Website**](https://openenvision-lab.github.io/OpenMM-Arena/) · [**Arena Leaderboard**](https://openenvision-lab.github.io/OpenMM-Arena/t2i/arena.html) · [**Star on GitHub**](https://github.com/OpenEnvision-Lab/OpenMM-Arena)
 
 </div>
 
@@ -270,11 +270,11 @@ OpenMM-Arena systematically consolidates knowledge from **11 foundational open-s
 
 ## Quick Start
 
-**Browse online:** Visit [**openmm-arena.github.io/OpenMM-Arena**](https://openmm-arena.github.io/OpenMM-Arena/)
+**Browse online:** Visit [**openenvision-lab.github.io/OpenMM-Arena**](https://openenvision-lab.github.io/OpenMM-Arena/)
 
 **Run locally:**
 ```bash
-git clone https://github.com/OpenMM-Arena/OpenMM-Arena.git
+git clone https://github.com/OpenEnvision-Lab/OpenMM-Arena.git
 cd OpenMM-Arena/docs
 # Open index.html in your browser, or:
 python -m http.server 8000
@@ -312,7 +312,7 @@ If you find **OpenMM-Arena** useful for your research, please consider citing:
     author    = {OpenMM-Arena Contributors},
     year      = {2025},
     journal   = {GitHub repository},
-    url       = {https://github.com/OpenMM-Arena/OpenMM-Arena}
+    url       = {https://github.com/OpenEnvision-Lab/OpenMM-Arena}
 }
 ```
 
@@ -354,6 +354,6 @@ If you find **OpenMM-Arena** useful for your research, please consider citing:
 
 Last updated: February 2026
 
-[Website](https://openmm-arena.github.io/OpenMM-Arena/) · [GitHub](https://github.com/OpenMM-Arena/OpenMM-Arena) · [Issues](https://github.com/OpenMM-Arena/OpenMM-Arena/issues)
+[Website](https://openenvision-lab.github.io/OpenMM-Arena/) · [GitHub](https://github.com/OpenEnvision-Lab/OpenMM-Arena) · [Issues](https://github.com/OpenEnvision-Lab/OpenMM-Arena/issues)
 
 </div>

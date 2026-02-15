@@ -61,6 +61,6 @@ Applying 3D vision to robotic manipulation, navigation, locomotion, and localiza
 
 <div align="center">
 
-[< Back to Main README](../README.md) · [View on Website](https://openmm-arena.github.io/OpenMM-Arena/3d.html)
+[< Back to Main README](../README.md) · [View on Website](https://openenvision-lab.github.io/OpenMM-Arena/3d.html)
 
 </div>

@@ -68,6 +68,6 @@
 
 <div align="center">
 
-[< Back to Main README](../README.md) · [T2V Website](https://openmm-arena.github.io/OpenMM-Arena/t2v.html) · [I2V Website](https://openmm-arena.github.io/OpenMM-Arena/i2v.html)
+[< Back to Main README](../README.md) · [T2V Website](https://openenvision-lab.github.io/OpenMM-Arena/t2v.html) · [I2V Website](https://openenvision-lab.github.io/OpenMM-Arena/i2v.html)
 
 </div>
