@@ -3425,3 +3425,82 @@ body.dark .hero-scroll::after {
     .stat { animation: none !important; }
     .domain-card:hover .domain-card-icon { animation: none !important; }
 }
+
+/* ════════════════════════════════════════════════
+   FOOTER SHARE BAR — Social sharing & GitHub Star
+   ════════════════════════════════════════════════ */
+.footer-share-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 28px;
+    margin-bottom: 36px;
+    background: linear-gradient(135deg, rgba(29,94,222,.08), rgba(139,92,246,.06));
+    border: 1px solid rgba(29,94,222,.15);
+    border-radius: 14px;
+    flex-wrap: wrap;
+}
+.share-bar-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .88rem;
+    font-weight: 560;
+    color: var(--blue-700, #1d4ed8);
+}
+.share-bar-text svg { flex-shrink: 0; color: #f59e0b; }
+.share-bar-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: .8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .2s ease;
+    white-space: nowrap;
+}
+.share-btn-github {
+    background: #24292f;
+    color: #fff;
+}
+.share-btn-github:hover { background: #1b1f23; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+.share-btn-twitter {
+    background: #0f1419;
+    color: #fff;
+}
+.share-btn-twitter:hover { background: #000; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+.share-btn-reddit {
+    background: #ff4500;
+    color: #fff;
+}
+.share-btn-reddit:hover { background: #e03d00; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,69,0,.25); }
+.share-btn-linkedin {
+    background: #0077b5;
+    color: #fff;
+}
+.share-btn-linkedin:hover { background: #006699; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,119,181,.25); }
+
+body.dark .footer-share-bar {
+    background: linear-gradient(135deg, rgba(29,94,222,.12), rgba(139,92,246,.08));
+    border-color: rgba(59,130,246,.2);
+}
+body.dark .share-bar-text { color: #93c5fd; }
+
+@media (max-width: 768px) {
+    .footer-share-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px 20px;
+    }
+    .share-bar-text { justify-content: center; font-size: .82rem; }
+    .share-bar-actions { justify-content: center; }
+    .share-btn { padding: 7px 12px; font-size: .75rem; }
+}

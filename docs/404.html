@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — OpenMM-Arena</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/OpenMM-Arena/logo.png">
+    <style>
+        :root {
+            --blue-600: #1d5ede;
+            --blue-500: #2563eb;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+            --gray-900: #0f172a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .container { max-width: 520px; }
+        .error-code {
+            font-size: 7rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--blue-600), #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+        p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--blue-600);
+            color: #fff;
+        }
+        .btn-primary:hover { background: var(--blue-500); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(29,94,222,0.25); }
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            border: 1px solid #e2e8f0;
+        }
+        .btn-secondary:hover { background: #e2e8f0; transform: translateY(-2px); }
+        .pillars {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        .pillars-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+        .pillars-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        .pillar-link {
+            padding: 6px 14px;
+            border-radius: 8px;
+            background: var(--gray-100);
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .pillar-link:hover { background: #dbeafe; color: var(--blue-600); border-color: #93c5fd; }
+        @media (prefers-color-scheme: dark) {
+            :root { --gray-50: #0c1222; --gray-100: #1e293b; --gray-400: #64748b; --gray-600: #94a3b8; --gray-900: #f1f5f9; }
+            .btn-secondary { background: #1e293b; color: #94a3b8; border-color: #334155; }
+            .btn-secondary:hover { background: #334155; }
+            .pillars { border-top-color: #334155; }
+            .pillar-link { background: #1e293b; color: #94a3b8; }
+            .pillar-link:hover { background: #1e3a5f; color: #60a5fa; border-color: #3b82f6; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1>Page Not Found</h1>
+        <p>The page you're looking for doesn't exist or has been moved. Explore our multimodal AI research compendium below.</p>
+        <div class="actions">
+            <a href="/OpenMM-Arena/" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Go Home
+            </a>
+            <a href="https://github.com/OpenEnvision-Lab/OpenMM-Arena" class="btn btn-secondary" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                GitHub
+            </a>
+        </div>
+        <div class="pillars">
+            <div class="pillars-title">Explore Research Pillars</div>
+            <div class="pillars-grid">
+                <a href="/OpenMM-Arena/t2i.html" class="pillar-link">Text-to-Image</a>
+                <a href="/OpenMM-Arena/t2v.html" class="pillar-link">Text-to-Video</a>
+                <a href="/OpenMM-Arena/i2v.html" class="pillar-link">Image-to-Video</a>
+                <a href="/OpenMM-Arena/3d.html" class="pillar-link">3D Vision</a>
+                <a href="/OpenMM-Arena/4d.html" class="pillar-link">4D Vision</a>
+                <a href="/OpenMM-Arena/unified.html" class="pillar-link">Unified</a>
+                <a href="/OpenMM-Arena/world.html" class="pillar-link">World Models</a>
+                <a href="/OpenMM-Arena/arena.html" class="pillar-link">Arena</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

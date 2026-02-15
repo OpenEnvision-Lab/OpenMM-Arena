@@ -10,14 +10,24 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Website](https://img.shields.io/badge/Website-Live-0077B6)](https://openenvision-lab.github.io/OpenMM-Arena/)
+[![GitHub stars](https://img.shields.io/github/stars/OpenEnvision-Lab/OpenMM-Arena?style=social)](https://github.com/OpenEnvision-Lab/OpenMM-Arena/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/OpenEnvision-Lab/OpenMM-Arena?style=social)](https://github.com/OpenEnvision-Lab/OpenMM-Arena/network/members)
+[![GitHub watchers](https://img.shields.io/github/watchers/OpenEnvision-Lab/OpenMM-Arena?style=social)](https://github.com/OpenEnvision-Lab/OpenMM-Arena/watchers)
+
 [![Papers](https://img.shields.io/badge/Papers-2000+-2563eb)](https://openenvision-lab.github.io/OpenMM-Arena/)
 [![Models](https://img.shields.io/badge/Arena_Models-46-f59e0b)](https://openenvision-lab.github.io/OpenMM-Arena/t2i/arena.html)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-100+-059669)](https://openenvision-lab.github.io/OpenMM-Arena/)
 [![Datasets](https://img.shields.io/badge/Datasets-90+-8b5cf6)](https://openenvision-lab.github.io/OpenMM-Arena/)
+[![Research Pillars](https://img.shields.io/badge/Research_Pillars-7-e11d48)](https://openenvision-lab.github.io/OpenMM-Arena/)
+[![Last Updated](https://img.shields.io/badge/Updated-Feb_2026-22c55e)](https://openenvision-lab.github.io/OpenMM-Arena/)
 
 **The definitive, taxonomically organized knowledge base that unifies seven converging research frontiers of multimodal AI — spanning 2000+ papers, 46 arena-ranked models, 100+ benchmarks, and 90+ datasets — providing researchers with a single, authoritative cross-domain reference.**
 
 [**Explore the Website**](https://openenvision-lab.github.io/OpenMM-Arena/) · [**Arena Leaderboard**](https://openenvision-lab.github.io/OpenMM-Arena/t2i/arena.html) · [**Star on GitHub**](https://github.com/OpenEnvision-Lab/OpenMM-Arena)
+
+---
+
+**If you find this resource useful, please give us a** :star: **to help others discover it!**
 
 </div>
 
@@ -299,6 +309,25 @@ We welcome contributions from the research community! You can help by:
 - **Updating leaderboards**: Help keep arena rankings current
 - **Fixing errors**: Report or fix citation errors, broken links, or categorization issues
 - **Suggesting improvements**: Open an issue with ideas for better organization
+- **Sharing**: Star the repo, share on Twitter/X, Reddit, or WeChat to help others discover this resource
+
+### How to Spread the Word
+
+If you find OpenMM-Arena useful, consider:
+
+1. **Star this repository** to boost its visibility on GitHub Trending
+2. **Share on social media** — mention `@OpenEnvision` and use `#OpenMM_Arena` `#MultimodalAI`
+3. **Cite in your papers** — see the Citation section below
+4. **Post on research forums** — Reddit r/MachineLearning, Hacker News, Papers With Code
+5. **Add to your awesome list** — if you maintain a related list, link to us
+
+---
+
+## Recommended GitHub Topics
+
+> If you maintain this repo, please add these topics in the GitHub repository settings for maximum discoverability:
+
+`multimodal-ai` `text-to-image` `text-to-video` `image-to-video` `3d-vision` `4d-vision` `world-models` `diffusion-models` `generative-ai` `computer-vision` `deep-learning` `awesome-list` `neural-radiance-fields` `gaussian-splatting` `research-papers` `benchmark` `leaderboard` `arena` `survey` `paper-collection`
 
 ---
 

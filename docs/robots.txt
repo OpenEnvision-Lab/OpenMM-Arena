@@ -1,0 +1,14 @@
+# OpenMM-Arena — Multimodal AI Research Compendium
+# https://openenvision-lab.github.io/OpenMM-Arena/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://openenvision-lab.github.io/OpenMM-Arena/sitemap.xml
+
+# Disallow non-content paths
+Disallow: /.arxiv_cache.json
+
+# Crawl-delay (be polite)
+Crawl-delay: 1
