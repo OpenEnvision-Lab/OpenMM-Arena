@@ -113,20 +113,15 @@
 <!-- ═══════════════════════════════════════════════════════
      LIVE ARENA EMBEDS
      ═══════════════════════════════════════════════════════ -->
-        <h3 class="subsection-title" id="live-arenas">Live Arenas &mdash; Vote on Your Preference</h3>
-        <div class="section-intro">
-            Participate in model comparison arenas directly below. Compare outputs from anonymous AI models and vote for your preference. After 30 votes, you&rsquo;ll see your personalized rankings. <em>Open in a new tab for the best experience.</em>
+        <div class="section-header" id="live-arenas">
+            <span class="section-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg> Live Rankings</span>
+            <h2 class="section-title">Live Arena Comparisons</h2>
+            <p class="section-desc">Interactive model comparison arenas across 7 categories from LM Arena (arena.ai) &amp; Artificial Analysis &mdash; Feb 2026. Click tabs to switch arenas.</p>
         </div>
 
         <div class="arena-tabs" data-group="live">
             <button class="arena-tab active" data-target="live-aa-img"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg> AA: Image</button>
             <button class="arena-tab" data-target="live-aa-vid"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><polygon points="10 8 16 12 10 16 10 8"/></svg> AA: Video</button>
-            <span class="arena-tab-sep"></span>
-            <button class="arena-tab" data-target="live-lm-t2i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg> LM: T2I</button>
-            <button class="arena-tab" data-target="live-lm-edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> LM: Edit</button>
-            <button class="arena-tab" data-target="live-lm-t2v"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><polygon points="10 8 16 12 10 16 10 8"/></svg> LM: T2V</button>
-            <button class="arena-tab" data-target="live-lm-i2v"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg> LM: I2V</button>
-            <button class="arena-tab" data-target="live-lm-vision"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> LM: Vision</button>
         </div>
         <div class="arena-frame-container">
             <div class="arena-frame active" id="live-aa-img">
@@ -136,26 +131,6 @@
             <div class="arena-frame" id="live-aa-vid">
                 <iframe data-src="https://artificialanalysis.ai/text-to-video/arena" title="Video Arena — Artificial Analysis" loading="lazy" allow="clipboard-write; autoplay" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
                 <div class="arena-source">Powered by <a href="https://artificialanalysis.ai/video/arena" target="_blank">Artificial Analysis</a> &mdash; <a href="https://artificialanalysis.ai/text-to-video/arena" target="_blank">Open in new tab &nearr;</a></div>
-            </div>
-            <div class="arena-frame" id="live-lm-t2i">
-                <iframe data-src="https://arena.ai/leaderboard/text-to-image" title="T2I Arena — LM Arena" loading="lazy" allow="clipboard-write" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
-                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/text-to-image" target="_blank">Open in new tab &nearr;</a></div>
-            </div>
-            <div class="arena-frame" id="live-lm-edit">
-                <iframe data-src="https://arena.ai/leaderboard/image-edit" title="Image Edit Arena — LM Arena" loading="lazy" allow="clipboard-write" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
-                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/image-edit" target="_blank">Open in new tab &nearr;</a></div>
-            </div>
-            <div class="arena-frame" id="live-lm-t2v">
-                <iframe data-src="https://arena.ai/leaderboard/text-to-video" title="T2V Arena — LM Arena" loading="lazy" allow="clipboard-write; autoplay" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
-                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/text-to-video" target="_blank">Open in new tab &nearr;</a></div>
-            </div>
-            <div class="arena-frame" id="live-lm-i2v">
-                <iframe data-src="https://arena.ai/leaderboard/image-to-video" title="I2V Arena — LM Arena" loading="lazy" allow="clipboard-write; autoplay" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
-                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/image-to-video" target="_blank">Open in new tab &nearr;</a></div>
-            </div>
-            <div class="arena-frame" id="live-lm-vision">
-                <iframe data-src="https://arena.ai/leaderboard/vision" title="Vision Arena — LM Arena" loading="lazy" allow="clipboard-write" style="width:100%;height:700px;border:none;border-radius:var(--r-lg);"></iframe>
-                <div class="arena-source">Powered by <a href="https://arena.ai" target="_blank">LM Arena</a> &mdash; <a href="https://arena.ai/leaderboard/vision" target="_blank">Open in new tab &nearr;</a></div>
             </div>
         </div>
     </div>

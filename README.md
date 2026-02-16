@@ -363,7 +363,7 @@ If you find **OpenMM-Arena** useful for your research, please consider citing:
 ```bibtex
 @misc{openmmarena2025,
     title     = {OpenMM-Arena: A Comprehensive Compendium for Multimodal AI Research},
-    author    = {Juanxi Tian},
+    author    = {OpenMM-Arena Contributors},
     year      = {2025},
     journal   = {GitHub repository},
     url       = {https://github.com/OpenEnvision-Lab/OpenMM-Arena}
