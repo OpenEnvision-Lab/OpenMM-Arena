@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1d5ede" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c1222" media="(prefers-color-scheme: dark)">
+    <title>All Technical Blog Posts — OpenMM-Arena</title>
+    <meta name="description" content="Curated collection of 73 authoritative technical blog posts from leading AI research laboratories on multimodal generation, 3D/4D vision, unified models, and world models.">
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="https://openenvision-lab.github.io/OpenMM-Arena/blog/index.html">
+    <!-- SEO: Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OpenMM-Arena">
+    <meta property="og:title" content="All Technical Blog Posts — OpenMM-Arena">
+    <meta property="og:description" content="73 curated technical blog posts from leading AI research laboratories — Black Forest Labs, Google DeepMind, OpenAI, Meta AI, NVIDIA, Stability AI, and more.">
+    <meta property="og:url" content="https://openenvision-lab.github.io/OpenMM-Arena/blog/index.html">
+    <meta property="og:image" content="https://openenvision-lab.github.io/OpenMM-Arena/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="All Technical Blog Posts — OpenMM-Arena">
+    <meta name="twitter:description" content="73 curated technical blog posts from leading AI research laboratories spanning T2I, T2V, I2V, 3D, 4D, Unified &amp; World Models.">
+    <meta name="twitter:image" content="https://openenvision-lab.github.io/OpenMM-Arena/og-image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;520;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo"><span class="logo-icon"><img src="../logo.png" alt="OpenMM-Arena Logo" style="width:36px;height:36px;object-fit:contain;"></span><span>OpenMM-Arena</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../t2i.html">Text-to-Image</a></li>
+            <li><a href="../t2v.html">Text-to-Video</a></li>
+            <li><a href="../i2v.html">Image-to-Video</a></li>
+            <li><a href="../3d.html">3D Vision</a></li>
+            <li><a href="../4d.html">4D Vision</a></li>
+            <li><a href="../unified.html">Unified</a></li>
+            <li><a href="../world.html">World</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../arena.html">MM Arena</a></li>
+            <li><button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></li>
+            <li><a href="https://github.com/OpenEnvision-Lab/OpenMM-Arena" class="nav-github" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></li>
+        </ul>
+    </div>
+</nav>
+
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h16M4 6h16M4 18h16"/></svg></button>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+<div class="page-layout">
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="../blog.html" class="sidebar-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>Blog</span></a>
+        <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="sidebar-section-label">Blog</div>
+    <ul class="sidebar-nav">
+        <li><a href="index.html" class="sidebar-link active"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></span> <span>All Posts</span></a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">All Pillars</div>
+    <ul class="sidebar-nav">
+        <li><a href="../t2i.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span> <span>Text-to-Image</span></a></li>
+        <li><a href="../t2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg></span> <span>Text-to-Video</span></a></li>
+        <li><a href="../i2v.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></span> <span>Image-to-Video</span></a></li>
+        <li><a href="../3d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg></span> <span>3D Vision</span></a></li>
+        <li><a href="../4d.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span> <span>4D Vision</span></a></li>
+        <li><a href="../unified.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg></span> <span>Unified</span></a></li>
+        <li><a href="../world.html" class="sidebar-link"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span> <span>World</span></a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-toc" id="sidebarToc"></div>
+</aside>
+
+<main class="page-main">
+<header class="page-hero subpage-hero">
+    <div class="page-hero-bg"><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div></div>
+    <div class="container">
+        <div class="page-hero-content">
+            <a href="../blog.html" class="breadcrumb">&larr; Blog</a>
+            <h1 class="page-hero-title">Technical Blog Posts</h1>
+            <p class="page-hero-desc">Authoritative technical announcements and deep dives from the laboratories advancing multimodal AI — curated for scholarly depth and engineering insight.</p>
+        </div>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <div class="search-container">
+            <span class="search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+            <input type="text" class="search-input" id="globalSearch" placeholder="Search blog posts, labs, topics..." aria-label="Search">
+            <span class="search-kbd" id="searchKbd">&#8984;K</span>
+        </div>
+        <div class="search-results-count" id="searchResultsCount"></div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             SECTION 1 — Text-to-Image Generation
+             ═══════════════════════════════════════════════════════════════ -->
+        <h2 id="t2i" class="subsection-title" style="margin-top:48px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;opacity:.6;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            Text-to-Image Generation
+            <span class="paper-count-badge">20 posts</span>
+        </h2>
+
+        <div class="blog-grid">
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Black Forest Labs</span>
+                        <time class="blog-card-date">Nov 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Announcing FLUX.2 — Frontier Visual Intelligence</h3>
+                    <p class="blog-card-excerpt">The most capable model from BFL to date — featuring image editing at 4MP, complex text rendering, multi-reference consistency, and enhanced spatial reasoning across four model variants.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://bfl.ai/blog/flux-2" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Black Forest Labs</span>
+                        <time class="blog-card-date">Jan 2026</time>
+                    </div>
+                    <h3 class="blog-card-title">FLUX.2 [klein] — Unified Generation &amp; Editing Under One Second</h3>
+                    <p class="blog-card-excerpt">BFL's fastest model offering unified generation and editing in sub-second inference, runnable on consumer hardware. The 4B-parameter variant is released under Apache 2.0.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://bfl.ai/announcements" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Black Forest Labs</span>
+                        <time class="blog-card-date">Nov 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">FLUX.2 VAE — Analyzing and Enhancing the Latent Space</h3>
+                    <p class="blog-card-excerpt">A comprehensive research report comparing autoencoder architectures (SD-VAE, RAE, FLUX.1 VAE, FLUX.2 VAE) and their impact on latent space representation quality for image synthesis.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://bfl.ai/research/representation-comparison" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Black Forest Labs</span>
+                        <time class="blog-card-date">May 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">FLUX.1 Kontext — Flow Matching for Unified Generation &amp; Editing</h3>
+                    <p class="blog-card-excerpt">Documenting BFL's flow matching approach for unified image generation and editing in latent space — the architectural foundation that preceded FLUX.2.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://bfl.ai/research" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#6c2dc7,#4f46e5,#2563eb);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Stability AI</span>
+                        <time class="blog-card-date">Mar 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Stable Diffusion 3 — Research Paper</h3>
+                    <p class="blog-card-excerpt">The technical paper behind SD3's Multimodal Diffusion Transformer (MMDiT) architecture — outperforming DALL-E 3, Midjourney v6, and Ideogram v1 in typography and prompt adherence via human evaluation.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://stability.ai/news/stable-diffusion-3-research-paper" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#6c2dc7,#4f46e5,#2563eb);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Stability AI</span>
+                        <time class="blog-card-date">Oct 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Introducing Stable Diffusion 3.5</h3>
+                    <p class="blog-card-excerpt">Three model variants (Large 8.1B, Large Turbo, Medium 2.5B) with improved MMDiT dual attention layers and QK normalization — free for commercial use, running on consumer hardware.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://stability.ai/news/introducing-stable-diffusion-3-5" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0d6efd,#0ea5e9,#06b6d4);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">ByteDance Seed</span>
+                        <time class="blog-card-date">2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Seedream 3.0 — Text-to-Image Technical Report</h3>
+                    <p class="blog-card-excerpt">ByteDance's scaled-up diffusion transformer achieving top arena rankings through massive compute and architectural innovations — surpassing prior open-source models on multiple benchmarks.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://seed.bytedance.com/en/blog/seedream-3-0-text-to-image-model-technical-report-released" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0d6efd,#0ea5e9,#06b6d4);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">ByteDance Seed</span>
+                        <time class="blog-card-date">Sep 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Seedream 4.0 — Beyond Drawing, Into Imagination</h3>
+                    <p class="blog-card-excerpt">A unified architecture for T2I generation and editing supporting 4K output, 30+ artistic styles, 6 image references, and 10x faster reasoning — with advanced logical understanding capabilities.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://seed.bytedance.com/en/seedream4_0" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#f97316,#ef4444,#dc2626);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Hugging Face</span>
+                        <time class="blog-card-date">Oct 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Diffusers Welcomes Stable Diffusion 3.5 Large</h3>
+                    <p class="blog-card-excerpt">Technical walkthrough of integrating SD 3.5 into the Diffusers library — covering the improved MMDiT architecture, QK normalization, LoRA adapters, and optimization techniques.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://huggingface.co/blog/sd3-5" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#f97316,#ef4444,#dc2626);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Photoroom &amp; Hugging Face</span>
+                        <time class="blog-card-date">Nov 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">PRX — Open-Sourcing a 1.3B Text-to-Image Model</h3>
+                    <p class="blog-card-excerpt">A 1.3B-parameter T2I model trained in under 10 days on 32 H200 GPUs — featuring REPA, distillation, SFT, and DPO. Released under Apache 2.0 with full training transparency.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://huggingface.co/blog/Photoroom/prx-open-source-t2i-model" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#f97316,#ef4444,#dc2626);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Hugging Face</span>
+                        <time class="blog-card-date">Nov 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Diffusers Welcomes FLUX.2 — Architecture Deep Dive</h3>
+                    <p class="blog-card-excerpt">Technical walkthrough of FLUX.2's new MM-DiT architecture — single Mistral Small 3.1 encoder, SwiGLU activations, 8+48 block design, bias-free layers, and shared modulation parameters.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://huggingface.co/blog/flux-2" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#f97316,#ef4444,#dc2626);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Hugging Face</span>
+                        <time class="blog-card-date">2024</time>
+                    </div>
+                    <h3 class="blog-card-title">FLUX.1 QLoRA — Fine-Tuning a 12B T2I Model on Consumer Hardware</h3>
+                    <p class="blog-card-excerpt">Efficient fine-tuning of FLUX.1-dev using QLoRA with under 10 GB VRAM on an RTX 4090 — practical guide covering transformer-only training, frozen encoders, and memory optimization techniques.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://huggingface.co/blog/flux-qlora" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#ff7000,#ff8c00,#ffa500);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Mistral AI</span>
+                        <time class="blog-card-date">Sep–Nov 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Pixtral 12B &amp; Pixtral Large — Frontier Open Multimodal Models</h3>
+                    <p class="blog-card-excerpt">Mistral's vision-language models: 12B (Apache 2.0) with 400M vision encoder excelling at chart/document QA, and 124B outperforming GPT-4o on MathVista — both handling variable image sizes and 128K context.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://mistral.ai/news/pixtral-12b" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#2563eb,#3b82f6,#60a5fa);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Jay Alammar</span>
+                        <time class="blog-card-date">2022 (updated)</time>
+                    </div>
+                    <h3 class="blog-card-title">The Illustrated Stable Diffusion</h3>
+                    <p class="blog-card-excerpt">The definitive visual explainer of latent diffusion — breaking down CLIP text encoding, the UNet denoiser, latent space compression, and the iterative refinement process with beautifully crafted diagrams.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://jalammar.github.io/illustrated-stable-diffusion/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1e3a5f,#2d6a9f,#4a90d9);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Towards Data Science</span>
+                        <time class="blog-card-date">Feb 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">A Visual Guide to How Diffusion Models Work</h3>
+                    <p class="blog-card-excerpt">Minimal-math visual guide to diffusion models — explains what they learn, why they work, and how to extract outputs using a "glyffuser" trained on Chinese glyphs as a didactic example.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://towardsdatascience.com/a-visual-guide-to-how-diffusion-models-work/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#374151,#6b7280,#9ca3af);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Simon Willison</span>
+                        <time class="blog-card-date">Mar–Apr 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">GPT-4o Image Generation &amp; the gpt-image-1 API</h3>
+                    <p class="blog-card-excerpt">Hands-on testing of OpenAI's GPT-4o native image generation — benchmarking prompt fidelity, text rendering, public figure policy changes, API pricing analysis, and comparison with FLUX.2-klein.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://simonwillison.net/tags/text-to-image/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#555555,#333333,#111111);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Apple ML Research</span>
+                        <time class="blog-card-date">Apr 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Matryoshka Diffusion Models — End-to-End High-Resolution Synthesis</h3>
+                    <p class="blog-card-excerpt">Multi-scale joint diffusion enabling end-to-end 1024x1024 image and video synthesis — a nested architecture that denoises at multiple resolutions simultaneously for efficient high-fidelity generation.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://machinelearning.apple.com/research/matryoshka-diffusion-models" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#10a37f,#0d8c6d,#0a755b);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">OpenAI</span>
+                        <time class="blog-card-date">Oct 2023</time>
+                    </div>
+                    <h3 class="blog-card-title">DALL·E 3 — Improving Image Generation with Better Captions</h3>
+                    <p class="blog-card-excerpt">OpenAI's breakthrough in caption fidelity — training a SOTA image captioner to produce detailed descriptions, then training the model on these enhanced captions for dramatically improved prompt adherence, text rendering, and fine detail.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://openai.com/index/dall-e-3/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#6c2dc7,#4f46e5,#2563eb);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Hugging Face &amp; Stability AI</span>
+                        <time class="blog-card-date">Jun 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Diffusers Welcomes Stable Diffusion 3 — MMDiT Architecture Deep Dive</h3>
+                    <p class="blog-card-excerpt">Technical walkthrough of SD3's Multimodal Diffusion Transformer (MMDiT) — separate weights for text and image embeddings with bidirectional attention, rectified flow matching training, and the new FlowMatchEulerDiscreteScheduler.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://huggingface.co/blog/sd3" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#eb1000,#ff2600,#ff4d33);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Adobe Research</span>
+                        <time class="blog-card-date">Apr 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Adobe Firefly Image 3 Model — Advancing Creative Ideation</h3>
+                    <p class="blog-card-excerpt">Adobe's commercially-safe image model trained on licensed content — enhanced photorealistic quality, Structure &amp; Style Reference capabilities, and superior complex prompt understanding integrated across Creative Cloud.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://blog.adobe.com/en/publish/2024/04/23/adobe-advances-creative-ideation-with-new-firefly-image-3-model" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             SECTION 2 — Text-to-Video & Image-to-Video Generation
+             ═══════════════════════════════════════════════════════════════ -->
+        <h2 id="t2v-i2v" class="subsection-title" style="margin-top:56px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;opacity:.6;"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg>
+            Text-to-Video &amp; Image-to-Video Generation
+            <span class="paper-count-badge">20 posts</span>
+        </h2>
+
+        <div class="blog-grid">
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#10b981,#059669,#047857);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">OpenAI</span>
+                        <time class="blog-card-date">Feb 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Sora — Creating Video from Text</h3>
+                    <p class="blog-card-excerpt">OpenAI's seminal video generation model announcement — introducing spacetime patches, diffusion transformers for video, and the vision of video as a path toward world simulators.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <a href="https://openai.com/sora" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#10b981,#059669,#047857);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">OpenAI</span>
+                        <time class="blog-card-date">Sep 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Sora 2 Is Here</h3>
+                    <p class="blog-card-excerpt">Major upgrade with accurate physics modeling, synchronized dialogue and sound, multi-shot sequences with persistent world state, and two model variants (Sora 2 and Sora 2 Pro).</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <a href="https://openai.com/index/sora-2/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#4285f4,#34a853,#fbbc05);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Google DeepMind</span>
+                        <time class="blog-card-date">Dec 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">State-of-the-Art Video and Image Generation with Veo 2 and Imagen 3</h3>
+                    <p class="blog-card-excerpt">DeepMind's announcement of Veo 2 for 8-second video generation and Imagen 3 for photorealistic T2I — with SynthID watermarking, physics-aware temporal synthesis, and diverse cinematic styles.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-t2i">T2I</span>
+                        <a href="https://deepmind.google/blog/state-of-the-art-video-and-image-generation-with-veo-2-and-imagen-3/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#4285f4,#34a853,#fbbc05);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Google DeepMind</span>
+                        <time class="blog-card-date">2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Empowering YouTube Creators with Generative AI</h3>
+                    <p class="blog-card-excerpt">How Veo is integrated into YouTube's Dream Screen for video background generation and standalone clips — bridging research models with creator tools at billion-user scale.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <a href="https://deepmind.google/discover/blog/empowering-youtube-creators-with-generative-ai/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0668E1,#1877F2,#4599FF);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Meta AI</span>
+                        <time class="blog-card-date">Oct 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Movie Gen — Media Foundation Models for Generative AI Video</h3>
+                    <p class="blog-card-excerpt">A 30B-parameter transformer generating 16s of 1080p HD video with synchronized audio — SOTA on text-to-video, personalization, video editing, and audio generation benchmarks.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-i2v">I2V</span>
+                        <a href="https://ai.meta.com/blog/movie-gen-media-foundation-models-generative-ai-video/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0668E1,#1877F2,#4599FF);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Meta AI</span>
+                        <time class="blog-card-date">Nov 2023</time>
+                    </div>
+                    <h3 class="blog-card-title">Introducing Emu Video and Emu Edit</h3>
+                    <p class="blog-card-excerpt">Factorized text-to-video generation via explicit image conditioning — two diffusion models producing 512x512 video at 4s, preferred over Make-A-Video, Imagen Video, and commercial solutions.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <a href="https://ai.meta.com/blog/emu-text-to-video-generation-image-editing-research/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#e91e63,#9c27b0,#673ab7);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Runway</span>
+                        <time class="blog-card-date">Jun 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Introducing Gen-3 Alpha — A New Frontier for Video Generation</h3>
+                    <p class="blog-card-excerpt">Joint video-image training for enhanced visual fidelity — featuring temporally dense captions for precise keyframing, Motion Brush, Advanced Camera Controls, Director Mode, and C2PA provenance.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-i2v">I2V</span>
+                        <a href="https://runwayml.com/blog/introducing-gen-3-alpha/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#ff6a00,#ee0979,#ff6a00);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Alibaba</span>
+                        <time class="blog-card-date">Jul 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Wan 2.2 — Open-Source MoE Video Generation</h3>
+                    <p class="blog-card-excerpt">The first open-source large video model with Mixture-of-Experts: 27B total parameters, 14B active per step, Apache 2.0 license. Two specialized experts for high-noise and low-noise stages.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-i2v">I2V</span>
+                        <a href="https://www.alibabacloud.com/blog/alibaba-releases-wan2-2-to-uplift-cinematic-video-production_602413" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0d6efd,#198754,#0dcaf0);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Tencent</span>
+                        <time class="blog-card-date">Nov 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">HunyuanVideo 1.5 — Efficient 8.3B Video Generation</h3>
+                    <p class="blog-card-excerpt">Compact 8.3B-parameter model with Selective and Sliding Tile Attention (SSTA) achieving 1.87x speedup. 3D Causal VAE with 16x spatial and 4x temporal compression, plus 1080p super-resolution.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <a href="https://huggingface.co/tencent/HunyuanVideo" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0d6efd,#198754,#0dcaf0);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Tencent</span>
+                        <time class="blog-card-date">Jan 2026</time>
+                    </div>
+                    <h3 class="blog-card-title">HunyuanCustom — Multimodal Video Customization</h3>
+                    <p class="blog-card-excerpt">A multimodal video customization framework supporting text, image, audio, and video inputs — enabling singing avatars, virtual try-on, and consistent character generation across scenes.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-i2v">I2V</span>
+                        <a href="https://comfyui-wiki.com/en/news/2025-05-10-hunyuancustom-multimodal-video-generation" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#7c3aed,#a855f7,#c084fc);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Luma AI</span>
+                        <time class="blog-card-date">Jan 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Dream Machine Ray2 — 10x More Compute, Next-Level Realism</h3>
+                    <p class="blog-card-excerpt">Luma's Ray2 model trained with 10x more compute than previous versions — featuring Photon T2I, character references, camera motion control, and the Inductive Moment Matching (IMM) paradigm.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-i2v">I2V</span>
+                        <a href="https://lumalabs.ai/blog" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#7c3aed,#a855f7,#c084fc);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Luma AI</span>
+                        <time class="blog-card-date">Jan 2026</time>
+                    </div>
+                    <h3 class="blog-card-title">Ray3.14 — Native 1080p, 4x Faster, 3x Cheaper</h3>
+                    <p class="blog-card-excerpt">Luma's most advanced model with native 1080p video, dramatically improved speed and cost efficiency — featuring Modify Video for director-grade editing and natural language VFX instructions.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-i2v">I2V</span>
+                        <a href="https://lumalabs.ai/blog" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#374151,#6b7280,#9ca3af);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Lil'Log (Lilian Weng)</span>
+                        <time class="blog-card-date">Apr 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Diffusion Models for Video Generation</h3>
+                    <p class="blog-card-excerpt">A comprehensive tutorial covering diffusion-based video generation from foundations — 3D U-Net vs. DiT architectures, temporal consistency, video training data, and adapting image diffusion models to video.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <a href="https://lilianweng.github.io/posts/2024-04-12-diffusion-video/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#f472b6,#ec4899,#be185d);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Pika</span>
+                        <time class="blog-card-date">2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Pika 2.5 — Ultra-Realistic Video Generation</h3>
+                    <p class="blog-card-excerpt">Pikaframes for 5–25 second sequences with keyframe control, advanced creative effects (Pikadditions, Pikaswaps, Pikatwists), and improved natural motion at 1080p resolution.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-i2v">I2V</span>
+                        <a href="https://pika.art/blog" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#6c2dc7,#4f46e5,#2563eb);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Stability AI</span>
+                        <time class="blog-card-date">Nov 2023</time>
+                    </div>
+                    <h3 class="blog-card-title">Introducing Stable Video Diffusion — Open AI Video Model</h3>
+                    <p class="blog-card-excerpt">The first open foundation model for generative video — 3-stage latent video diffusion training, 576x1024 at 14/25 frames, preferred over closed-source models in user studies. Code + weights on Hugging Face.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-i2v">I2V</span>
+                        <a href="https://stability.ai/news/stable-video-diffusion-open-ai-video-model" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1e3a5f,#2d6a9f,#4a90d9);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Towards Data Science</span>
+                        <time class="blog-card-date">2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Sora — Intuitively and Exhaustively Explained</h3>
+                    <p class="blog-card-excerpt">A comprehensive visual walkthrough of Sora's architecture — spacetime patch tokenization, latent space compression, DiT denoising process, and emergent 3D consistency, explained from first principles.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <a href="https://towardsdatascience.com/sora-intuitively-and-exhaustively-explained-a54f83ea9c21/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#10b981,#059669,#047857);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">OpenAI Research</span>
+                        <time class="blog-card-date">Feb 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Video Generation Models as World Simulators</h3>
+                    <p class="blog-card-excerpt">The seminal Sora technical report — introducing spacetime patches, diffusion transformers for video, and the thesis that scaling video generation is a path toward general-purpose physical world simulators.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <a href="https://openai.com/index/video-generation-models-as-world-simulators/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1e3a5f,#2d6a9f,#4a90d9);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Towards AI (Jesus Rodriguez)</span>
+                        <time class="blog-card-date">Feb 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Inside OpenAI Sora — Five Key Technical Details</h3>
+                    <p class="blog-card-excerpt">Deep analysis of Sora's architecture — visual patch tokenization, latent space compression, variable resolution/duration training, diffusion transformer scaling, and emergent 3D consistency.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <a href="https://pub.towardsai.net/inside-openai-sora-five-key-technical-details-we-learned-about-the-amazing-video-generation-model-98e510f9b744" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#555555,#333333,#111111);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Apple ML Research</span>
+                        <time class="blog-card-date">Aug 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">STIV — Scalable Text and Image Conditioned Video Generation</h3>
+                    <p class="blog-card-excerpt">Apple's 8.7B-parameter video model surpassing CogVideoX-5B, Pika, and Kling — 83.1 on VBench T2V, supporting text-to-video, image-to-video, video prediction, and multi-view generation.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-i2v">I2V</span>
+                        <a href="https://machinelearning.apple.com/research/conditioned-video-generation" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0078d4,#00a4ef,#7fba00);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Microsoft Research</span>
+                        <time class="blog-card-date">CVPR 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">CoDi-2 — In-Context Any-to-Any Multimodal Generation</h3>
+                    <p class="blog-card-excerpt">MLLM performing any-to-any generation across text, vision, and audio — enabling in-context learning and few-shot capabilities for editing, composition, and subject-driven generation.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://www.microsoft.com/en-us/research/publication/codi-2-in-context-interleaved-and-interactive-any-to-any-generation/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             SECTION 3 — 3D Vision
+             ═══════════════════════════════════════════════════════════════ -->
+        <h2 id="3d" class="subsection-title" style="margin-top:56px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;opacity:.6;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+            3D Vision
+            <span class="paper-count-badge">9 posts</span>
+        </h2>
+
+        <div class="blog-grid">
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#059669,#10b981,#34d399);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">INRIA GraphDeco</span>
+                        <time class="blog-card-date">Aug 2023</time>
+                    </div>
+                    <h3 class="blog-card-title">3D Gaussian Splatting for Real-Time Radiance Field Rendering</h3>
+                    <p class="blog-card-excerpt">The SIGGRAPH 2023 Best Paper that launched the 3DGS revolution — anisotropic Gaussians with interleaved optimization, achieving 100+ fps at 1080p while matching Mip-NeRF 360 quality in 30 minutes.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#059669,#10b981,#34d399);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">INRIA</span>
+                        <time class="blog-card-date">2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Creating Stunning Real-Time 3D Scenes — The Breakthrough of 3DGS</h3>
+                    <p class="blog-card-excerpt">INRIA's accessible overview of how 3D Gaussian Splatting represents a fundamental shift from volumetric to point-based rendering — covering the journey from NeRF to real-time neural scene representations.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://www.inria.fr/en/creating-stunning-real-time-3d-scenes-breakthrough-3d-gaussian-splatting" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#76b900,#1a1a1a,#76b900);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">NVIDIA Research</span>
+                        <time class="blog-card-date">Aug 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">3D Gaussian Ray Tracing — Fast Tracing of Particle Scenes</h3>
+                    <p class="blog-card-excerpt">SIGGRAPH Asia 2024 — replacing rasterization with GPU ray tracing hardware for 3DGS. Enables secondary lighting effects (shadows, reflections) and handles distorted cameras common in robotics.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://research.nvidia.com/labs/toronto-ai/publication/2024_siggraphasia_3dgaussian/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#059669,#0ea5e9,#7c3aed);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Karthick AI</span>
+                        <time class="blog-card-date">2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Gaussian Splatting — A Deep Dive into 3D Data Visualization</h3>
+                    <p class="blog-card-excerpt">An in-depth technical tutorial explaining Gaussian Splatting from first principles — covering 3D Gaussian representation, covariance matrices, depth compositing, and the full rendering pipeline.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://karthick.ai/blog/2024/Gaussian-Splatting/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#00c853,#00e676,#69f0ae);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Naver Labs Europe</span>
+                        <time class="blog-card-date">CVPR 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">DUSt3R — Geometric 3D Vision Made Easy</h3>
+                    <p class="blog-card-excerpt">CVPR 2024 — eliminating camera calibration for 3D reconstruction by directly regressing pointmaps from arbitrary image collections. End-to-end pipeline unifying monocular and stereo reconstruction without camera intrinsics.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://dust3r.europe.naverlabs.com/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#f97316,#ef4444,#dc2626);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Hugging Face</span>
+                        <time class="blog-card-date">2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Introduction to 3D Gaussian Splatting</h3>
+                    <p class="blog-card-excerpt">Hugging Face's accessible introduction to 3DGS — covering the fundamentals of Gaussian primitives, differentiable rasterization, optimization pipeline, and integration with the ML ecosystem.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://huggingface.co/blog/gaussian-splatting" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#dc2626,#f97316,#fbbf24);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">LearnOpenCV</span>
+                        <time class="blog-card-date">Dec 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">3D Gaussian Splatting — Paper Explanation &amp; Custom Dataset Training</h3>
+                    <p class="blog-card-excerpt">Comprehensive hands-on tutorial — paper explanation, SfM initialization, adaptive density control, differentiable rasterization, plus step-by-step training on custom datasets with Nerfstudio Gsplats.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://learnopencv.com/3d-gaussian-splatting/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#7c3aed,#a855f7,#c084fc);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Radiance Fields Newsletter</span>
+                        <time class="blog-card-date">Jan 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Radiance Fields in 2025 — State of the Art</h3>
+                    <p class="blog-card-excerpt">Annual industry review — Hollywood and NVIDIA adopting 3DGS at scale, Apple and Tesla demonstrations, city-scale reconstruction, Brush 0.2, and the convergence of splatting with game engines.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://radiancefields.substack.com/p/radiance-fields-in-2025" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0052d9,#0066ff,#3385ff);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Tencent Hunyuan</span>
+                        <time class="blog-card-date">Jan 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Hunyuan3D 2.0 — Scalable 3D Asset Generation with DiT &amp; Paint</h3>
+                    <p class="blog-card-excerpt">Tencent's open-source 3D generation pipeline: a flow-based DiT for geometry with importance sampling, plus a multi-view consistent texture painter — outperforming closed-source models in geometry detail, alignment, and texture quality.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://github.com/Tencent/Hunyuan3D-2" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             SECTION 4 — 4D Vision
+             ═══════════════════════════════════════════════════════════════ -->
+        <h2 id="4d" class="subsection-title" style="margin-top:56px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;opacity:.6;"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+            4D Spatial Intelligence
+            <span class="paper-count-badge">6 posts</span>
+        </h2>
+
+        <div class="blog-grid">
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#f59e0b,#d97706,#b45309);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">4DGF Team</span>
+                        <time class="blog-card-date">NeurIPS 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Dynamic 3D Gaussian Fields for Urban Areas</h3>
+                    <p class="blog-card-excerpt">NeurIPS 2024 Spotlight — extending 3DGS to large-scale dynamic urban scenes via scene graphs with neural appearance fields. 3+ dB PSNR improvement and 100x faster rendering over prior methods.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-4d">4D</span>
+                        <a href="https://tobiasfshr.github.io/pub/4dgf/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#f59e0b,#d97706,#b45309);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Instant4D Team</span>
+                        <time class="blog-card-date">NeurIPS 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Instant4D — 4D Gaussian Splatting in Minutes</h3>
+                    <p class="blog-card-excerpt">Reconstructing casual monocular videos in ~2 minutes — grid pruning reduces Gaussians by 92% with 30x speedup. No calibrated cameras required for in-the-wild 4D reconstruction.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-4d">4D</span>
+                        <a href="https://instant4d.github.io/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#f59e0b,#ef4444,#7c3aed);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">MPI-INF</span>
+                        <time class="blog-card-date">CVPR 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Dynamic EventNeRF — Reconstructing Dynamic Scenes from Event Streams</h3>
+                    <p class="blog-card-excerpt">Combining event cameras with RGB frames for 4D reconstruction of fast-moving scenes — time-conditioned NeRF with Fast Event Accumulation with Decay, working with as few as two training views.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-4d">4D</span>
+                        <a href="https://4dqv.mpi-inf.mpg.de/DynEventNeRF/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0891b2,#06b6d4,#22d3ee);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">KAIST CVLab</span>
+                        <time class="blog-card-date">NeurIPS 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">D&sup2;USt3R — Feed-Forward 4D Pointmaps for Dynamic Scenes</h3>
+                    <p class="blog-card-excerpt">Extending DUSt3R to dynamic scenes with feed-forward 4D pointmap regression — optical flow alignment and dynamic masks handle occluded regions. First to capture both static and dynamic geometry simultaneously.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-4d">4D</span>
+                        <a href="https://cvlab-kaist.github.io/DDUSt3R/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0891b2,#06b6d4,#22d3ee);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">St4RTrack Team</span>
+                        <time class="blog-card-date">ICCV 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">St4RTrack — Simultaneous 4D Reconstruction and Tracking in the World</h3>
+                    <p class="blog-card-excerpt">Unified world-frame 4D reconstruction and point tracking from RGB video — aligned pointmap pairs chained through sequences for long-range correspondence without 4D ground truth supervision.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-4d">4D</span>
+                        <a href="https://st4rtrack.github.io/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#555,#777,#999);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Apple ML Research</span>
+                        <time class="blog-card-date">Oct 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Depth Pro — Sharp Monocular Metric Depth in Less Than a Second</h3>
+                    <p class="blog-card-excerpt">Zero-shot metric depth estimation producing 2.25-megapixel depth maps in 0.3s — multi-scale ViT combining global context with fine details, no camera intrinsics required. Open-source with code &amp; weights.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-4d">4D</span>
+                        <span class="blog-card-tag blog-tag-3d">3D</span>
+                        <a href="https://machinelearning.apple.com/research/depth-pro" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             SECTION 5 — Unified Multimodal Models
+             ═══════════════════════════════════════════════════════════════ -->
+        <h2 id="unified" class="subsection-title" style="margin-top:56px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;opacity:.6;"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4M19 17v4M3 5h4M17 19h4"/></svg>
+            Unified Multimodal Models
+            <span class="paper-count-badge">8 posts</span>
+        </h2>
+
+        <div class="blog-grid">
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#ff6a00,#ff8c00,#ffaf40);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Alibaba Qwen</span>
+                        <time class="blog-card-date">Aug 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Qwen2-VL — To See the World More Clearly</h3>
+                    <p class="blog-card-excerpt">Alibaba's next-gen vision-language model with Naive Dynamic Resolution (arbitrary aspect ratios), Multimodal RoPE for 3D positional awareness, 20+ minute video understanding, and multilingual document OCR — open-source from 2B to 72B.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://qwenlm.github.io/blog/qwen2-vl/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#c4956a,#d4a574,#b8845c);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Anthropic</span>
+                        <time class="blog-card-date">Mar 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Introducing Claude 3 — A New Trio of Multimodal Models</h3>
+                    <p class="blog-card-excerpt">The Claude 3 family (Opus, Sonnet, Haiku) — Anthropic's first natively multimodal models combining vision and language, processing images alongside text with up to 1M tokens context. Opus outperforms GPT-4 on reasoning benchmarks.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://www.anthropic.com/news/claude-3-family" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0668E1,#1877F2,#4599FF);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Meta AI</span>
+                        <time class="blog-card-date">May 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Chameleon — Mixed-Modal Early-Fusion Foundation Models</h3>
+                    <p class="blog-card-excerpt">A 34B-parameter early-fusion model processing text and images as unified discrete tokens — trained on 10 trillion multimodal tokens, achieving SOTA on mixed-modal tasks and preferred over GPT-4V.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://arxiv.org/abs/2405.09818" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#4285f4,#34a853,#fbbc05);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Google</span>
+                        <time class="blog-card-date">Feb 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Introducing Gemini 1.5 — Next-Generation Multimodal AI</h3>
+                    <p class="blog-card-excerpt">The 1M-token context window breakthrough — natively processing text, images, video, and audio within a single transformer. Dramatically enhanced long-context understanding across modalities.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#4285f4,#34a853,#fbbc05);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Google</span>
+                        <time class="blog-card-date">Dec 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Gemini 3 Pro — The Frontier of Vision AI</h3>
+                    <p class="blog-card-excerpt">Google's most capable multimodal model — SOTA on document, spatial, screen, and video understanding. New benchmarks on MMMU Pro and Video MMMU with unprecedented vision reasoning capabilities.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://blog.google/technology/developers/gemini-3-pro-vision/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#4285f4,#0ea5e9,#06b6d4);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Google Developers</span>
+                        <time class="blog-card-date">2024</time>
+                    </div>
+                    <h3 class="blog-card-title">7 Examples of Gemini's Multimodal Capabilities in Action</h3>
+                    <p class="blog-card-excerpt">Practical demonstrations of Gemini's multimodal capabilities — from detailed image reasoning and 1000+ page PDF processing to video understanding and structured data extraction.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://developers.googleblog.com/en/7-examples-of-geminis-multimodal-capabilities-in-action" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#dc2626,#ef4444,#f87171);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Sebastian Raschka, PhD</span>
+                        <time class="blog-card-date">2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Understanding Multimodal LLMs</h3>
+                    <p class="blog-card-excerpt">Comprehensive survey of multimodal LLM architectures — unified embedding-decoder vs. cross-modality attention approaches, reviewing ~12 recent papers including Llama 3.2, LLaVA, and BLIP-2.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://sebastianraschka.com/blog/2024/understanding-multimodal-llms.html" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8,#7dd3fc);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Chip Huyen</span>
+                        <time class="blog-card-date">Oct 2023</time>
+                    </div>
+                    <h3 class="blog-card-title">Multimodality and Large Multimodal Models (LMMs)</h3>
+                    <p class="blog-card-excerpt">Foundational overview of multimodal systems — from CLIP and Flamingo to BLIP-2, LLaVA, and LLaMA-Adapter V2. Covers architectural paradigms, efficient adapters, and the trajectory toward unified models.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-unified">Unified</span>
+                        <a href="https://huyenchip.com/2023/10/10/multimodal.html" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             SECTION 6 — World Models
+             ═══════════════════════════════════════════════════════════════ -->
+        <h2 id="world" class="subsection-title" style="margin-top:56px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;opacity:.6;"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            World Models
+            <span class="paper-count-badge">10 posts</span>
+        </h2>
+
+        <div class="blog-grid">
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#76b900,#1a1a1a,#76b900);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">NVIDIA</span>
+                        <time class="blog-card-date">Jan 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Advancing Physical AI with NVIDIA Cosmos World Foundation Model Platform</h3>
+                    <p class="blog-card-excerpt">Open world foundation models pretrained on 9,000 trillion tokens — Cosmos Predict, Transfer, and Reason for generating physics-based synthetic data to train robots and autonomous vehicles.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <a href="https://developer.nvidia.com/blog/advancing-physical-ai-with-nvidia-cosmos-world-foundation-model-platform/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1a73e8,#4285f4,#669df6);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Waymo</span>
+                        <time class="blog-card-date">Feb 2026</time>
+                    </div>
+                    <h3 class="blog-card-title">The Waymo World Model — A New Frontier for Autonomous Driving Simulation</h3>
+                    <p class="blog-card-excerpt">Built upon Google DeepMind's Genie 3 — generating hyper-realistic multi-sensor simulated environments with camera and lidar data. Simulates rare edge-cases from tornadoes to vehicles on fire.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <a href="https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1a73e8,#4285f4,#669df6);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Waymo</span>
+                        <time class="blog-card-date">Dec 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Demonstrably Safe AI for Autonomous Driving</h3>
+                    <p class="blog-card-excerpt">The Waymo Foundation Model with "Think Fast and Think Slow" architecture — combining a Sensor Fusion Encoder for rapid driving decisions with a Driving VLM powered by Gemini for complex reasoning.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <a href="https://waymo.com/blog/2025/12/demonstrably-safe-ai-for-autonomous-driving" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#1a73e8,#4285f4,#669df6);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Waymo</span>
+                        <time class="blog-card-date">Oct 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">EMMA — End-to-End Multimodal Model for Autonomous Driving</h3>
+                    <p class="blog-card-excerpt">Powered by Gemini — generating vehicle trajectories directly from sensor data with chain-of-thought reasoning. Improved performance through multimodal world knowledge integration.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <a href="https://waymo.com/blog/2024/10/introducing-emma" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#4f46e5,#7c3aed,#a855f7);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Wayve</span>
+                        <time class="blog-card-date">2024</time>
+                    </div>
+                    <h3 class="blog-card-title">GAIA-1 — A Generative World Model for Autonomous Driving</h3>
+                    <p class="blog-card-excerpt">Casting world modeling as unsupervised sequence modeling — video, text, and action tokens predict future driving scenarios. Scaled to 9B parameters with a 6.5B world model for high-resolution generation.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <a href="https://arxiv.org/abs/2309.17080" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0078d4,#00a4ef,#7fba00);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Microsoft Research</span>
+                        <time class="blog-card-date">2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Interactive World Simulator — Compositional 4D Video Generation</h3>
+                    <p class="blog-card-excerpt">Decomposing text prompts into individual 3D concepts using LLMs as directors, then composing them with 2D diffusion priors for high-fidelity video generation with flexible motion and viewpoint control.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <span class="blog-card-tag blog-tag-4d">4D</span>
+                        <a href="https://www.microsoft.com/en-us/research/project/interactive-world-simulator/compositional-4d-video/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#dc2626,#ef4444,#f87171);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">The Batch (deeplearning.ai)</span>
+                        <time class="blog-card-date">2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Generative Video Models Revolutionize Content Creation</h3>
+                    <p class="blog-card-excerpt">Andrew Ng's newsletter surveying the video generation landscape — Meta Movie Gen, Adobe Firefly Video, Runway Gen-3, Kling AI, and the convergence of T2V with world simulation capabilities.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <span class="blog-card-tag blog-tag-t2v">T2V</span>
+                        <a href="https://www.deeplearning.ai/the-batch/generative-video-models-revolutionize-content-creation-with-stunning-realism/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#4285f4,#34a853,#fbbc05);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Google DeepMind</span>
+                        <time class="blog-card-date">Dec 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">Genie 2 — A Large-Scale Foundation World Model</h3>
+                    <p class="blog-card-excerpt">Generating vast diversity of rich 3D worlds from single prompt images — users and AI agents interact via keyboard/mouse. Emergent capabilities include physics simulation, object interactions, and complex character animation.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <a href="https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#4285f4,#34a853,#fbbc05);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Google DeepMind</span>
+                        <time class="blog-card-date">Aug 2025</time>
+                    </div>
+                    <h3 class="blog-card-title">Genie 3 — A New Frontier for World Models</h3>
+                    <p class="blog-card-excerpt">Real-time interactive world generation at 24fps and 720p — text-to-world with consistent environments lasting several minutes. Models physical properties including water, lighting, and complex dynamics.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <a href="https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-accent" style="background:linear-gradient(135deg,#0668E1,#1877F2,#4599FF);"></div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-org">Meta AI</span>
+                        <time class="blog-card-date">Feb 2024</time>
+                    </div>
+                    <h3 class="blog-card-title">V-JEPA — The Next Step Toward Yann LeCun's Vision of Advanced Machine Intelligence</h3>
+                    <p class="blog-card-excerpt">Video Joint Embedding Predictive Architecture — learning to predict masked video regions in abstract representation space (not pixel-level), 1.5x–6x more efficient than generative approaches. A building block toward world models that learn through observation.</p>
+                    <div class="blog-card-footer">
+                        <span class="blog-card-tag blog-tag-world">World</span>
+                        <a href="https://ai.meta.com/blog/v-jepa-yann-lecun-ai-model-video-joint-embedding-predictive-architecture/" target="_blank" rel="noopener noreferrer" class="blog-card-link">Read Post <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand"><h3><img src="../logo.png" alt="OpenMM-Arena Logo" style="width:28px;height:28px;object-fit:contain;"> OpenMM-Arena</h3><p>A Comprehensive Compendium for Multimodal AI Research — Unifying Text-to-Image, Text-to-Video, Image-to-Video, 3D Vision, 4D Spatial Intelligence, Unified Multimodal Models, and World Models.</p></div>
+            <div class="footer-links"><h4>Research Pillars</h4><ul><li><a href="../t2i.html">Text-to-Image</a></li><li><a href="../t2v.html">Text-to-Video</a></li><li><a href="../i2v.html">Image-to-Video</a></li><li><a href="../3d.html">3D Vision</a></li><li><a href="../4d.html">4D Vision</a></li><li><a href="../unified.html">Unified</a></li><li><a href="../world.html">World</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../arena.html">MM Arena</a></li></ul></div>
+            <div class="footer-links"><h4>Sources</h4><ul><li><a href="https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image" target="_blank">Awesome-Text-to-Image</a></li><li><a href="https://github.com/soraw-ai/Awesome-Text-to-Video-Generation" target="_blank">Awesome-T2V-Generation</a></li><li><a href="https://github.com/showlab/Awesome-Video-Diffusion" target="_blank">Awesome-Video-Diffusion</a></li><li><a href="https://github.com/MrNeRF/awesome-3D-gaussian-splatting" target="_blank">Awesome-3DGS</a></li><li><a href="https://github.com/openMVG/awesome_3DReconstruction_list" target="_blank">Awesome-3DReconstruction</a></li><li><a href="https://github.com/ActiveVisionLab/Awesome-LLM-3D" target="_blank">Awesome-LLM-3D</a></li></ul></div>
+            <div class="footer-links"><h4>&nbsp;</h4><ul><li><a href="https://github.com/Hardy-Uint/awesome-3D-vision" target="_blank">Awesome-3D-Vision</a></li><li><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM" target="_blank">Awesome-NeRF-3DGS-SLAM</a></li><li><a href="https://github.com/yukangcao/Awesome-4D-Spatial-Intelligence" target="_blank">Awesome-4D-SI</a></li><li><a href="https://github.com/knightnemo/Awesome-World-Models" target="_blank">Awesome-World-Models</a></li><li><a href="https://github.com/AIDC-AI/Awesome-Unified-Multimodal-Models" target="_blank">Awesome-Unified-MM</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025–2026 OpenMM-Arena Contributors &middot; MIT License &middot; Curated with scholarly rigor<br>OpenMM-Arena belongs to <strong>OpenEnvision Lab</strong></p><div class="last-updated">Last updated: February 2026</div></div>
+    </div>
+</footer>
+</main>
+</div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>
+<script src="../script.js"></script>
+</body>
+</html>
